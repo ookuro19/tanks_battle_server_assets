@@ -1,0 +1,17 @@
+<root>
+	<Properties>
+	</Properties>
+
+	<ClientMethods>
+	</ClientMethods>
+
+    <BaseMethods>
+        <enterRoom>
+            <Arg>		ENTITYCALL		</Arg>
+			<Arg>		SPACE_KEY		</Arg>
+        </enterRoom>
+    </BaseMethods>
+
+    <CellMethods>
+    </CellMethods>
+</root>

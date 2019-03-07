@@ -1,0 +1,698 @@
+  INFO root [0x00003a64] [2019-03-02 09:58:29,239] - 
+  INFO root [0x00003a64] [2019-03-02 09:58:29,240] - -----------------------------------------------------------------------------------------
+
+
+  INFO root [0x00003a64] [2019-03-02 09:58:29,241] - Resmgr::initialize: KBE_ROOT=D:/kbengine-2.4.2/
+  INFO root [0x00003a64] [2019-03-02 09:58:29,241] - Resmgr::initialize: KBE_RES_PATH=D:/kbengine-2.4.2/kbe/res/;D:/kbengine-2.4.2/first_server_assets/;D:/kbengine-2.4.2/first_server_assets/scripts/;D:/kbengine-2.4.2/first_server_assets/res/
+  INFO root [0x00003a64] [2019-03-02 09:58:29,241] - Resmgr::initialize: KBE_BIN_PATH=D:/kbengine-2.4.2/kbe/bin/server/
+  INFO root [0x00003a64] [2019-03-02 09:58:29,245] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 192.168.0.148 ( 192.168.0.148:13492 )
+  INFO root [0x00003a64] [2019-03-02 09:58:29,246] - NetworkInterface::initialize(INTERNAL-TCP): address 192.168.0.148:13492, SOMAXCONN=5.
+  INFO root [0x00003a64] [2019-03-02 09:58:29,246] - server-configs:
+  INFO root [0x00003a64] [2019-03-02 09:58:29,246] - 	gameUpdateHertz : 10
+  INFO root [0x00003a64] [2019-03-02 09:58:29,246] - 	defaultViewRadius : 80
+  INFO root [0x00003a64] [2019-03-02 09:58:29,246] - 	defaultViewHysteresisArea : 5
+  INFO root [0x00003a64] [2019-03-02 09:58:29,246] - 	entryScriptFile : kbemain
+  INFO root [0x00003a64] [2019-03-02 09:58:29,246] - 	internalTcpAddr : 192.168.0.148:13492
+  INFO root [0x00003a64] [2019-03-02 09:58:29,246] - 	componentID : 8001
+  WARN root [0x00003a64] [2019-03-02 09:58:29,249] - invalid UID(0) <= 0, please check UID for environment! automatically set to 28936.
+  INFO root [0x00003a64] [2019-03-02 09:58:29,335] - Components::findLogger: found logger, addr:192.168.0.148:13264
+  INFO root [0x00003a64] [2019-03-02 09:58:29,344] - Components::addComponent: reset orderLog, uid=28936!
+  INFO root [0x00003a64] [2019-03-02 09:58:29,344] - Components::addComponent[logger], uid=28936, componentID=2000, globalorderid=1, grouporderid=1, totalcount=1
+  INFO root [0x00003a64] [2019-03-02 09:58:29,356] - ---- cellapp Version: 2.4.2. ScriptVersion: 0.1.0. Pythoncore: 3.7.2. Protocol: E73A667D90DF1EB3CFEA32B1FCE682E5. Config: Debug X86. Built: 17:21:32 Feb 27 2019. AppID: 8001. UID: 28936. PID: 15768 ----
+  INFO root [0x00003a64] [2019-03-02 09:58:29,356] - Server 19: Intel(R) Xeon(R) CPU E3-1231 v3 @ 3.40GHz with 2097151kB RAM
+  INFO root [0x00003a64] [2019-03-02 09:58:29,362] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO root [0x00003a64] [2019-03-02 09:58:29,368] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO root [0x00003a64] [2019-03-02 09:58:29,613] - Script::install(): is successfully, Python=(3.7.2 (default, Feb 27 2019, 17:13:46) [MSC v.1916 32 bit (Intel)])!
+  INFO root [0x00003a64] [2019-03-02 09:58:29,613] - Script::install(): KBExtra is successfully!
+ DEBUG root [0x00003a64] [2019-03-02 09:58:29,815] - loaded entity-script:Account(1).
+  WARN root [0x00003a64] [2019-03-02 09:58:29,816] - EntityDef::checkDefMethod: exposed of method: Room.enterGameWorld, check the caller can use "def enterGameWorld(self, callerID, ...)", such as: if callerID == self.id!
+ DEBUG root [0x00003a64] [2019-03-02 09:58:29,816] - loaded entity-script:Room(3).
+  INFO root [0x00003a64] [2019-03-02 09:58:29,821] - TelnetServer server is running on port 50000
+  INFO root [0x00003a64] [2019-03-02 09:58:30,519] - ---- cellapp is running ----
+ DEBUG root [0x00003a64] [2019-03-02 09:58:30,539] - Components::process(): Request for the process of identity...
+  WARN root [0x00003a64] [2019-03-02 09:58:36,671] - Forwarding logs to logger[192.168.0.148:13264/0/0/0]...
+  INFO root [0x00000be8] [2019-03-02 10:02:35,166] - 
+  INFO root [0x00000be8] [2019-03-02 10:02:35,182] - -----------------------------------------------------------------------------------------
+
+
+  INFO root [0x00000be8] [2019-03-02 10:02:35,182] - Resmgr::initialize: KBE_ROOT=D:/kbengine-2.4.2/
+  INFO root [0x00000be8] [2019-03-02 10:02:35,182] - Resmgr::initialize: KBE_RES_PATH=D:/kbengine-2.4.2/kbe/res/;D:/kbengine-2.4.2/first_server_assets/;D:/kbengine-2.4.2/first_server_assets/scripts/;D:/kbengine-2.4.2/first_server_assets/res/
+  INFO root [0x00000be8] [2019-03-02 10:02:35,182] - Resmgr::initialize: KBE_BIN_PATH=D:/kbengine-2.4.2/kbe/bin/server/
+  INFO root [0x00000be8] [2019-03-02 10:02:35,182] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 192.168.0.148 ( 192.168.0.148:1735 )
+  INFO root [0x00000be8] [2019-03-02 10:02:35,182] - NetworkInterface::initialize(INTERNAL-TCP): address 192.168.0.148:1735, SOMAXCONN=5.
+  INFO root [0x00000be8] [2019-03-02 10:02:35,182] - server-configs:
+  INFO root [0x00000be8] [2019-03-02 10:02:35,182] - 	gameUpdateHertz : 10
+  INFO root [0x00000be8] [2019-03-02 10:02:35,182] - 	defaultViewRadius : 80
+  INFO root [0x00000be8] [2019-03-02 10:02:35,182] - 	defaultViewHysteresisArea : 5
+  INFO root [0x00000be8] [2019-03-02 10:02:35,182] - 	entryScriptFile : kbemain
+  INFO root [0x00000be8] [2019-03-02 10:02:35,182] - 	internalTcpAddr : 192.168.0.148:1735
+  INFO root [0x00000be8] [2019-03-02 10:02:35,182] - 	componentID : 8001
+  WARN root [0x00000be8] [2019-03-02 10:02:35,198] - invalid UID(0) <= 0, please check UID for environment! automatically set to 28936.
+  INFO root [0x00000be8] [2019-03-02 10:02:35,229] - ---- cellapp Version: 2.4.2. ScriptVersion: 0.1.0. Pythoncore: 3.7.2. Protocol: E73A667D90DF1EB3CFEA32B1FCE682E5. Config: Debug X86. Built: 17:21:32 Feb 27 2019. AppID: 8001. UID: 28936. PID: 6640 ----
+  INFO root [0x00000be8] [2019-03-02 10:02:35,229] - Server 19: Intel(R) Xeon(R) CPU E3-1231 v3 @ 3.40GHz with 2097151kB RAM
+  INFO root [0x00000be8] [2019-03-02 10:02:35,260] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO root [0x00000be8] [2019-03-02 10:02:35,260] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO root [0x00000be8] [2019-03-02 10:02:35,432] - Script::install(): is successfully, Python=(3.7.2 (default, Feb 27 2019, 17:13:46) [MSC v.1916 32 bit (Intel)])!
+  INFO root [0x00000be8] [2019-03-02 10:02:35,432] - Script::install(): KBExtra is successfully!
+ DEBUG root [0x00000be8] [2019-03-02 10:02:35,526] - loaded entity-script:Account(1).
+  WARN root [0x00000be8] [2019-03-02 10:02:35,526] - EntityDef::checkDefMethod: exposed of method: Room.enterGameWorld, check the caller can use "def enterGameWorld(self, callerID, ...)", such as: if callerID == self.id!
+ DEBUG root [0x00000be8] [2019-03-02 10:02:35,526] - loaded entity-script:Room(3).
+  INFO root [0x00000be8] [2019-03-02 10:02:35,573] - TelnetServer server is running on port 50000
+  INFO root [0x00000be8] [2019-03-02 10:02:36,135] - ---- cellapp is running ----
+ DEBUG root [0x00000be8] [2019-03-02 10:02:36,135] - Components::process(): Request for the process of identity...
+  WARN root [0x00000be8] [2019-03-02 10:02:42,463] - EntityApp::checkTickPeriod: tick took 6328% (6.33 seconds)!
+  INFO root [0x00000be8] [2019-03-02 10:02:43,541] - Components::findComponents: find logger(1)...
+  WARN root [0x00000be8] [2019-03-02 10:02:44,650] - Components::findComponents: not found logger!
+  WARN root [0x00000be8] [2019-03-02 10:02:44,650] - EntityApp::checkTickPeriod: tick took 1203% (1.20 seconds)!
+  INFO root [0x00000be8] [2019-03-02 10:02:45,697] - Components::findComponents: find dbmgr(1)...
+  WARN root [0x00000be8] [2019-03-02 10:02:46,791] - EntityApp::checkTickPeriod: tick took 1140% (1.14 seconds)!
+  INFO root [0x00000be8] [2019-03-02 10:02:47,793] - Components::findComponents: find dbmgr(2)...
+  WARN root [0x00000be8] [2019-03-02 10:02:48,871] - EntityApp::checkTickPeriod: tick took 1125% (1.13 seconds)!
+  INFO root [0x00000be8] [2019-03-02 10:02:49,902] - Components::findComponents: find dbmgr(3)...
+  WARN root [0x00000be8] [2019-03-02 10:02:50,949] - EntityApp::checkTickPeriod: tick took 1109% (1.11 seconds)!
+  INFO root [0x00000be8] [2019-03-02 10:02:51,996] - Components::findComponents: find dbmgr(4)...
+  WARN root [0x00000be8] [2019-03-02 10:02:53,027] - EntityApp::checkTickPeriod: tick took 1078% (1.08 seconds)!
+  INFO root [0x00000be8] [2019-03-02 10:02:54,042] - Components::findComponents: find dbmgr(5)...
+  WARN root [0x00000be8] [2019-03-02 10:02:55,105] - EntityApp::checkTickPeriod: tick took 1156% (1.16 seconds)!
+  INFO root [0x00000be8] [2019-03-02 10:02:56,151] - Components::findComponents: find dbmgr(6)...
+  WARN root [0x00000be8] [2019-03-02 10:02:57,183] - EntityApp::checkTickPeriod: tick took 1140% (1.14 seconds)!
+  INFO root [0x00000be8] [2019-03-02 10:02:58,198] - Components::findComponents: find dbmgr(7)...
+  WARN root [0x00000be8] [2019-03-02 10:02:59,261] - EntityApp::checkTickPeriod: tick took 1109% (1.11 seconds)!
+  INFO root [0x00000be8] [2019-03-02 10:03:00,292] - Components::findComponents: find dbmgr(8)...
+  WARN root [0x00000be8] [2019-03-02 10:03:01,339] - EntityApp::checkTickPeriod: tick took 1094% (1.09 seconds)!
+  INFO root [0x00000be8] [2019-03-02 10:03:02,401] - Components::findComponents: find dbmgr(9)...
+  WARN root [0x00000be8] [2019-03-02 10:03:03,526] - EntityApp::checkTickPeriod: tick took 1187% (1.19 seconds)!
+  INFO root [0x00000be8] [2019-03-02 10:03:04,541] - Components::findComponents: find dbmgr(10)...
+  WARN root [0x00000be8] [2019-03-02 10:03:05,604] - EntityApp::checkTickPeriod: tick took 1156% (1.16 seconds)!
+  INFO root [0x00000be8] [2019-03-02 10:03:06,651] - Components::findComponents: find dbmgr(11)...
+  WARN root [0x00000be8] [2019-03-02 10:03:07,669] - EntityApp::checkTickPeriod: tick took 1127% (1.13 seconds)!
+  INFO root [0x00000be8] [2019-03-02 10:03:08,700] - Components::findComponents: find dbmgr(12)...
+  WARN root [0x00000be8] [2019-03-02 10:03:09,763] - EntityApp::checkTickPeriod: tick took 1125% (1.13 seconds)!
+  INFO root [0x00000be8] [2019-03-02 10:03:10,794] - Components::findComponents: find dbmgr(13)...
+  WARN root [0x00000be8] [2019-03-02 10:03:11,841] - EntityApp::checkTickPeriod: tick took 1093% (1.09 seconds)!
+  INFO root [0x00000be8] [2019-03-02 10:03:12,903] - Components::findComponents: find dbmgr(14)...
+  WARN root [0x00000be8] [2019-03-02 10:03:14,028] - EntityApp::checkTickPeriod: tick took 1187% (1.19 seconds)!
+  INFO root [0x00000be8] [2019-03-02 10:03:15,044] - Components::findComponents: find dbmgr(15)...
+  WARN root [0x00000be8] [2019-03-02 10:03:16,106] - EntityApp::checkTickPeriod: tick took 1156% (1.16 seconds)!
+  INFO root [0x00000be8] [2019-03-02 10:03:17,137] - Components::findComponents: find dbmgr(16)...
+  WARN root [0x00000be8] [2019-03-02 10:03:18,184] - EntityApp::checkTickPeriod: tick took 1140% (1.14 seconds)!
+  WARN root [0x00000be8] [2019-03-02 10:03:19,200] - Components::findComponents: find dbmgr(17)...
+delay time is too long, please check the dbmgr logs!
+  WARN root [0x00000be8] [2019-03-02 10:03:20,262] - EntityApp::checkTickPeriod: tick took 1125% (1.13 seconds)!
+  INFO root [0x00002154] [2019-03-02 10:03:39,058] - 
+  INFO root [0x00002154] [2019-03-02 10:03:39,058] - -----------------------------------------------------------------------------------------
+
+
+  INFO root [0x00002154] [2019-03-02 10:03:39,058] - Resmgr::initialize: KBE_ROOT=D:/kbengine-2.4.2/
+  INFO root [0x00002154] [2019-03-02 10:03:39,058] - Resmgr::initialize: KBE_RES_PATH=D:/kbengine-2.4.2/kbe/res/;D:/kbengine-2.4.2/first_server_assets/;D:/kbengine-2.4.2/first_server_assets/scripts/;D:/kbengine-2.4.2/first_server_assets/res/
+  INFO root [0x00002154] [2019-03-02 10:03:39,058] - Resmgr::initialize: KBE_BIN_PATH=D:/kbengine-2.4.2/kbe/bin/server/
+  INFO root [0x00002154] [2019-03-02 10:03:39,073] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 192.168.0.148 ( 192.168.0.148:1764 )
+  INFO root [0x00002154] [2019-03-02 10:03:39,073] - NetworkInterface::initialize(INTERNAL-TCP): address 192.168.0.148:1764, SOMAXCONN=5.
+  INFO root [0x00002154] [2019-03-02 10:03:39,073] - server-configs:
+  INFO root [0x00002154] [2019-03-02 10:03:39,073] - 	gameUpdateHertz : 10
+  INFO root [0x00002154] [2019-03-02 10:03:39,073] - 	defaultViewRadius : 80
+  INFO root [0x00002154] [2019-03-02 10:03:39,073] - 	defaultViewHysteresisArea : 5
+  INFO root [0x00002154] [2019-03-02 10:03:39,073] - 	entryScriptFile : kbemain
+  INFO root [0x00002154] [2019-03-02 10:03:39,073] - 	internalTcpAddr : 192.168.0.148:1764
+  INFO root [0x00002154] [2019-03-02 10:03:39,073] - 	componentID : 8001
+  WARN root [0x00002154] [2019-03-02 10:03:39,089] - invalid UID(0) <= 0, please check UID for environment! automatically set to 28936.
+  INFO root [0x00002154] [2019-03-02 10:03:40,604] - ---- cellapp Version: 2.4.2. ScriptVersion: 0.1.0. Pythoncore: 3.7.2. Protocol: E73A667D90DF1EB3CFEA32B1FCE682E5. Config: Debug X86. Built: 17:21:32 Feb 27 2019. AppID: 8001. UID: 28936. PID: 9236 ----
+  INFO root [0x00002154] [2019-03-02 10:03:40,604] - Server 19: Intel(R) Xeon(R) CPU E3-1231 v3 @ 3.40GHz with 2097151kB RAM
+  INFO root [0x00002154] [2019-03-02 10:03:40,604] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO root [0x00002154] [2019-03-02 10:03:40,604] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO root [0x00002154] [2019-03-02 10:03:40,807] - Script::install(): is successfully, Python=(3.7.2 (default, Feb 27 2019, 17:13:46) [MSC v.1916 32 bit (Intel)])!
+  INFO root [0x00002154] [2019-03-02 10:03:40,807] - Script::install(): KBExtra is successfully!
+ DEBUG root [0x00002154] [2019-03-02 10:03:40,901] - loaded entity-script:Account(1).
+  WARN root [0x00002154] [2019-03-02 10:03:40,901] - EntityDef::checkDefMethod: exposed of method: Room.enterGameWorld, check the caller can use "def enterGameWorld(self, callerID, ...)", such as: if callerID == self.id!
+ DEBUG root [0x00002154] [2019-03-02 10:03:40,901] - loaded entity-script:Room(3).
+  INFO root [0x00002154] [2019-03-02 10:03:40,901] - TelnetServer server is running on port 50000
+  INFO root [0x00002154] [2019-03-02 10:03:41,245] - ---- cellapp is running ----
+ DEBUG root [0x00002154] [2019-03-02 10:03:41,245] - Components::process(): Request for the process of identity...
+  WARN root [0x00002154] [2019-03-02 10:03:47,513] - EntityApp::checkTickPeriod: tick took 6267% (6.27 seconds)!
+  INFO root [0x00002154] [2019-03-02 10:03:48,575] - Components::findComponents: find logger(1)...
+  INFO root [0x00002154] [2019-03-02 10:03:48,606] - Components::findComponents: found logger, addr:192.168.0.148:1763
+  INFO root [0x00002154] [2019-03-02 10:03:48,606] - Components::addComponent: reset orderLog, uid=28936!
+  INFO root [0x00002154] [2019-03-02 10:03:48,606] - Components::addComponent[logger], uid=28936, componentID=2000, globalorderid=1, grouporderid=1, totalcount=1
+  INFO root [0x00002154] [2019-03-02 10:03:48,606] - Components::findComponents: find dbmgr(2)...
+  INFO root [0x00002154] [2019-03-02 10:03:48,716] - Components::findComponents: found dbmgr, addr:192.168.0.148:1768
+  INFO root [0x00002154] [2019-03-02 10:03:48,716] - Components::addComponent: reset orderLog, uid=28936!
+  INFO root [0x00002154] [2019-03-02 10:03:48,716] - Components::addComponent[dbmgr], uid=28936, componentID=4000, globalorderid=1, grouporderid=1, totalcount=1
+  INFO root [0x00002154] [2019-03-02 10:03:48,716] - Components::findComponents: found dbmgr, addr:192.168.0.148:1768
+  WARN root [0x00002154] [2019-03-02 10:03:49,731] - Forwarding logs to logger[192.168.0.148:1763/0/0/0]...
+ ERROR root [0x00002154] [2019-03-02 10:09:01,267] - Components::removeComponentByChannel: dbmgr : 4000, Abnormal exit! TCPPacketReceiver::processRecv(): error=10054
+
+ ERROR root [0x00002154] [2019-03-02 10:09:01,344] - 192.168.0.148:1794: TCPPacketSender::processSend(internal): Exception occurred: REASON_CLIENT_DISCONNECTED , errno: 10054, 192.168.0.148:1794/0/0/0
+ ERROR root [0x00002154] [2019-03-02 10:09:01,391] - 192.168.0.148:1761: TCPPacketSender::processSend(internal): Exception occurred: REASON_CLIENT_DISCONNECTED , errno: 10054, 192.168.0.148:1761/0/0/0
+ ERROR root [0x00002154] [2019-03-02 10:09:02,149] - 192.168.0.148:1763: TCPPacketSender::processSend(internal): Exception occurred: REASON_CLIENT_DISCONNECTED , errno: 10054, 192.168.0.148:1763/0/0/0
+  INFO root [0x00002154] [2019-03-02 10:09:03,172] - EventDispatcher()::~EventDispatcher: Num timers = 1
+  INFO root [0x00003048] [2019-03-02 10:10:46,010] - 
+  INFO root [0x00003048] [2019-03-02 10:10:46,010] - -----------------------------------------------------------------------------------------
+
+
+  INFO root [0x00003048] [2019-03-02 10:10:46,010] - Resmgr::initialize: KBE_ROOT=D:/kbengine-2.4.2/
+  INFO root [0x00003048] [2019-03-02 10:10:46,010] - Resmgr::initialize: KBE_RES_PATH=D:/kbengine-2.4.2/kbe/res/;D:/kbengine-2.4.2/first_server_assets/;D:/kbengine-2.4.2/first_server_assets/scripts/;D:/kbengine-2.4.2/first_server_assets/res/
+  INFO root [0x00003048] [2019-03-02 10:10:46,010] - Resmgr::initialize: KBE_BIN_PATH=D:/kbengine-2.4.2/kbe/bin/server/
+  INFO root [0x00003048] [2019-03-02 10:10:46,010] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 192.168.0.123 ( 192.168.0.123:2719 )
+  INFO root [0x00003048] [2019-03-02 10:10:46,010] - NetworkInterface::initialize(INTERNAL-TCP): address 192.168.0.123:2719, SOMAXCONN=5.
+  INFO root [0x00003048] [2019-03-02 10:10:46,010] - server-configs:
+  INFO root [0x00003048] [2019-03-02 10:10:46,010] - 	gameUpdateHertz : 10
+  INFO root [0x00003048] [2019-03-02 10:10:46,010] - 	defaultViewRadius : 80
+  INFO root [0x00003048] [2019-03-02 10:10:46,010] - 	defaultViewHysteresisArea : 5
+  INFO root [0x00003048] [2019-03-02 10:10:46,010] - 	entryScriptFile : kbemain
+  INFO root [0x00003048] [2019-03-02 10:10:46,010] - 	internalTcpAddr : 192.168.0.123:2719
+  INFO root [0x00003048] [2019-03-02 10:10:46,010] - 	componentID : 8001
+  WARN root [0x00003048] [2019-03-02 10:10:46,019] - invalid UID(0) <= 0, please check UID for environment! automatically set to 28936.
+  INFO root [0x00003048] [2019-03-02 10:10:46,120] - Components::findLogger: found logger, addr:192.168.0.123:2683
+  INFO root [0x00003048] [2019-03-02 10:10:46,120] - Components::addComponent: reset orderLog, uid=28936!
+  INFO root [0x00003048] [2019-03-02 10:10:46,120] - Components::addComponent[logger], uid=28936, componentID=2000, globalorderid=1, grouporderid=1, totalcount=1
+  INFO root [0x00003048] [2019-03-02 10:10:46,130] - ---- cellapp Version: 2.4.2. ScriptVersion: 0.1.0. Pythoncore: 3.7.2. Protocol: E73A667D90DF1EB3CFEA32B1FCE682E5. Config: Debug X86. Built: 17:21:32 Feb 27 2019. AppID: 8001. UID: 28936. PID: 12396 ----
+  INFO root [0x00003048] [2019-03-02 10:10:46,130] - Server 19: Intel(R) Xeon(R) CPU E3-1231 v3 @ 3.40GHz with 2097151kB RAM
+  INFO root [0x00003048] [2019-03-02 10:10:46,130] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO root [0x00003048] [2019-03-02 10:10:46,130] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO root [0x00003048] [2019-03-02 10:10:46,323] - Script::install(): is successfully, Python=(3.7.2 (default, Feb 27 2019, 17:13:46) [MSC v.1916 32 bit (Intel)])!
+  INFO root [0x00003048] [2019-03-02 10:10:46,323] - Script::install(): KBExtra is successfully!
+ DEBUG root [0x00003048] [2019-03-02 10:10:46,419] - loaded entity-script:Account(1).
+  WARN root [0x00003048] [2019-03-02 10:10:46,419] - EntityDef::checkDefMethod: exposed of method: Room.enterGameWorld, check the caller can use "def enterGameWorld(self, callerID, ...)", such as: if callerID == self.id!
+ DEBUG root [0x00003048] [2019-03-02 10:10:46,419] - loaded entity-script:Room(3).
+  INFO root [0x00003048] [2019-03-02 10:10:46,419] - TelnetServer server is running on port 50000
+  INFO root [0x00003048] [2019-03-02 10:10:46,753] - ---- cellapp is running ----
+ DEBUG root [0x00003048] [2019-03-02 10:10:46,753] - Components::process(): Request for the process of identity...
+  WARN root [0x00003048] [2019-03-02 10:10:52,989] - Forwarding logs to logger[192.168.0.123:2683/0/0/0]...
+ ERROR root [0x00003048] [2019-03-02 10:13:34,109] - Components::removeComponentByChannel: logger : 2000, Abnormal exit! TCPPacketReceiver::processRecv(): error=10054
+
+  INFO root [0x00003048] [2019-03-02 10:13:34,109] - The following logs sent to logger failed:
+  WARN root [0x00003048] [2019-03-02 10:13:34,109] - ==> [2019-03-02 10:13:34 112] TCPPacketReceiver::processPendingEvents(192.168.0.123:2683): Throwing REASON_GENERAL_NETWORK - WSAECONNRESET
+ ERROR root [0x00003048] [2019-03-02 10:13:34,109] - ==> [2019-03-02 10:13:34 112] Components::removeComponentByChannel: logger : 2000, Abnormal exit! TCPPacketReceiver::processRecv(): error=10054
+
+  WARN root [0x00003048] [2019-03-02 10:13:34,139] - TCPPacketReceiver::processPendingEvents(192.168.0.123:2685): Throwing REASON_GENERAL_NETWORK - WSAECONNRESET
+ ERROR root [0x00003048] [2019-03-02 10:13:34,139] - Components::removeComponentByChannel: dbmgr : 4000, Abnormal exit! TCPPacketReceiver::processRecv(): error=10054
+
+  INFO root [0x00003048] [2019-03-02 10:13:34,139] - Shutdowner::onShutdownBegin: shutting down(period=0, tickPeriod=1)
+  INFO root [0x00003048] [2019-03-02 10:13:34,149] - Shutdowner::onShutdown: shutting down
+ S_DBG root [0x00003048] [2019-03-02 10:13:34,149] - Avatar::onDestroy: 2.
+ S_ERR root [0x00003048] [2019-03-02 10:13:34,219] - Traceback (most recent call last):
+  File "D:/kbengine-2.4.2/first_server_assets/scripts/cell\Account.py", line 18, in onDestroy
+    room = self.getCurrRoom()
+ S_ERR root [0x00003048] [2019-03-02 10:13:34,219] - AttributeError: 'Account' object has no attribute 'getCurrRoom'
+ S_DBG root [0x00003048] [2019-03-02 10:13:34,219] - Avatar::onDestroy: 4.
+ S_ERR root [0x00003048] [2019-03-02 10:13:34,219] - Traceback (most recent call last):
+  File "D:/kbengine-2.4.2/first_server_assets/scripts/cell\Account.py", line 18, in onDestroy
+    room = self.getCurrRoom()
+ S_ERR root [0x00003048] [2019-03-02 10:13:34,219] - AttributeError: 'Account' object has no attribute 'getCurrRoom'
+  INFO root [0x00003048] [2019-03-02 10:13:34,219] - Spaces::destroySpace: 1.
+  INFO root [0x00003048] [2019-03-02 10:13:34,219] - Shutdowner::onShutdownEnd: shutting down
+ DEBUG root [0x00003048] [2019-03-02 10:13:34,219] - Room::~Room(): 3
+ DEBUG root [0x00003048] [2019-03-02 10:13:34,219] - Account::~Account(): 2
+ DEBUG root [0x00003048] [2019-03-02 10:13:34,219] - Account::~Account(): 4
+ DEBUG root [0x00003048] [2019-03-02 10:13:34,219] - EntityRef::destroyObjPool(): size 16.
+ DEBUG root [0x00003048] [2019-03-02 10:13:34,219] - Witness::destroyObjPool(): size 16.
+  INFO root [0x00003048] [2019-03-02 10:13:34,239] - Script::uninstall(): is successfully!
+ DEBUG root [0x00003048] [2019-03-02 10:13:34,243] - ThreadPool::destroy(): starting size 2.
+  INFO root [0x0000050c] [2019-03-02 10:16:41,232] - 
+  INFO root [0x0000050c] [2019-03-02 10:16:41,232] - -----------------------------------------------------------------------------------------
+
+
+  INFO root [0x0000050c] [2019-03-02 10:16:41,232] - Resmgr::initialize: KBE_ROOT=D:/kbengine-2.4.2/
+  INFO root [0x0000050c] [2019-03-02 10:16:41,232] - Resmgr::initialize: KBE_RES_PATH=D:/kbengine-2.4.2/kbe/res/;D:/kbengine-2.4.2/first_server_assets/;D:/kbengine-2.4.2/first_server_assets/scripts/;D:/kbengine-2.4.2/first_server_assets/res/
+  INFO root [0x0000050c] [2019-03-02 10:16:41,232] - Resmgr::initialize: KBE_BIN_PATH=D:/kbengine-2.4.2/kbe/bin/server/
+  INFO root [0x0000050c] [2019-03-02 10:16:41,242] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 192.168.0.123 ( 192.168.0.123:2848 )
+  INFO root [0x0000050c] [2019-03-02 10:16:41,242] - NetworkInterface::initialize(INTERNAL-TCP): address 192.168.0.123:2848, SOMAXCONN=5.
+  INFO root [0x0000050c] [2019-03-02 10:16:41,242] - server-configs:
+  INFO root [0x0000050c] [2019-03-02 10:16:41,242] - 	gameUpdateHertz : 10
+  INFO root [0x0000050c] [2019-03-02 10:16:41,242] - 	defaultViewRadius : 80
+  INFO root [0x0000050c] [2019-03-02 10:16:41,242] - 	defaultViewHysteresisArea : 5
+  INFO root [0x0000050c] [2019-03-02 10:16:41,242] - 	entryScriptFile : kbemain
+  INFO root [0x0000050c] [2019-03-02 10:16:41,242] - 	internalTcpAddr : 192.168.0.123:2848
+  INFO root [0x0000050c] [2019-03-02 10:16:41,242] - 	componentID : 8001
+  WARN root [0x0000050c] [2019-03-02 10:16:41,249] - invalid UID(0) <= 0, please check UID for environment! automatically set to 28936.
+  INFO root [0x0000050c] [2019-03-02 10:16:42,773] - ---- cellapp Version: 2.4.2. ScriptVersion: 0.1.0. Pythoncore: 3.7.2. Protocol: E73A667D90DF1EB3CFEA32B1FCE682E5. Config: Debug X86. Built: 17:21:32 Feb 27 2019. AppID: 8001. UID: 28936. PID: 11380 ----
+  INFO root [0x0000050c] [2019-03-02 10:16:42,773] - Server 19: Intel(R) Xeon(R) CPU E3-1231 v3 @ 3.40GHz with 2097151kB RAM
+  INFO root [0x0000050c] [2019-03-02 10:16:42,773] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO root [0x0000050c] [2019-03-02 10:16:42,773] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO root [0x0000050c] [2019-03-02 10:16:42,973] - Script::install(): is successfully, Python=(3.7.2 (default, Feb 27 2019, 17:13:46) [MSC v.1916 32 bit (Intel)])!
+  INFO root [0x0000050c] [2019-03-02 10:16:42,973] - Script::install(): KBExtra is successfully!
+ DEBUG root [0x0000050c] [2019-03-02 10:16:43,059] - loaded entity-script:Account(1).
+  WARN root [0x0000050c] [2019-03-02 10:16:43,062] - EntityDef::checkDefMethod: exposed of method: Room.enterGameWorld, check the caller can use "def enterGameWorld(self, callerID, ...)", such as: if callerID == self.id!
+ DEBUG root [0x0000050c] [2019-03-02 10:16:43,062] - loaded entity-script:Room(3).
+  INFO root [0x0000050c] [2019-03-02 10:16:43,062] - TelnetServer server is running on port 50000
+  INFO root [0x0000050c] [2019-03-02 10:16:43,409] - ---- cellapp is running ----
+ DEBUG root [0x0000050c] [2019-03-02 10:16:43,409] - Components::process(): Request for the process of identity...
+  WARN root [0x0000050c] [2019-03-02 10:16:49,538] - EntityApp::checkTickPeriod: tick took 6123% (6.12 seconds)!
+  INFO root [0x0000050c] [2019-03-02 10:16:50,615] - Components::findComponents: find logger(1)...
+  INFO root [0x0000050c] [2019-03-02 10:16:50,634] - Components::findComponents: found logger, addr:192.168.0.123:2851
+  INFO root [0x0000050c] [2019-03-02 10:16:50,635] - Components::addComponent: reset orderLog, uid=28936!
+  INFO root [0x0000050c] [2019-03-02 10:16:50,635] - Components::addComponent[logger], uid=28936, componentID=2000, globalorderid=1, grouporderid=1, totalcount=1
+  INFO root [0x0000050c] [2019-03-02 10:16:50,636] - Components::findComponents: find dbmgr(2)...
+  INFO root [0x0000050c] [2019-03-02 10:16:50,739] - Components::findComponents: found dbmgr, addr:192.168.0.123:2850
+  INFO root [0x0000050c] [2019-03-02 10:16:50,740] - Components::addComponent: reset orderLog, uid=28936!
+  INFO root [0x0000050c] [2019-03-02 10:16:50,740] - Components::addComponent[dbmgr], uid=28936, componentID=4000, globalorderid=1, grouporderid=1, totalcount=1
+  INFO root [0x0000050c] [2019-03-02 10:16:50,740] - Components::findComponents: found dbmgr, addr:192.168.0.123:2850
+  WARN root [0x0000050c] [2019-03-02 10:16:51,741] - EntityApp::checkTickPeriod: tick took 1225% (1.23 seconds)!
+  WARN root [0x0000050c] [2019-03-02 10:16:51,741] - Forwarding logs to logger[192.168.0.123:2851/0/0/0]...
+ ERROR root [0x0000050c] [2019-03-02 10:17:07,851] - Components::removeComponentByChannel: logger : 2000, Abnormal exit! TCPPacketReceiver::processRecv(): error=10054
+
+  INFO root [0x0000050c] [2019-03-02 10:17:07,851] - The following logs sent to logger failed:
+  WARN root [0x0000050c] [2019-03-02 10:17:07,851] - ==> [2019-03-02 10:17:07 854] TCPPacketReceiver::processPendingEvents(192.168.0.123:2851): Throwing REASON_GENERAL_NETWORK - WSAECONNRESET
+ ERROR root [0x0000050c] [2019-03-02 10:17:07,851] - ==> [2019-03-02 10:17:07 855] Components::removeComponentByChannel: logger : 2000, Abnormal exit! TCPPacketReceiver::processRecv(): error=10054
+
+  WARN root [0x0000050c] [2019-03-02 10:17:07,878] - TCPPacketReceiver::processPendingEvents(192.168.0.123:2850): Throwing REASON_GENERAL_NETWORK - WSAECONNRESET
+ ERROR root [0x0000050c] [2019-03-02 10:17:07,878] - Components::removeComponentByChannel: dbmgr : 4000, Abnormal exit! TCPPacketReceiver::processRecv(): error=10054
+
+  INFO root [0x0000050c] [2019-03-02 10:17:07,888] - Shutdowner::onShutdownBegin: shutting down(period=0, tickPeriod=1)
+  INFO root [0x0000050c] [2019-03-02 10:17:07,888] - Shutdowner::onShutdown: shutting down
+  INFO root [0x0000050c] [2019-03-02 10:17:07,888] - Shutdowner::onShutdownEnd: shutting down
+ DEBUG root [0x0000050c] [2019-03-02 10:17:07,888] - EntityRef::destroyObjPool(): size 0.
+ DEBUG root [0x0000050c] [2019-03-02 10:17:07,888] - Witness::destroyObjPool(): size 0.
+  INFO root [0x0000050c] [2019-03-02 10:17:07,922] - Script::uninstall(): is successfully!
+ DEBUG root [0x0000050c] [2019-03-02 10:17:07,922] - ThreadPool::destroy(): starting size 2.
+  INFO root [0x000025a0] [2019-03-02 10:17:15,732] - 
+  INFO root [0x000025a0] [2019-03-02 10:17:15,732] - -----------------------------------------------------------------------------------------
+
+
+  INFO root [0x000025a0] [2019-03-02 10:17:15,732] - Resmgr::initialize: KBE_ROOT=D:/kbengine-2.4.2/
+  INFO root [0x000025a0] [2019-03-02 10:17:15,732] - Resmgr::initialize: KBE_RES_PATH=D:/kbengine-2.4.2/kbe/res/;D:/kbengine-2.4.2/first_server_assets/;D:/kbengine-2.4.2/first_server_assets/scripts/;D:/kbengine-2.4.2/first_server_assets/res/
+  INFO root [0x000025a0] [2019-03-02 10:17:15,732] - Resmgr::initialize: KBE_BIN_PATH=D:/kbengine-2.4.2/kbe/bin/server/
+  INFO root [0x000025a0] [2019-03-02 10:17:15,739] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 192.168.0.123 ( 192.168.0.123:2903 )
+  INFO root [0x000025a0] [2019-03-02 10:17:15,739] - NetworkInterface::initialize(INTERNAL-TCP): address 192.168.0.123:2903, SOMAXCONN=5.
+  INFO root [0x000025a0] [2019-03-02 10:17:15,739] - server-configs:
+  INFO root [0x000025a0] [2019-03-02 10:17:15,739] - 	gameUpdateHertz : 10
+  INFO root [0x000025a0] [2019-03-02 10:17:15,739] - 	defaultViewRadius : 80
+  INFO root [0x000025a0] [2019-03-02 10:17:15,739] - 	defaultViewHysteresisArea : 5
+  INFO root [0x000025a0] [2019-03-02 10:17:15,739] - 	entryScriptFile : kbemain
+  INFO root [0x000025a0] [2019-03-02 10:17:15,739] - 	internalTcpAddr : 192.168.0.123:2903
+  INFO root [0x000025a0] [2019-03-02 10:17:15,739] - 	componentID : 8001
+  WARN root [0x000025a0] [2019-03-02 10:17:15,739] - invalid UID(0) <= 0, please check UID for environment! automatically set to 28936.
+  INFO root [0x000025a0] [2019-03-02 10:17:17,259] - ---- cellapp Version: 2.4.2. ScriptVersion: 0.1.0. Pythoncore: 3.7.2. Protocol: E73A667D90DF1EB3CFEA32B1FCE682E5. Config: Debug X86. Built: 17:21:32 Feb 27 2019. AppID: 8001. UID: 28936. PID: 2736 ----
+  INFO root [0x000025a0] [2019-03-02 10:17:17,259] - Server 19: Intel(R) Xeon(R) CPU E3-1231 v3 @ 3.40GHz with 2097151kB RAM
+  INFO root [0x000025a0] [2019-03-02 10:17:17,259] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO root [0x000025a0] [2019-03-02 10:17:17,259] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO root [0x000025a0] [2019-03-02 10:17:17,468] - Script::install(): is successfully, Python=(3.7.2 (default, Feb 27 2019, 17:13:46) [MSC v.1916 32 bit (Intel)])!
+  INFO root [0x000025a0] [2019-03-02 10:17:17,468] - Script::install(): KBExtra is successfully!
+ DEBUG root [0x000025a0] [2019-03-02 10:17:17,577] - loaded entity-script:Account(1).
+  WARN root [0x000025a0] [2019-03-02 10:17:17,581] - EntityDef::checkDefMethod: exposed of method: Room.enterGameWorld, check the caller can use "def enterGameWorld(self, callerID, ...)", such as: if callerID == self.id!
+ DEBUG root [0x000025a0] [2019-03-02 10:17:17,581] - loaded entity-script:Room(3).
+  INFO root [0x000025a0] [2019-03-02 10:17:17,581] - TelnetServer server is running on port 50000
+  INFO root [0x000025a0] [2019-03-02 10:17:17,922] - ---- cellapp is running ----
+ DEBUG root [0x000025a0] [2019-03-02 10:17:17,922] - Components::process(): Request for the process of identity...
+  WARN root [0x000025a0] [2019-03-02 10:17:24,052] - EntityApp::checkTickPeriod: tick took 6126% (6.13 seconds)!
+  INFO root [0x000025a0] [2019-03-02 10:17:25,126] - Components::findComponents: find logger(1)...
+  INFO root [0x000025a0] [2019-03-02 10:17:25,155] - Components::findComponents: found logger, addr:192.168.0.123:2899
+  INFO root [0x000025a0] [2019-03-02 10:17:25,155] - Components::addComponent: reset orderLog, uid=28936!
+  INFO root [0x000025a0] [2019-03-02 10:17:25,155] - Components::addComponent[logger], uid=28936, componentID=2000, globalorderid=1, grouporderid=1, totalcount=1
+  INFO root [0x000025a0] [2019-03-02 10:17:25,156] - Components::findComponents: find dbmgr(2)...
+  INFO root [0x000025a0] [2019-03-02 10:17:25,258] - Components::findComponents: found dbmgr, addr:192.168.0.123:2902
+  INFO root [0x000025a0] [2019-03-02 10:17:25,259] - Components::addComponent: reset orderLog, uid=28936!
+  INFO root [0x000025a0] [2019-03-02 10:17:25,259] - Components::addComponent[dbmgr], uid=28936, componentID=4000, globalorderid=1, grouporderid=1, totalcount=1
+  INFO root [0x000025a0] [2019-03-02 10:17:25,259] - Components::findComponents: found dbmgr, addr:192.168.0.123:2902
+  WARN root [0x000025a0] [2019-03-02 10:17:26,259] - EntityApp::checkTickPeriod: tick took 1233% (1.23 seconds)!
+  WARN root [0x000025a0] [2019-03-02 10:17:26,260] - Forwarding logs to logger[192.168.0.123:2899/0/0/0]...
+ ERROR root [0x000025a0] [2019-03-02 10:18:33,693] - Components::removeComponentByChannel: logger : 2000, Abnormal exit! TCPPacketReceiver::processRecv(): error=10054
+
+  INFO root [0x000025a0] [2019-03-02 10:18:33,695] - The following logs sent to logger failed:
+  WARN root [0x000025a0] [2019-03-02 10:18:33,695] - ==> [2019-03-02 10:18:33 694] TCPPacketReceiver::processPendingEvents(192.168.0.123:2899): Throwing REASON_GENERAL_NETWORK - WSAECONNRESET
+ ERROR root [0x000025a0] [2019-03-02 10:18:33,696] - ==> [2019-03-02 10:18:33 695] Components::removeComponentByChannel: logger : 2000, Abnormal exit! TCPPacketReceiver::processRecv(): error=10054
+
+  WARN root [0x000025a0] [2019-03-02 10:18:33,731] - TCPPacketReceiver::processPendingEvents(192.168.0.123:2902): Throwing REASON_GENERAL_NETWORK - WSAECONNRESET
+ ERROR root [0x000025a0] [2019-03-02 10:18:33,732] - Components::removeComponentByChannel: dbmgr : 4000, Abnormal exit! TCPPacketReceiver::processRecv(): error=10054
+
+  INFO root [0x000025a0] [2019-03-02 10:18:33,739] - Shutdowner::onShutdownBegin: shutting down(period=0, tickPeriod=1)
+  INFO root [0x000025a0] [2019-03-02 10:18:33,742] - Shutdowner::onShutdown: shutting down
+  INFO root [0x000025a0] [2019-03-02 10:18:33,743] - Shutdowner::onShutdownEnd: shutting down
+ DEBUG root [0x000025a0] [2019-03-02 10:18:33,743] - EntityRef::destroyObjPool(): size 0.
+ DEBUG root [0x000025a0] [2019-03-02 10:18:33,744] - Witness::destroyObjPool(): size 0.
+  INFO root [0x000025a0] [2019-03-02 10:18:33,767] - Script::uninstall(): is successfully!
+ DEBUG root [0x000025a0] [2019-03-02 10:18:33,767] - ThreadPool::destroy(): starting size 2.
+  INFO root [0x00001f60] [2019-03-02 10:20:36,632] - 
+  INFO root [0x00001f60] [2019-03-02 10:20:36,632] - -----------------------------------------------------------------------------------------
+
+
+  INFO root [0x00001f60] [2019-03-02 10:20:36,638] - Resmgr::initialize: KBE_ROOT=D:/kbengine-2.4.2/
+  INFO root [0x00001f60] [2019-03-02 10:20:36,638] - Resmgr::initialize: KBE_RES_PATH=D:/kbengine-2.4.2/kbe/res/;D:/kbengine-2.4.2/first_server_assets/;D:/kbengine-2.4.2/first_server_assets/scripts/;D:/kbengine-2.4.2/first_server_assets/res/
+  INFO root [0x00001f60] [2019-03-02 10:20:36,638] - Resmgr::initialize: KBE_BIN_PATH=D:/kbengine-2.4.2/kbe/bin/server/
+  INFO root [0x00001f60] [2019-03-02 10:20:36,638] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 192.168.0.123 ( 192.168.0.123:2995 )
+  INFO root [0x00001f60] [2019-03-02 10:20:36,638] - NetworkInterface::initialize(INTERNAL-TCP): address 192.168.0.123:2995, SOMAXCONN=5.
+  INFO root [0x00001f60] [2019-03-02 10:20:36,638] - server-configs:
+  INFO root [0x00001f60] [2019-03-02 10:20:36,638] - 	gameUpdateHertz : 10
+  INFO root [0x00001f60] [2019-03-02 10:20:36,638] - 	defaultViewRadius : 80
+  INFO root [0x00001f60] [2019-03-02 10:20:36,638] - 	defaultViewHysteresisArea : 5
+  INFO root [0x00001f60] [2019-03-02 10:20:36,648] - 	entryScriptFile : kbemain
+  INFO root [0x00001f60] [2019-03-02 10:20:36,648] - 	internalTcpAddr : 192.168.0.123:2995
+  INFO root [0x00001f60] [2019-03-02 10:20:36,648] - 	componentID : 8001
+  WARN root [0x00001f60] [2019-03-02 10:20:36,648] - invalid UID(0) <= 0, please check UID for environment! automatically set to 28936.
+  WARN root [0x00001f60] [2019-03-02 10:20:37,268] - BundleBroadcast::BundleBroadcast: Cannot bind to port 20687, errorno=10048
+  INFO root [0x00001f60] [2019-03-02 10:20:37,268] - ---- cellapp Version: 2.4.2. ScriptVersion: 0.1.0. Pythoncore: 3.7.2. Protocol: E73A667D90DF1EB3CFEA32B1FCE682E5. Config: Debug X86. Built: 17:21:32 Feb 27 2019. AppID: 8001. UID: 28936. PID: 6500 ----
+  INFO root [0x00001f60] [2019-03-02 10:20:37,272] - Server 19: Intel(R) Xeon(R) CPU E3-1231 v3 @ 3.40GHz with 2097151kB RAM
+  INFO root [0x00001f60] [2019-03-02 10:20:37,272] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO root [0x00001f60] [2019-03-02 10:20:37,272] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO root [0x00001f60] [2019-03-02 10:20:37,458] - Script::install(): is successfully, Python=(3.7.2 (default, Feb 27 2019, 17:13:46) [MSC v.1916 32 bit (Intel)])!
+  INFO root [0x00001f60] [2019-03-02 10:20:37,458] - Script::install(): KBExtra is successfully!
+ DEBUG root [0x00001f60] [2019-03-02 10:20:37,560] - loaded entity-script:Account(1).
+  WARN root [0x00001f60] [2019-03-02 10:20:37,568] - EntityDef::checkDefMethod: exposed of method: Room.enterGameWorld, check the caller can use "def enterGameWorld(self, callerID, ...)", such as: if callerID == self.id!
+ DEBUG root [0x00001f60] [2019-03-02 10:20:37,568] - loaded entity-script:Room(3).
+  INFO root [0x00001f60] [2019-03-02 10:20:37,568] - TelnetServer server is running on port 50000
+  INFO root [0x00001f60] [2019-03-02 10:20:38,012] - ---- cellapp is running ----
+ DEBUG root [0x00001f60] [2019-03-02 10:20:38,012] - Components::process(): Request for the process of identity...
+  WARN root [0x00001f60] [2019-03-02 10:20:44,249] - EntityApp::checkTickPeriod: tick took 6235% (6.24 seconds)!
+  INFO root [0x00001f60] [2019-03-02 10:20:45,328] - Components::findComponents: find logger(1)...
+  INFO root [0x00001f60] [2019-03-02 10:20:45,351] - Components::findComponents: found logger, addr:192.168.0.123:2993
+  INFO root [0x00001f60] [2019-03-02 10:20:45,351] - Components::addComponent: reset orderLog, uid=28936!
+  INFO root [0x00001f60] [2019-03-02 10:20:45,351] - Components::addComponent[logger], uid=28936, componentID=2000, globalorderid=1, grouporderid=1, totalcount=1
+  INFO root [0x00001f60] [2019-03-02 10:20:45,351] - Components::findComponents: find dbmgr(2)...
+  INFO root [0x00001f60] [2019-03-02 10:20:45,471] - Components::findComponents: found dbmgr, addr:192.168.0.123:2988
+  INFO root [0x00001f60] [2019-03-02 10:20:45,471] - Components::addComponent: reset orderLog, uid=28936!
+  INFO root [0x00001f60] [2019-03-02 10:20:45,471] - Components::addComponent[dbmgr], uid=28936, componentID=4000, globalorderid=1, grouporderid=1, totalcount=1
+  INFO root [0x00001f60] [2019-03-02 10:20:45,471] - Components::findComponents: found dbmgr, addr:192.168.0.123:2988
+  WARN root [0x00001f60] [2019-03-02 10:20:46,488] - EntityApp::checkTickPeriod: tick took 1260% (1.26 seconds)!
+  WARN root [0x00001f60] [2019-03-02 10:20:46,488] - Forwarding logs to logger[192.168.0.123:2993/0/0/0]...
+ ERROR root [0x00001f60] [2019-03-02 10:27:41,787] - Components::removeComponentByChannel: logger : 2000, Abnormal exit! TCPPacketReceiver::processRecv(): error=10054
+
+  INFO root [0x00001f60] [2019-03-02 10:27:41,787] - The following logs sent to logger failed:
+  WARN root [0x00001f60] [2019-03-02 10:27:41,787] - ==> [2019-03-02 10:27:41 794] TCPPacketReceiver::processPendingEvents(192.168.0.123:2993): Throwing REASON_GENERAL_NETWORK - WSAECONNRESET
+ ERROR root [0x00001f60] [2019-03-02 10:27:41,797] - ==> [2019-03-02 10:27:41 794] Components::removeComponentByChannel: logger : 2000, Abnormal exit! TCPPacketReceiver::processRecv(): error=10054
+
+  WARN root [0x00001f60] [2019-03-02 10:27:41,817] - TCPPacketReceiver::processPendingEvents(192.168.0.123:2988): Throwing REASON_GENERAL_NETWORK - WSAECONNRESET
+ ERROR root [0x00001f60] [2019-03-02 10:27:41,817] - Components::removeComponentByChannel: dbmgr : 4000, Abnormal exit! TCPPacketReceiver::processRecv(): error=10054
+
+  INFO root [0x00001f60] [2019-03-02 10:27:41,827] - Shutdowner::onShutdownBegin: shutting down(period=0, tickPeriod=1)
+  INFO root [0x00001f60] [2019-03-02 10:27:41,827] - Shutdowner::onShutdown: shutting down
+ S_DBG root [0x00001f60] [2019-03-02 10:27:41,827] - Avatar::onDestroy: 2.
+ S_ERR root [0x00001f60] [2019-03-02 10:27:41,827] - Traceback (most recent call last):
+  File "D:/kbengine-2.4.2/first_server_assets/scripts/cell\Account.py", line 18, in onDestroy
+    room = self.getCurrRoom()
+ S_ERR root [0x00001f60] [2019-03-02 10:27:41,837] - AttributeError: 'Account' object has no attribute 'getCurrRoom'
+ S_DBG root [0x00001f60] [2019-03-02 10:27:41,837] - Avatar::onDestroy: 4.
+ S_ERR root [0x00001f60] [2019-03-02 10:27:41,837] - Traceback (most recent call last):
+  File "D:/kbengine-2.4.2/first_server_assets/scripts/cell\Account.py", line 18, in onDestroy
+    room = self.getCurrRoom()
+ S_ERR root [0x00001f60] [2019-03-02 10:27:41,837] - AttributeError: 'Account' object has no attribute 'getCurrRoom'
+  INFO root [0x00001f60] [2019-03-02 10:27:41,837] - Spaces::destroySpace: 1.
+  INFO root [0x00001f60] [2019-03-02 10:27:41,837] - Shutdowner::onShutdownEnd: shutting down
+ DEBUG root [0x00001f60] [2019-03-02 10:27:41,837] - Room::~Room(): 3
+ DEBUG root [0x00001f60] [2019-03-02 10:27:41,837] - Account::~Account(): 2
+ DEBUG root [0x00001f60] [2019-03-02 10:27:41,837] - Account::~Account(): 4
+ DEBUG root [0x00001f60] [2019-03-02 10:27:41,837] - EntityRef::destroyObjPool(): size 16.
+ DEBUG root [0x00001f60] [2019-03-02 10:27:41,837] - Witness::destroyObjPool(): size 16.
+  INFO root [0x00001f60] [2019-03-02 10:27:41,867] - Script::uninstall(): is successfully!
+ DEBUG root [0x00001f60] [2019-03-02 10:27:41,867] - ThreadPool::destroy(): starting size 2.
+  INFO root [0x00000684] [2019-03-02 10:35:36,396] - 
+  INFO root [0x00000684] [2019-03-02 10:35:36,396] - -----------------------------------------------------------------------------------------
+
+
+  INFO root [0x00000684] [2019-03-02 10:35:36,399] - Resmgr::initialize: KBE_ROOT=D:/kbengine-2.4.2/
+  INFO root [0x00000684] [2019-03-02 10:35:36,399] - Resmgr::initialize: KBE_RES_PATH=D:/kbengine-2.4.2/kbe/res/;D:/kbengine-2.4.2/first_server_assets/;D:/kbengine-2.4.2/first_server_assets/scripts/;D:/kbengine-2.4.2/first_server_assets/res/
+  INFO root [0x00000684] [2019-03-02 10:35:36,399] - Resmgr::initialize: KBE_BIN_PATH=D:/kbengine-2.4.2/kbe/bin/server/
+  INFO root [0x00000684] [2019-03-02 10:35:36,406] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 192.168.0.123 ( 192.168.0.123:3249 )
+  INFO root [0x00000684] [2019-03-02 10:35:36,407] - NetworkInterface::initialize(INTERNAL-TCP): address 192.168.0.123:3249, SOMAXCONN=5.
+  INFO root [0x00000684] [2019-03-02 10:35:36,407] - server-configs:
+  INFO root [0x00000684] [2019-03-02 10:35:36,407] - 	gameUpdateHertz : 10
+  INFO root [0x00000684] [2019-03-02 10:35:36,407] - 	defaultViewRadius : 80
+  INFO root [0x00000684] [2019-03-02 10:35:36,407] - 	defaultViewHysteresisArea : 5
+  INFO root [0x00000684] [2019-03-02 10:35:36,407] - 	entryScriptFile : kbemain
+  INFO root [0x00000684] [2019-03-02 10:35:36,407] - 	internalTcpAddr : 192.168.0.123:3249
+  INFO root [0x00000684] [2019-03-02 10:35:36,407] - 	componentID : 8001
+  WARN root [0x00000684] [2019-03-02 10:35:36,407] - invalid UID(0) <= 0, please check UID for environment! automatically set to 28936.
+  INFO root [0x00000684] [2019-03-02 10:35:37,930] - ---- cellapp Version: 2.4.2. ScriptVersion: 0.1.0. Pythoncore: 3.7.2. Protocol: E73A667D90DF1EB3CFEA32B1FCE682E5. Config: Debug X86. Built: 17:21:32 Feb 27 2019. AppID: 8001. UID: 28936. PID: 13100 ----
+  INFO root [0x00000684] [2019-03-02 10:35:37,930] - Server 19: Intel(R) Xeon(R) CPU E3-1231 v3 @ 3.40GHz with 2097151kB RAM
+  INFO root [0x00000684] [2019-03-02 10:35:37,930] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO root [0x00000684] [2019-03-02 10:35:37,930] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO root [0x00000684] [2019-03-02 10:35:38,110] - Script::install(): is successfully, Python=(3.7.2 (default, Feb 27 2019, 17:13:46) [MSC v.1916 32 bit (Intel)])!
+  INFO root [0x00000684] [2019-03-02 10:35:38,110] - Script::install(): KBExtra is successfully!
+ DEBUG root [0x00000684] [2019-03-02 10:35:38,196] - loaded entity-script:Account(1).
+  WARN root [0x00000684] [2019-03-02 10:35:38,196] - EntityDef::checkDefMethod: exposed of method: Room.enterGameWorld, check the caller can use "def enterGameWorld(self, callerID, ...)", such as: if callerID == self.id!
+ DEBUG root [0x00000684] [2019-03-02 10:35:38,196] - loaded entity-script:Room(3).
+  INFO root [0x00000684] [2019-03-02 10:35:38,196] - TelnetServer server is running on port 50000
+  INFO root [0x00000684] [2019-03-02 10:35:38,588] - ---- cellapp is running ----
+ DEBUG root [0x00000684] [2019-03-02 10:35:38,588] - Components::process(): Request for the process of identity...
+  WARN root [0x00000684] [2019-03-02 10:35:44,788] - EntityApp::checkTickPeriod: tick took 6197% (6.20 seconds)!
+  INFO root [0x00000684] [2019-03-02 10:35:45,803] - Components::findComponents: find logger(1)...
+  INFO root [0x00000684] [2019-03-02 10:35:45,856] - Components::findComponents: found logger, addr:192.168.0.123:3254
+  INFO root [0x00000684] [2019-03-02 10:35:45,857] - Components::addComponent: reset orderLog, uid=28936!
+  INFO root [0x00000684] [2019-03-02 10:35:45,857] - Components::addComponent[logger], uid=28936, componentID=2000, globalorderid=1, grouporderid=1, totalcount=1
+  INFO root [0x00000684] [2019-03-02 10:35:45,858] - Components::findComponents: find dbmgr(2)...
+  INFO root [0x00000684] [2019-03-02 10:35:45,961] - Components::findComponents: found dbmgr, addr:192.168.0.123:3251
+  INFO root [0x00000684] [2019-03-02 10:35:45,962] - Components::addComponent: reset orderLog, uid=28936!
+  INFO root [0x00000684] [2019-03-02 10:35:45,962] - Components::addComponent[dbmgr], uid=28936, componentID=4000, globalorderid=1, grouporderid=1, totalcount=1
+  INFO root [0x00000684] [2019-03-02 10:35:45,962] - Components::findComponents: found dbmgr, addr:192.168.0.123:3251
+  WARN root [0x00000684] [2019-03-02 10:35:46,962] - Forwarding logs to logger[192.168.0.123:3254/0/0/0]...
+ ERROR root [0x00000684] [2019-03-02 10:46:59,094] - Components::removeComponentByChannel: logger : 2000, Abnormal exit! TCPPacketReceiver::processRecv(): error=10054
+
+  INFO root [0x00000684] [2019-03-02 10:46:59,094] - The following logs sent to logger failed:
+  WARN root [0x00000684] [2019-03-02 10:46:59,094] - ==> [2019-03-02 10:46:59 099] TCPPacketReceiver::processPendingEvents(192.168.0.123:3254): Throwing REASON_GENERAL_NETWORK - WSAECONNRESET
+ ERROR root [0x00000684] [2019-03-02 10:46:59,094] - ==> [2019-03-02 10:46:59 101] Components::removeComponentByChannel: logger : 2000, Abnormal exit! TCPPacketReceiver::processRecv(): error=10054
+
+  WARN root [0x00000684] [2019-03-02 10:46:59,144] - TCPPacketReceiver::processPendingEvents(192.168.0.123:3251): Throwing REASON_GENERAL_NETWORK - WSAECONNRESET
+ ERROR root [0x00000684] [2019-03-02 10:46:59,144] - Components::removeComponentByChannel: dbmgr : 4000, Abnormal exit! TCPPacketReceiver::processRecv(): error=10054
+
+  INFO root [0x00000684] [2019-03-02 10:46:59,144] - Shutdowner::onShutdownBegin: shutting down(period=0, tickPeriod=1)
+  INFO root [0x00000684] [2019-03-02 10:46:59,144] - Shutdowner::onShutdown: shutting down
+ S_DBG root [0x00000684] [2019-03-02 10:46:59,144] - Avatar::onDestroy: 10.
+ S_ERR root [0x00000684] [2019-03-02 10:46:59,155] - Traceback (most recent call last):
+  File "D:/kbengine-2.4.2/first_server_assets/scripts/cell\Account.py", line 18, in onDestroy
+    room = self.getCurrRoom()
+ S_ERR root [0x00000684] [2019-03-02 10:46:59,155] - AttributeError: 'Account' object has no attribute 'getCurrRoom'
+ S_DBG root [0x00000684] [2019-03-02 10:46:59,155] - Avatar::onDestroy: 2.
+ S_ERR root [0x00000684] [2019-03-02 10:46:59,155] - Traceback (most recent call last):
+  File "D:/kbengine-2.4.2/first_server_assets/scripts/cell\Account.py", line 18, in onDestroy
+    room = self.getCurrRoom()
+ S_ERR root [0x00000684] [2019-03-02 10:46:59,165] - AttributeError: 'Account' object has no attribute 'getCurrRoom'
+ S_DBG root [0x00000684] [2019-03-02 10:46:59,165] - Avatar::onDestroy: 4.
+ S_ERR root [0x00000684] [2019-03-02 10:46:59,165] - Traceback (most recent call last):
+  File "D:/kbengine-2.4.2/first_server_assets/scripts/cell\Account.py", line 18, in onDestroy
+    room = self.getCurrRoom()
+ S_ERR root [0x00000684] [2019-03-02 10:46:59,165] - AttributeError: 'Account' object has no attribute 'getCurrRoom'
+  INFO root [0x00000684] [2019-03-02 10:46:59,165] - Spaces::destroySpace: 1.
+ S_DBG root [0x00000684] [2019-03-02 10:46:59,165] - Avatar::onDestroy: 5.
+ S_ERR root [0x00000684] [2019-03-02 10:46:59,165] - Traceback (most recent call last):
+  File "D:/kbengine-2.4.2/first_server_assets/scripts/cell\Account.py", line 18, in onDestroy
+    room = self.getCurrRoom()
+ S_ERR root [0x00000684] [2019-03-02 10:46:59,165] - AttributeError: 'Account' object has no attribute 'getCurrRoom'
+ S_DBG root [0x00000684] [2019-03-02 10:46:59,165] - Avatar::onDestroy: 7.
+ S_ERR root [0x00000684] [2019-03-02 10:46:59,165] - Traceback (most recent call last):
+  File "D:/kbengine-2.4.2/first_server_assets/scripts/cell\Account.py", line 18, in onDestroy
+    room = self.getCurrRoom()
+ S_ERR root [0x00000684] [2019-03-02 10:46:59,165] - AttributeError: 'Account' object has no attribute 'getCurrRoom'
+  INFO root [0x00000684] [2019-03-02 10:46:59,165] - Spaces::destroySpace: 2.
+ S_DBG root [0x00000684] [2019-03-02 10:46:59,175] - Avatar::onDestroy: 8.
+ S_ERR root [0x00000684] [2019-03-02 10:46:59,175] - Traceback (most recent call last):
+  File "D:/kbengine-2.4.2/first_server_assets/scripts/cell\Account.py", line 18, in onDestroy
+    room = self.getCurrRoom()
+ S_ERR root [0x00000684] [2019-03-02 10:46:59,175] - AttributeError: 'Account' object has no attribute 'getCurrRoom'
+  INFO root [0x00000684] [2019-03-02 10:46:59,175] - Spaces::destroySpace: 3.
+  INFO root [0x00000684] [2019-03-02 10:46:59,175] - Shutdowner::onShutdownEnd: shutting down
+ DEBUG root [0x00000684] [2019-03-02 10:46:59,175] - Account::~Account(): 10
+ DEBUG root [0x00000684] [2019-03-02 10:46:59,175] - Room::~Room(): 9
+ DEBUG root [0x00000684] [2019-03-02 10:46:59,175] - Account::~Account(): 8
+ DEBUG root [0x00000684] [2019-03-02 10:46:59,175] - Room::~Room(): 6
+ DEBUG root [0x00000684] [2019-03-02 10:46:59,175] - Account::~Account(): 5
+ DEBUG root [0x00000684] [2019-03-02 10:46:59,175] - Account::~Account(): 7
+ DEBUG root [0x00000684] [2019-03-02 10:46:59,175] - Room::~Room(): 3
+ DEBUG root [0x00000684] [2019-03-02 10:46:59,175] - Account::~Account(): 2
+ DEBUG root [0x00000684] [2019-03-02 10:46:59,175] - Account::~Account(): 4
+ DEBUG root [0x00000684] [2019-03-02 10:46:59,175] - EntityRef::destroyObjPool(): size 16.
+ DEBUG root [0x00000684] [2019-03-02 10:46:59,175] - Witness::destroyObjPool(): size 16.
+  INFO root [0x00000684] [2019-03-02 10:46:59,205] - Script::uninstall(): is successfully!
+ DEBUG root [0x00000684] [2019-03-02 10:46:59,205] - ThreadPool::destroy(): starting size 2.
+  INFO root [0x00001ccc] [2019-03-02 10:48:41,834] - 
+  INFO root [0x00001ccc] [2019-03-02 10:48:41,834] - -----------------------------------------------------------------------------------------
+
+
+  INFO root [0x00001ccc] [2019-03-02 10:48:41,834] - Resmgr::initialize: KBE_ROOT=D:/kbengine-2.4.2/
+  INFO root [0x00001ccc] [2019-03-02 10:48:41,834] - Resmgr::initialize: KBE_RES_PATH=D:/kbengine-2.4.2/kbe/res/;D:/kbengine-2.4.2/first_server_assets/;D:/kbengine-2.4.2/first_server_assets/scripts/;D:/kbengine-2.4.2/first_server_assets/res/
+  INFO root [0x00001ccc] [2019-03-02 10:48:41,838] - Resmgr::initialize: KBE_BIN_PATH=D:/kbengine-2.4.2/kbe/bin/server/
+  INFO root [0x00001ccc] [2019-03-02 10:48:41,838] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 192.168.0.123 ( 192.168.0.123:3607 )
+  INFO root [0x00001ccc] [2019-03-02 10:48:41,838] - NetworkInterface::initialize(INTERNAL-TCP): address 192.168.0.123:3607, SOMAXCONN=5.
+  INFO root [0x00001ccc] [2019-03-02 10:48:41,838] - server-configs:
+  INFO root [0x00001ccc] [2019-03-02 10:48:41,838] - 	gameUpdateHertz : 10
+  INFO root [0x00001ccc] [2019-03-02 10:48:41,838] - 	defaultViewRadius : 80
+  INFO root [0x00001ccc] [2019-03-02 10:48:41,838] - 	defaultViewHysteresisArea : 5
+  INFO root [0x00001ccc] [2019-03-02 10:48:41,844] - 	entryScriptFile : kbemain
+  INFO root [0x00001ccc] [2019-03-02 10:48:41,844] - 	internalTcpAddr : 192.168.0.123:3607
+  INFO root [0x00001ccc] [2019-03-02 10:48:41,844] - 	componentID : 8001
+  WARN root [0x00001ccc] [2019-03-02 10:48:41,844] - invalid UID(0) <= 0, please check UID for environment! automatically set to 28936.
+  INFO root [0x00001ccc] [2019-03-02 10:48:43,364] - ---- cellapp Version: 2.4.2. ScriptVersion: 0.1.0. Pythoncore: 3.7.2. Protocol: E73A667D90DF1EB3CFEA32B1FCE682E5. Config: Debug X86. Built: 17:21:32 Feb 27 2019. AppID: 8001. UID: 28936. PID: 2880 ----
+  INFO root [0x00001ccc] [2019-03-02 10:48:43,364] - Server 19: Intel(R) Xeon(R) CPU E3-1231 v3 @ 3.40GHz with 2097151kB RAM
+  INFO root [0x00001ccc] [2019-03-02 10:48:43,364] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO root [0x00001ccc] [2019-03-02 10:48:43,368] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO root [0x00001ccc] [2019-03-02 10:48:43,548] - Script::install(): is successfully, Python=(3.7.2 (default, Feb 27 2019, 17:13:46) [MSC v.1916 32 bit (Intel)])!
+  INFO root [0x00001ccc] [2019-03-02 10:48:43,548] - Script::install(): KBExtra is successfully!
+ DEBUG root [0x00001ccc] [2019-03-02 10:48:43,634] - loaded entity-script:Account(1).
+  WARN root [0x00001ccc] [2019-03-02 10:48:43,634] - EntityDef::checkDefMethod: exposed of method: Room.enterGameWorld, check the caller can use "def enterGameWorld(self, callerID, ...)", such as: if callerID == self.id!
+ DEBUG root [0x00001ccc] [2019-03-02 10:48:43,634] - loaded entity-script:Room(3).
+  INFO root [0x00001ccc] [2019-03-02 10:48:43,634] - TelnetServer server is running on port 50000
+  INFO root [0x00001ccc] [2019-03-02 10:48:43,954] - ---- cellapp is running ----
+ DEBUG root [0x00001ccc] [2019-03-02 10:48:43,954] - Components::process(): Request for the process of identity...
+  WARN root [0x00001ccc] [2019-03-02 10:48:50,076] - EntityApp::checkTickPeriod: tick took 6119% (6.12 seconds)!
+  INFO root [0x00001ccc] [2019-03-02 10:48:51,140] - Components::findComponents: find logger(1)...
+  INFO root [0x00001ccc] [2019-03-02 10:48:51,167] - Components::findComponents: found logger, addr:192.168.0.123:3603
+  INFO root [0x00001ccc] [2019-03-02 10:48:51,167] - Components::addComponent: reset orderLog, uid=28936!
+  INFO root [0x00001ccc] [2019-03-02 10:48:51,168] - Components::addComponent[logger], uid=28936, componentID=2000, globalorderid=1, grouporderid=1, totalcount=1
+  INFO root [0x00001ccc] [2019-03-02 10:48:51,169] - Components::findComponents: find dbmgr(2)...
+  INFO root [0x00001ccc] [2019-03-02 10:48:51,272] - Components::findComponents: found dbmgr, addr:192.168.0.123:3606
+  INFO root [0x00001ccc] [2019-03-02 10:48:51,273] - Components::addComponent: reset orderLog, uid=28936!
+  INFO root [0x00001ccc] [2019-03-02 10:48:51,273] - Components::addComponent[dbmgr], uid=28936, componentID=4000, globalorderid=1, grouporderid=1, totalcount=1
+  INFO root [0x00001ccc] [2019-03-02 10:48:51,274] - Components::findComponents: found dbmgr, addr:192.168.0.123:3606
+  WARN root [0x00001ccc] [2019-03-02 10:48:52,275] - Forwarding logs to logger[192.168.0.123:3603/0/0/0]...
+ ERROR root [0x00001ccc] [2019-03-02 11:24:21,573] - Components::removeComponentByChannel: logger : 2000, Abnormal exit! TCPPacketReceiver::processRecv(): error=10054
+
+  INFO root [0x00001ccc] [2019-03-02 11:24:21,579] - The following logs sent to logger failed:
+  WARN root [0x00001ccc] [2019-03-02 11:24:21,579] - ==> [2019-03-02 11:24:21 570] TCPPacketReceiver::processPendingEvents(192.168.0.123:3603): Throwing REASON_GENERAL_NETWORK - WSAECONNRESET
+ ERROR root [0x00001ccc] [2019-03-02 11:24:21,580] - ==> [2019-03-02 11:24:21 575] Components::removeComponentByChannel: logger : 2000, Abnormal exit! TCPPacketReceiver::processRecv(): error=10054
+
+  WARN root [0x00001ccc] [2019-03-02 11:24:21,646] - TCPPacketReceiver::processPendingEvents(192.168.0.123:3606): Throwing REASON_GENERAL_NETWORK - WSAECONNRESET
+ ERROR root [0x00001ccc] [2019-03-02 11:24:21,649] - Components::removeComponentByChannel: dbmgr : 4000, Abnormal exit! TCPPacketReceiver::processRecv(): error=10054
+
+  INFO root [0x00001ccc] [2019-03-02 11:24:21,654] - Shutdowner::onShutdownBegin: shutting down(period=0, tickPeriod=1)
+  INFO root [0x00001ccc] [2019-03-02 11:24:21,654] - Shutdowner::onShutdown: shutting down
+ S_DBG root [0x00001ccc] [2019-03-02 11:24:21,656] - Avatar::onDestroy: 10.
+ S_ERR root [0x00001ccc] [2019-03-02 11:24:21,658] - Traceback (most recent call last):
+  File "D:/kbengine-2.4.2/first_server_assets/scripts/cell\Account.py", line 18, in onDestroy
+    room = self.getCurrRoom()
+ S_ERR root [0x00001ccc] [2019-03-02 11:24:21,659] - AttributeError: 'Account' object has no attribute 'getCurrRoom'
+ S_DBG root [0x00001ccc] [2019-03-02 11:24:21,661] - Avatar::onDestroy: 2.
+ S_ERR root [0x00001ccc] [2019-03-02 11:24:21,662] - Traceback (most recent call last):
+  File "D:/kbengine-2.4.2/first_server_assets/scripts/cell\Account.py", line 18, in onDestroy
+    room = self.getCurrRoom()
+ S_ERR root [0x00001ccc] [2019-03-02 11:24:21,663] - AttributeError: 'Account' object has no attribute 'getCurrRoom'
+ S_DBG root [0x00001ccc] [2019-03-02 11:24:21,665] - Avatar::onDestroy: 4.
+ S_ERR root [0x00001ccc] [2019-03-02 11:24:21,665] - Traceback (most recent call last):
+  File "D:/kbengine-2.4.2/first_server_assets/scripts/cell\Account.py", line 18, in onDestroy
+    room = self.getCurrRoom()
+ S_ERR root [0x00001ccc] [2019-03-02 11:24:21,666] - AttributeError: 'Account' object has no attribute 'getCurrRoom'
+  INFO root [0x00001ccc] [2019-03-02 11:24:21,668] - Spaces::destroySpace: 1.
+ S_DBG root [0x00001ccc] [2019-03-02 11:24:21,669] - Avatar::onDestroy: 5.
+ S_ERR root [0x00001ccc] [2019-03-02 11:24:21,670] - Traceback (most recent call last):
+  File "D:/kbengine-2.4.2/first_server_assets/scripts/cell\Account.py", line 18, in onDestroy
+    room = self.getCurrRoom()
+ S_ERR root [0x00001ccc] [2019-03-02 11:24:21,671] - AttributeError: 'Account' object has no attribute 'getCurrRoom'
+ S_DBG root [0x00001ccc] [2019-03-02 11:24:21,673] - Avatar::onDestroy: 7.
+ S_ERR root [0x00001ccc] [2019-03-02 11:24:21,675] - Traceback (most recent call last):
+  File "D:/kbengine-2.4.2/first_server_assets/scripts/cell\Account.py", line 18, in onDestroy
+    room = self.getCurrRoom()
+ S_ERR root [0x00001ccc] [2019-03-02 11:24:21,675] - AttributeError: 'Account' object has no attribute 'getCurrRoom'
+  INFO root [0x00001ccc] [2019-03-02 11:24:21,677] - Spaces::destroySpace: 2.
+ S_DBG root [0x00001ccc] [2019-03-02 11:24:21,678] - Avatar::onDestroy: 8.
+ S_ERR root [0x00001ccc] [2019-03-02 11:24:21,679] - Traceback (most recent call last):
+  File "D:/kbengine-2.4.2/first_server_assets/scripts/cell\Account.py", line 18, in onDestroy
+    room = self.getCurrRoom()
+ S_ERR root [0x00001ccc] [2019-03-02 11:24:21,680] - AttributeError: 'Account' object has no attribute 'getCurrRoom'
+  INFO root [0x00001ccc] [2019-03-02 11:24:21,683] - Spaces::destroySpace: 3.
+  INFO root [0x00001ccc] [2019-03-02 11:24:21,683] - Shutdowner::onShutdownEnd: shutting down
+ DEBUG root [0x00001ccc] [2019-03-02 11:24:21,684] - Account::~Account(): 10
+ DEBUG root [0x00001ccc] [2019-03-02 11:24:21,684] - Room::~Room(): 9
+ DEBUG root [0x00001ccc] [2019-03-02 11:24:21,685] - Account::~Account(): 8
+ DEBUG root [0x00001ccc] [2019-03-02 11:24:21,685] - Room::~Room(): 6
+ DEBUG root [0x00001ccc] [2019-03-02 11:24:21,686] - Account::~Account(): 5
+ DEBUG root [0x00001ccc] [2019-03-02 11:24:21,686] - Account::~Account(): 7
+ DEBUG root [0x00001ccc] [2019-03-02 11:24:21,687] - Room::~Room(): 3
+ DEBUG root [0x00001ccc] [2019-03-02 11:24:21,688] - Account::~Account(): 2
+ DEBUG root [0x00001ccc] [2019-03-02 11:24:21,688] - Account::~Account(): 4
+ DEBUG root [0x00001ccc] [2019-03-02 11:24:21,688] - EntityRef::destroyObjPool(): size 16.
+ DEBUG root [0x00001ccc] [2019-03-02 11:24:21,689] - Witness::destroyObjPool(): size 16.
+  INFO root [0x00001ccc] [2019-03-02 11:24:21,734] - Script::uninstall(): is successfully!
+ DEBUG root [0x00001ccc] [2019-03-02 11:24:21,735] - ThreadPool::destroy(): starting size 2.
+  INFO root [0x00003d40] [2019-03-02 14:44:58,342] - 
+  INFO root [0x00003d40] [2019-03-02 14:44:58,364] - -----------------------------------------------------------------------------------------
+
+
+  INFO root [0x00003d40] [2019-03-02 14:44:58,405] - Resmgr::initialize: KBE_ROOT=D:/kbengine-2.4.2/
+  INFO root [0x00003d40] [2019-03-02 14:44:58,405] - Resmgr::initialize: KBE_RES_PATH=D:/kbengine-2.4.2/kbe/res/;D:/kbengine-2.4.2/first_server_assets/;D:/kbengine-2.4.2/first_server_assets/scripts/;D:/kbengine-2.4.2/first_server_assets/res/
+  INFO root [0x00003d40] [2019-03-02 14:44:58,405] - Resmgr::initialize: KBE_BIN_PATH=D:/kbengine-2.4.2/kbe/bin/server/
+  INFO root [0x00003d40] [2019-03-02 14:44:58,462] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 127.0.0.1 ( 127.0.0.1:13716 )
+  INFO root [0x00003d40] [2019-03-02 14:44:58,463] - NetworkInterface::initialize(INTERNAL-TCP): address 127.0.0.1:13716, SOMAXCONN=5.
+  INFO root [0x00003d40] [2019-03-02 14:44:58,463] - server-configs:
+  INFO root [0x00003d40] [2019-03-02 14:44:58,463] - 	gameUpdateHertz : 10
+  INFO root [0x00003d40] [2019-03-02 14:44:58,489] - 	defaultViewRadius : 80
+  INFO root [0x00003d40] [2019-03-02 14:44:58,489] - 	defaultViewHysteresisArea : 5
+  INFO root [0x00003d40] [2019-03-02 14:44:58,489] - 	entryScriptFile : kbemain
+  INFO root [0x00003d40] [2019-03-02 14:44:58,489] - 	internalTcpAddr : 127.0.0.1:13716
+  INFO root [0x00003d40] [2019-03-02 14:44:58,490] - 	componentID : 8001
+  WARN root [0x00003d40] [2019-03-02 14:44:58,506] - invalid UID(0) <= 0, please check UID for environment! automatically set to 28936.
+  INFO root [0x00003d40] [2019-03-02 14:44:58,626] - Components::findLogger: found logger, addr:192.168.0.148:13513
+  INFO root [0x00003d40] [2019-03-02 14:44:58,626] - Components::addComponent: reset orderLog, uid=28936!
+  INFO root [0x00003d40] [2019-03-02 14:44:58,627] - Components::addComponent[logger], uid=28936, componentID=2000, globalorderid=1, grouporderid=1, totalcount=1
+  INFO root [0x00003d40] [2019-03-02 14:44:58,650] - ---- cellapp Version: 2.4.2. ScriptVersion: 0.1.0. Pythoncore: 3.7.2. Protocol: E73A667D90DF1EB3CFEA32B1FCE682E5. Config: Debug X86. Built: 17:21:32 Feb 27 2019. AppID: 8001. UID: 28936. PID: 15676 ----
+  INFO root [0x00003d40] [2019-03-02 14:44:58,651] - Server 19: Intel(R) Xeon(R) CPU E3-1231 v3 @ 3.40GHz with 2097151kB RAM
+  INFO root [0x00003d40] [2019-03-02 14:44:58,655] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO root [0x00003d40] [2019-03-02 14:44:58,661] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO root [0x00003d40] [2019-03-02 14:44:58,913] - Script::install(): is successfully, Python=(3.7.2 (default, Feb 27 2019, 17:13:46) [MSC v.1916 32 bit (Intel)])!
+  INFO root [0x00003d40] [2019-03-02 14:44:58,913] - Script::install(): KBExtra is successfully!
+ DEBUG root [0x00003d40] [2019-03-02 14:44:59,176] - loaded entity-script:Account(1).
+  WARN root [0x00003d40] [2019-03-02 14:44:59,179] - EntityDef::checkDefMethod: exposed of method: Room.enterGameWorld, check the caller can use "def enterGameWorld(self, callerID, ...)", such as: if callerID == self.id!
+ DEBUG root [0x00003d40] [2019-03-02 14:44:59,180] - loaded entity-script:Room(3).
+  INFO root [0x00003d40] [2019-03-02 14:44:59,194] - TelnetServer server is running on port 50000
+  INFO root [0x00003d40] [2019-03-02 14:45:00,378] - ---- cellapp is running ----
+ DEBUG root [0x00003d40] [2019-03-02 14:45:00,378] - Components::process(): Request for the process of identity...
+  WARN root [0x00003d40] [2019-03-02 14:45:06,644] - Forwarding logs to logger[192.168.0.148:13513/0/0/0]...
+ ERROR root [0x00003d40] [2019-03-02 14:45:30,856] - Components::removeComponentByChannel: baseappmgr : 5000, Abnormal exit! TCPPacketReceiver::processRecv(): error=10054
+
+ ERROR root [0x00003d40] [2019-03-02 14:45:30,858] - Components::removeComponentByChannel: logger : 2000, Abnormal exit! TCPPacketReceiver::processRecv(): error=10054
+
+  INFO root [0x00003d40] [2019-03-02 14:45:30,860] - The following logs sent to logger failed:
+  WARN root [0x00003d40] [2019-03-02 14:45:30,860] - ==> [2019-03-02 14:45:30 857] TCPPacketReceiver::processPendingEvents(192.168.0.148:13606): Throwing REASON_GENERAL_NETWORK - WSAECONNRESET
+ ERROR root [0x00003d40] [2019-03-02 14:45:30,861] - ==> [2019-03-02 14:45:30 858] Components::removeComponentByChannel: baseappmgr : 5000, Abnormal exit! TCPPacketReceiver::processRecv(): error=10054
+
+  WARN root [0x00003d40] [2019-03-02 14:45:30,861] - ==> [2019-03-02 14:45:30 858] TCPPacketReceiver::processPendingEvents(192.168.0.148:13513): Throwing REASON_GENERAL_NETWORK - WSAECONNRESET
+ ERROR root [0x00003d40] [2019-03-02 14:45:30,861] - ==> [2019-03-02 14:45:30 859] Components::removeComponentByChannel: logger : 2000, Abnormal exit! TCPPacketReceiver::processRecv(): error=10054
+
+  WARN root [0x00003d40] [2019-03-02 14:45:30,862] - TCPPacketReceiver::processPendingEvents(192.168.0.148:13566): Throwing REASON_GENERAL_NETWORK - WSAECONNRESET
+ ERROR root [0x00003d40] [2019-03-02 14:45:30,862] - Components::removeComponentByChannel: dbmgr : 4000, Abnormal exit! TCPPacketReceiver::processRecv(): error=10054
+
+  INFO root [0x00003d40] [2019-03-02 14:45:30,908] - Shutdowner::onShutdownBegin: shutting down(period=0, tickPeriod=1)
+  INFO root [0x00003d40] [2019-03-02 14:45:30,908] - Shutdowner::onShutdown: shutting down
+  INFO root [0x00003d40] [2019-03-02 14:45:30,909] - Shutdowner::onShutdownEnd: shutting down
+  WARN root [0x00003d40] [2019-03-02 14:45:30,910] - TCPPacketReceiver::processPendingEvents(192.168.0.148:13637): Throwing REASON_GENERAL_NETWORK - WSAECONNRESET
+  INFO root [0x00003d40] [2019-03-02 14:45:30,911] - Components::removeComponentByChannel: cellappmgr : 6000, Normal exit!
+  WARN root [0x00003d40] [2019-03-02 14:45:30,911] - ServerApp::shutDown:  In shuttingdown!
+ DEBUG root [0x00003d40] [2019-03-02 14:45:30,920] - EntityRef::destroyObjPool(): size 0.
+ DEBUG root [0x00003d40] [2019-03-02 14:45:30,921] - Witness::destroyObjPool(): size 0.
+  INFO root [0x00003d40] [2019-03-02 14:45:31,004] - Script::uninstall(): is successfully!
+ DEBUG root [0x00003d40] [2019-03-02 14:45:31,004] - ThreadPool::destroy(): starting size 2.
+  WARN root [0x00003d40] [2019-03-02 14:45:31,324] - ThreadPool::destroy(): waiting for thread(2)[0x2145fd8,0x21468c8,], try=1
+ DEBUG root [0x00003d40] [2019-03-02 14:45:31,725] - TPThread::~TPThread(): 0x2145fd8
+ DEBUG root [0x00003d40] [2019-03-02 14:45:31,725] - TPThread::~TPThread(): 0x21468c8
+ DEBUG root [0x00003d40] [2019-03-02 14:45:31,725] - ThreadPool::destroy(): successfully!
+ DEBUG root [0x00003d40] [2019-03-02 14:45:31,760] - Bundle::destroyObjPool(): size 16.
+ DEBUG root [0x00003d40] [2019-03-02 14:45:31,760] - Channel::destroyObjPool(): size 15.
+ DEBUG root [0x00003d40] [2019-03-02 14:45:31,761] - TCPPacket::destroyObjPool(): size 15.
+ DEBUG root [0x00003d40] [2019-03-02 14:45:31,761] - UDPPacket::destroyObjPool(): size 0.
+ DEBUG root [0x00003d40] [2019-03-02 14:45:31,761] - EndPoint::destroyObjPool(): size 15.
+ DEBUG root [0x00003d40] [2019-03-02 14:45:31,761] - Address::destroyObjPool(): size 0.
+ DEBUG root [0x00003d40] [2019-03-02 14:45:31,761] - TCPPacketReceiver::destroyObjPool(): size 0.
+ DEBUG root [0x00003d40] [2019-03-02 14:45:31,761] - UDPPacketReceiver::destroyObjPool(): size 0.
+  INFO root [0x00003d40] [2019-03-02 14:45:31,762] - cellapp(8001) has shut down.
+  INFO root [0x00003d40] [2019-03-02 14:45:32,763] - EventDispatcher()::~EventDispatcher: Num timers = 1
+  INFO root [0x000013f4] [2019-03-02 14:45:57,957] - 
+  INFO root [0x000013f4] [2019-03-02 14:45:57,959] - -----------------------------------------------------------------------------------------
+
+
+  INFO root [0x000013f4] [2019-03-02 14:45:57,970] - Resmgr::initialize: KBE_ROOT=D:/kbengine-2.4.2/
+  INFO root [0x000013f4] [2019-03-02 14:45:57,978] - Resmgr::initialize: KBE_RES_PATH=D:/kbengine-2.4.2/kbe/res/;D:/kbengine-2.4.2/first_server_assets/;D:/kbengine-2.4.2/first_server_assets/scripts/;D:/kbengine-2.4.2/first_server_assets/res/
+  INFO root [0x000013f4] [2019-03-02 14:45:57,979] - Resmgr::initialize: KBE_BIN_PATH=D:/kbengine-2.4.2/kbe/bin/server/
+  INFO root [0x000013f4] [2019-03-02 14:45:57,988] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 192.168.0.148 ( 192.168.0.148:14066 )
+  INFO root [0x000013f4] [2019-03-02 14:45:57,989] - NetworkInterface::initialize(INTERNAL-TCP): address 192.168.0.148:14066, SOMAXCONN=5.
+  INFO root [0x000013f4] [2019-03-02 14:45:57,989] - server-configs:
+  INFO root [0x000013f4] [2019-03-02 14:45:57,989] - 	gameUpdateHertz : 10
+  INFO root [0x000013f4] [2019-03-02 14:45:57,989] - 	defaultViewRadius : 80
+  INFO root [0x000013f4] [2019-03-02 14:45:57,990] - 	defaultViewHysteresisArea : 5
+  INFO root [0x000013f4] [2019-03-02 14:45:57,990] - 	entryScriptFile : kbemain
+  INFO root [0x000013f4] [2019-03-02 14:45:57,990] - 	internalTcpAddr : 192.168.0.148:14066
+  INFO root [0x000013f4] [2019-03-02 14:45:57,991] - 	componentID : 8001
+  WARN root [0x000013f4] [2019-03-02 14:45:57,995] - invalid UID(0) <= 0, please check UID for environment! automatically set to 34643.
+  INFO root [0x000013f4] [2019-03-02 14:45:58,836] - Components::findLogger: found logger, addr:192.168.0.148:14064
+  INFO root [0x000013f4] [2019-03-02 14:45:58,837] - Components::addComponent: reset orderLog, uid=34643!
+  INFO root [0x000013f4] [2019-03-02 14:45:58,837] - Components::addComponent[logger], uid=34643, componentID=2000, globalorderid=1, grouporderid=1, totalcount=1
+  INFO root [0x000013f4] [2019-03-02 14:45:58,847] - ---- cellapp Version: 2.4.2. ScriptVersion: 0.1.0. Pythoncore: 3.7.2. Protocol: E73A667D90DF1EB3CFEA32B1FCE682E5. Config: Debug X86. Built: 17:21:32 Feb 27 2019. AppID: 8001. UID: 34643. PID: 2488 ----
+  INFO root [0x000013f4] [2019-03-02 14:45:58,848] - Server 19: Intel(R) Xeon(R) CPU E3-1231 v3 @ 3.40GHz with 2097151kB RAM
+  INFO root [0x000013f4] [2019-03-02 14:45:58,848] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO root [0x000013f4] [2019-03-02 14:45:58,849] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO root [0x000013f4] [2019-03-02 14:45:59,117] - Script::install(): is successfully, Python=(3.7.2 (default, Feb 27 2019, 17:13:46) [MSC v.1916 32 bit (Intel)])!
+  INFO root [0x000013f4] [2019-03-02 14:45:59,119] - Script::install(): KBExtra is successfully!
+ DEBUG root [0x000013f4] [2019-03-02 14:45:59,358] - loaded entity-script:Account(1).
+  WARN root [0x000013f4] [2019-03-02 14:45:59,361] - EntityDef::checkDefMethod: exposed of method: Room.enterGameWorld, check the caller can use "def enterGameWorld(self, callerID, ...)", such as: if callerID == self.id!
+ DEBUG root [0x000013f4] [2019-03-02 14:45:59,362] - loaded entity-script:Room(3).
+  INFO root [0x000013f4] [2019-03-02 14:45:59,362] - TelnetServer server is running on port 50000
+  INFO root [0x000013f4] [2019-03-02 14:46:00,589] - ---- cellapp is running ----
+ DEBUG root [0x000013f4] [2019-03-02 14:46:00,590] - Components::process(): Request for the process of identity...
+  WARN root [0x000013f4] [2019-03-02 14:46:06,803] - Forwarding logs to logger[192.168.0.148:14064/0/0/0]...
+ ERROR root [0x000013f4] [2019-03-02 14:49:22,829] - Components::removeComponentByChannel: dbmgr : 4000, Abnormal exit! TCPPacketReceiver::processRecv(): error=10054
+

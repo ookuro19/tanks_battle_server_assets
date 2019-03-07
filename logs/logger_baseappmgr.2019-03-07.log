@@ -1,0 +1,43 @@
+    INFO baseappmgr-1 0 5000  [2019-03-07 13:42:08 648] - -----------------------------------------------------------------------------------------
+
+
+    INFO baseappmgr-1 0 5000  [2019-03-07 13:42:08 664] - Resmgr::initialize: KBE_ROOT=D:/kbengine-2.4.2/
+    INFO baseappmgr-1 0 5000  [2019-03-07 13:42:08 664] - Resmgr::initialize: KBE_RES_PATH=D:/kbengine-2.4.2/kbe/res/;D:/kbengine-2.4.2/skiing3_server_assets/;D:/kbengine-2.4.2/skiing3_server_assets/scripts/;D:/kbengine-2.4.2/skiing3_server_assets/res/
+    INFO baseappmgr-1 0 5000  [2019-03-07 13:42:08 665] - Resmgr::initialize: KBE_BIN_PATH=D:/kbengine-2.4.2/kbe/bin/server/
+    INFO baseappmgr-1 0 5000  [2019-03-07 13:42:08 687] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 192.168.0.148 ( 192.168.0.148:7773 )
+    INFO baseappmgr-1 0 5000  [2019-03-07 13:42:08 688] - NetworkInterface::initialize(INTERNAL-TCP): address 192.168.0.148:7773, SOMAXCONN=5.
+    INFO baseappmgr-1 0 5000  [2019-03-07 13:42:08 688] - server-configs:
+    INFO baseappmgr-1 0 5000  [2019-03-07 13:42:08 688] - 	internalTcpAddr : 192.168.0.148:7773
+    INFO baseappmgr-1 0 5000  [2019-03-07 13:42:08 688] - 	componentID : 5000
+ WARNING baseappmgr-1 28936 5000  [2019-03-07 13:42:08 701] - invalid UID(0) <= 0, please check UID for environment! automatically set to 28936.
+    INFO baseappmgr-1 28936 5000  [2019-03-07 13:42:08 797] - Components::findLogger: found logger, addr:192.168.0.148:7760
+    INFO baseappmgr-1 28936 5000  [2019-03-07 13:42:08 806] - Components::addComponent: reset orderLog, uid=28936!
+    INFO baseappmgr-1 28936 5000  [2019-03-07 13:42:08 806] - Components::addComponent[logger], uid=28936, componentID=2000, globalorderid=1, grouporderid=1, totalcount=1
+    INFO baseappmgr-1 28936 5000  [2019-03-07 13:42:08 817] - ---- baseappmgr Version: 2.4.2. ScriptVersion: 0.1.0. Pythoncore: 3.7.2. Protocol: E6918B69E98EAAAB4657C1417BA2685B. Config: Debug X86. Built: 17:20:25 Feb 27 2019. AppID: 5000. UID: 28936. PID: 5836 ----
+    INFO baseappmgr-1 28936 5000  [2019-03-07 13:42:08 817] - Server 19: Intel(R) Xeon(R) CPU E3-1231 v3 @ 3.40GHz with 2097151kB RAM
+    INFO baseappmgr-1 28936 5000  [2019-03-07 13:42:08 826] - ThreadPool::createThreadPool: creating  threadpool...
+    INFO baseappmgr-1 28936 5000  [2019-03-07 13:42:08 827] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+    INFO baseappmgr-1 28936 5000  [2019-03-07 13:42:09 201] - ---- baseappmgr is running ----
+   DEBUG baseappmgr-1 28936 5000  [2019-03-07 13:42:09 202] - Components::process(): Request for the process of identity...
+    INFO baseappmgr-1 28936 5000  [2019-03-07 13:42:16 327] - Components::findComponents: find dbmgr(1)...
+    INFO baseappmgr-1 28936 5000  [2019-03-07 13:42:16 336] - Components::findComponents: found dbmgr, addr:192.168.0.148:7763
+    INFO baseappmgr-1 28936 5000  [2019-03-07 13:42:16 336] - Components::addComponent: reset orderLog, uid=28936!
+    INFO baseappmgr-1 28936 5000  [2019-03-07 13:42:16 336] - Components::addComponent[dbmgr], uid=28936, componentID=4000, globalorderid=1, grouporderid=1, totalcount=1
+    INFO baseappmgr-1 28936 5000  [2019-03-07 13:42:16 337] - Components::findComponents: found dbmgr, addr:192.168.0.148:7763
+    INFO baseappmgr-1 28936 5000  [2019-03-07 13:42:18 348] - Components::findComponents: find cellappmgr(1)...
+    INFO baseappmgr-1 28936 5000  [2019-03-07 13:42:18 429] - Components::findComponents: found cellappmgr, addr:192.168.0.148:7776
+    INFO baseappmgr-1 28936 5000  [2019-03-07 13:42:18 429] - Components::addComponent[cellappmgr], uid=28936, componentID=6000, globalorderid=2, grouporderid=1, totalcount=1
+    INFO baseappmgr-1 28936 5000  [2019-03-07 13:42:18 429] - Components::findComponents: found cellappmgr, addr:192.168.0.148:7776
+    INFO baseappmgr-1 28936 5000  [2019-03-07 13:42:20 468] - Components::findComponents: register self to dbmgr...
+    INFO baseappmgr-1 28936 5000  [2019-03-07 13:42:20 476] - Components::findComponents: register self to cellappmgr...
+    INFO baseappmgr-1 28936 5000  [2019-03-07 13:42:20 477] - Components::process(): Found all the components!
+    INFO baseappmgr-1 28936 5000  [2019-03-07 13:42:28 239] - ServerApp::onRegisterNewApp: uid:28936, username:19, componentType:cellappmgr, componentID:6000, globalorderID=-1, grouporderID=-1, intaddr:192.168.0.148, intport:7776, extaddr:nonsupport, extport:0,  from 192.168.0.148:7786/0/0/0.
+    INFO baseappmgr-1 28936 5000  [2019-03-07 13:42:35 563] - ServerApp::onRegisterNewApp: uid:28936, username:19, componentType:baseapp, componentID:7001, globalorderID=-1, grouporderID=-1, intaddr:192.168.0.148, intport:7780, extaddr:192.168.0.148, extport:20015,  from 192.168.0.148:7792/0/0/0.
+    INFO baseappmgr-1 28936 5000  [2019-03-07 13:42:35 563] - Components::addComponent[baseapp], uid=28936, componentID=7001, globalorderid=3, grouporderid=1, totalcount=1
+    INFO baseappmgr-1 28936 5000  [2019-03-07 13:42:39 935] - Baseappmgr::onBaseappInitProgress: cid=7001, progress=1.
+    INFO baseappmgr-1 28936 5000  [2019-03-07 13:42:39 935] - Baseappmgr::onBaseappInitProgress: all completed!
+ WARNING baseappmgr-1 28936 5000  [2019-03-07 13:42:39 935] - d:\kbengine-2.4.2\kbe\src\lib\network\channel.cpp:1022: Profile processRecvMessages took 0.02 seconds
+    INFO baseappmgr-1 28936 5000  [2019-03-07 13:42:43 114] - ServerApp::onRegisterNewApp: uid:28936, username:19, componentType:cellapp, componentID:8001, globalorderID=-1, grouporderID=-1, intaddr:192.168.0.148, intport:7787, extaddr:nonsupport, extport:0,  from 192.168.0.148:7801/0/0/0.
+    INFO baseappmgr-1 28936 5000  [2019-03-07 13:42:43 114] - Components::addComponent[cellapp], uid=28936, componentID=8001, globalorderid=4, grouporderid=1, totalcount=1
+    INFO baseappmgr-1 28936 5000  [2019-03-07 13:42:48 935] - ServerApp::onRegisterNewApp: uid:28936, username:19, componentType:loginapp, componentID:9000, globalorderID=-1, grouporderID=-1, intaddr:192.168.0.148, intport:7794, extaddr:192.168.0.148, extport:20013,  from 192.168.0.148:7804/0/0/0.
+    INFO baseappmgr-1 28936 5000  [2019-03-07 13:42:48 935] - Components::addComponent[loginapp], uid=28936, componentID=9000, globalorderid=5, grouporderid=1, totalcount=1
