@@ -1,0 +1,15 @@
+# ----[ Visual Studio ]------- #
+__pycache__/
+logs/
+kbengine_unity3d_plugins/
+kbengine_ue4_plugins/
+.vscode/
+
+# -------------[ OS generated ]------------------------ #
+.DS_Store
+.DS_Store?
+ehthumbs.db
+Thumbs.db
+
+*.pyc
+

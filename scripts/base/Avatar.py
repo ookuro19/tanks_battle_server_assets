@@ -23,6 +23,7 @@ class Avatar(KBEngine.Proxy):
         """
         INFO_MSG("account[%i] start matching. entityCall:%s" %
                  (self.id, self.client))
+        self.isLoadingFinish = False
         # 如果玩家存在cell， 说明已经在地图中了， 因此不需要再次进入地图
         if self.cell is None:
             # 玩家上线了或者重登陆了， 此处告诉大厅，玩家请求登陆到游戏地图中
@@ -65,10 +66,14 @@ class Avatar(KBEngine.Proxy):
         regLoadingProgress
         客户端加载进度
         """
-        self.cellData["progress"] = progress
-        if progress == 1:
-            if self.roomBaseEntityCall is not None:
-                self.roomBaseEntityCall.loadingFinish(self.id)
+        # self.cellData["progress"] = progress
+        if not self.isLoadingFinish:
+            if progress == 100:
+                INFO_MSG("account[%i] regLoadingProgress. entityCall:%s" %
+                         (self.id, self.client))
+                self.isLoadingFinish = True
+                if self.roomBaseEntityCall is not None:
+                    self.roomBaseEntityCall.loadingFinish(self.id)
 
     def loadingFinish(self):
         """

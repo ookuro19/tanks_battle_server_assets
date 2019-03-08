@@ -46,7 +46,6 @@
 		<createCell>
 			<Arg>		ENTITYCALL					</Arg>
 			<Arg>		SPACE_KEY					</Arg>
-			<Arg>		ROOM_NUM					</Arg>
 		</createCell>
 
 		<matchingFinish>
