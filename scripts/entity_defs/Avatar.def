@@ -21,14 +21,14 @@
 
 		<progress>
 			<Type>		INT32			</Type>
-			<Flags>		ALL_CLIENTS			</Flags>
+			<Flags>		OTHER_CLIENTS		</Flags>
 			<Default>		0				</Default>
 		</progress>
 
 		<roomNo>
 			<Type>		INT32			</Type>
-			<Flags>		ALL_CLIENTS			</Flags>
-			<Default>		0				</Default>
+			<Flags>		ALL_CLIENTS		</Flags>
+			<Default>		0			</Default>
 		</roomNo>
 	</Properties>
 
