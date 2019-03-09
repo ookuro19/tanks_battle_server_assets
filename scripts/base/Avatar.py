@@ -12,7 +12,7 @@ class Avatar(KBEngine.Proxy):
         KBEngine.Proxy.__init__(self)
         self.cellData["dbid"] = self.databaseID
         # 随便取个名字吧
-        self.cellData["name"] = "Avatar" + str(self.id)
+        self.cellData["name"] = self.__ACCOUNT_NAME__
         self._destroyTimer = 0
         self.roomBaseEntityCall = None
 
@@ -30,12 +30,13 @@ class Avatar(KBEngine.Proxy):
             KBEngine.globalData["Halls"].enterRoom(
                 self, self.roomKey)
 
-    def createCell(self, space, roomKey):
+    def createCell(self, space, roomKey, roomNo):
         """
         defined method.
         创建cell实体
         """
         self.roomKey = roomKey
+        self.cellData["roomNo"] = roomNo
         self.createCellEntity(space)
         self.roomBaseEntityCall = space.base
 

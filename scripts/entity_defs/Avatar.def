@@ -24,6 +24,12 @@
 			<Flags>		ALL_CLIENTS			</Flags>
 			<Default>		0				</Default>
 		</progress>
+
+		<roomNo>
+			<Type>		INT32			</Type>
+			<Flags>		ALL_CLIENTS			</Flags>
+			<Default>		0				</Default>
+		</roomNo>
 	</Properties>
 
 	<ClientMethods>
@@ -46,6 +52,7 @@
 		<createCell>
 			<Arg>		ENTITYCALL					</Arg>
 			<Arg>		SPACE_KEY					</Arg>
+			<Arg>		INT32						</Arg>
 		</createCell>
 
 		<matchingFinish>
