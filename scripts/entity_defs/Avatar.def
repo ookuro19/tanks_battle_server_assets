@@ -68,10 +68,6 @@
 	</BaseMethods>
 
 	<CellMethods>
-		<regProgress>
-			<Exposed/>
-			<Arg>		INT32						</Arg>
-		</regProgress>
 	</CellMethods>
 
 </root>

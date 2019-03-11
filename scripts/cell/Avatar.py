@@ -19,13 +19,3 @@ class Avatar(KBEngine.Entity):
 
         if room:
             room.onLeave(self.id)
-
-    def regProgress(self, tprogress):
-        """
-        regLoadingProgress
-        客户端加载进度
-        """
-        if self.progress < tprogress:
-            self.progress = tprogress
-            INFO_MSG("cell::account[%i] reg progress. entityCall:%s, progress:%s" %
-                     (self.id, self.client, tprogress))
