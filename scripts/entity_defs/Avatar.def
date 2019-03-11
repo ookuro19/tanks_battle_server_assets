@@ -1,4 +1,8 @@
 <root>
+	<Interfaces>
+		<Interface>	EntityCommon		</Interface>
+	</Interfaces>
+
 	<Properties>
 		<roomKey>
 			<Type>		SPACE_KEY			</Type>
@@ -57,14 +61,6 @@
 
 		<matchingFinish>
 		</matchingFinish>
-
-		<regLoadingProgress>
-			<Exposed/>
-			<Arg>		INT32						</Arg>
-		</regLoadingProgress>
-
-		<loadingFinish>
-		</loadingFinish>
 	</BaseMethods>
 
 	<CellMethods>
@@ -72,6 +68,9 @@
 			<Exposed/>
 			<Arg>		INT32						</Arg>
 		</regProgress>
+
+		<loadingFinish>
+		</loadingFinish>
 	</CellMethods>
 
 </root>

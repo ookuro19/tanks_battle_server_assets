@@ -52,3 +52,25 @@ class Room(KBEngine.Entity):
         if entityCall.id in self.avatars:
             entityCall.position = position
             entityCall.direction = direction
+
+    def AvatarloadingFinish(self, entityID):
+        """
+        loading finish.
+        加载结束
+        """
+        DEBUG_MSG('Room::loadingFinish entityID = %i.' % entityID)
+        if entityID in self.avatars:
+            loadingFinishCount = 0
+            for info in self.avatars.values():
+                if info.progress == 100:
+                    loadingFinishCount += 1
+            if loadingFinishCount == GameConfigs.ROOM_MAX_PLAYER:
+                for info in self.avatars.values():
+                    info.loadingFinish()
+
+    def onDestroy(self):
+        """
+        KBEngine method.
+        """
+        DEBUG_MSG("Room::onDestroy: %i" % (self.id))
+        del KBEngine.globalData["Room_%i" % self.spaceID]

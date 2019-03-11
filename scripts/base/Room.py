@@ -20,8 +20,6 @@ class Room(KBEngine.Entity):
 
         self.avatars = {}
 
-        self.loadingFinishCount = 0
-
     def enterRoom(self, entityCall):
         """
         defined method.
@@ -44,7 +42,6 @@ class Room(KBEngine.Entity):
         """
         self.avatars[entityCall.id] = entityCall
         if len(self.avatars) == GameConfigs.ROOM_MAX_PLAYER:
-            self.loadingFinishCount = 0
             for info in self.avatars.values():
                 info.matchingFinish()
                 DEBUG_MSG("Room::matchingFinish: %i" % self.roomKey)
@@ -56,18 +53,6 @@ class Room(KBEngine.Entity):
         """
         if entityID in self.avatars:
             del self.avatars[entityID]
-
-    def loadingFinish(self, entityID):
-        """
-        loading finish.
-        加载结束
-        """
-        DEBUG_MSG('Room::loadingFinish entityID = %i.' % entityID)
-        if entityID in self.avatars:
-            self.loadingFinishCount += 1
-            if self.loadingFinishCount == len(self.avatars):
-                for info in self.avatars.values():
-                    info.loadingFinish()
 
     # --------------------------------------------------------------------------------------------
     #                              Callbacks

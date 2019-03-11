@@ -15,7 +15,6 @@ class Avatar(KBEngine.Proxy):
         self.cellData["name"] = self.__ACCOUNT_NAME__
         self.cellData["progress"] = 0
         self._destroyTimer = 0
-        self.roomBaseEntityCall = None
 
     def startMatching(self, mapNum, modeNum):
         """
@@ -39,7 +38,6 @@ class Avatar(KBEngine.Proxy):
         self.roomKey = roomKey
         self.cellData["roomNo"] = roomNo
         self.createCellEntity(space)
-        self.roomBaseEntityCall = space.base
 
     def destroySelf(self):
         """
@@ -62,27 +60,6 @@ class Avatar(KBEngine.Proxy):
         匹配结束，通知客户端可以开始加载地图
         """
         self.client.onMatchingFinish(0)
-
-    def regLoadingProgress(self, progress):
-        """
-        regLoadingProgress
-        客户端加载进度
-        """
-        # self.cellData["progress"] = progress
-        if not self.isLoadingFinish:
-            INFO_MSG("account[%i] regLoadingProgress. entityCall:%s" %
-                     (self.id, self.client))
-            if progress == 100:
-                self.isLoadingFinish = True
-                if self.roomBaseEntityCall is not None:
-                    self.roomBaseEntityCall.loadingFinish(self.id)
-
-    def loadingFinish(self):
-        """
-        loading finish
-        所有玩家完成地图加载，通知客户端可以开始比赛
-        """
-        self.client.onLoadingFinish(0)
 
     # --------------------------------------------------------------------------------------------
     #                              Callbacks

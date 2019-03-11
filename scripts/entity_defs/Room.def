@@ -31,10 +31,6 @@
 		<onLeave>
 			<Arg>		ENTITY_ID		</Arg>
 		</onLeave>
-
-		<loadingFinish>
-			<Arg>		ENTITY_ID		</Arg>
-		</loadingFinish>
 	</BaseMethods>
 
 	<CellMethods>
@@ -52,6 +48,10 @@
 			<Arg>		POSITION3D		</Arg>
 			<Arg>		DIRECTION3D		</Arg>
 		</enterGameWorld>
+
+		<AvatarloadingFinish>
+			<Arg>		ENTITY_ID		</Arg>
+		</AvatarloadingFinish>
 	</CellMethods>
 
 </root>
