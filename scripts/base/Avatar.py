@@ -13,6 +13,7 @@ class Avatar(KBEngine.Proxy):
         self.cellData["dbid"] = self.databaseID
         # 随便取个名字吧
         self.cellData["name"] = self.__ACCOUNT_NAME__
+        self.cellData["progress"] = 0
         self._destroyTimer = 0
         self.roomBaseEntityCall = None
 
@@ -21,8 +22,8 @@ class Avatar(KBEngine.Proxy):
         start matching
         根据玩家提交的地图和模式开始进行匹配
         """
-        INFO_MSG("account[%i] start matching. entityCall:%s" %
-                 (self.id, self.client))
+        INFO_MSG("account[%i] start matching. entityCall:%s, mapNum:%s, modeNum:%s" %
+                 (self.id, self.client, mapNum, modeNum))
         self.isLoadingFinish = False
         # 如果玩家存在cell， 说明已经在地图中了， 因此不需要再次进入地图
         if self.cell is None:
@@ -69,9 +70,9 @@ class Avatar(KBEngine.Proxy):
         """
         # self.cellData["progress"] = progress
         if not self.isLoadingFinish:
+            INFO_MSG("account[%i] regLoadingProgress. entityCall:%s" %
+                     (self.id, self.client))
             if progress == 100:
-                INFO_MSG("account[%i] regLoadingProgress. entityCall:%s" %
-                         (self.id, self.client))
                 self.isLoadingFinish = True
                 if self.roomBaseEntityCall is not None:
                     self.roomBaseEntityCall.loadingFinish(self.id)
