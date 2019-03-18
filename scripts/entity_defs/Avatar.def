@@ -44,6 +44,15 @@
 		<onLoadingFinish>
 			<Arg>		INT32				</Arg>
 		</onLoadingFinish>
+
+		<onReachDestination>
+			<Arg>		ENTITY_ID		</Arg>
+			<Arg>		INT32			</Arg>
+		</onReachDestination>
+
+		<onTimerChanged>
+        	<Arg>		INT32			</Arg>
+		</onTimerChanged>
 	</ClientMethods>
 
 	<BaseMethods>
@@ -71,6 +80,15 @@
 
 		<loadingFinish>
 		</loadingFinish>
+
+		<reachDestination>
+			<Exposed/>
+		</reachDestination>
+
+		<onReachDestination>
+			<Arg>		ENTITY_ID		</Arg>
+			<Arg>		INT32			</Arg>
+		</onReachDestination>
 	</CellMethods>
 
 </root>

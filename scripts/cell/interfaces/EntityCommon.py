@@ -4,7 +4,6 @@ from KBEDebug import *
 
 TIMER_TYPE_ENTITY_DESTROY = 100
 
-
 class EntityCommon:
     '''
     服务端游戏对象的基础接口类
@@ -25,7 +24,7 @@ class EntityCommon:
         """
         return KBEngine.globalData.get("Room_%i" % self.spaceID)
 
-    def getCurrRoom(self):
+    def getCurRoom(self):
         """
         获得当前space的entity
         """

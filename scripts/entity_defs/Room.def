@@ -42,16 +42,13 @@
 			<Arg>		ENTITY_ID		</Arg>
 		</onLeave>
 
-		<enterGameWorld>
-			<Exposed/>
-			<Arg>		ENTITYCALL		</Arg>
-			<Arg>		POSITION3D		</Arg>
-			<Arg>		DIRECTION3D		</Arg>
-		</enterGameWorld>
-
 		<AvatarloadingFinish>
 			<Arg>		ENTITY_ID		</Arg>
 		</AvatarloadingFinish>
+
+		<playerReachDestination>
+			<Arg>		ENTITY_ID		</Arg>
+		</playerReachDestination>
 	</CellMethods>
 
 </root>
