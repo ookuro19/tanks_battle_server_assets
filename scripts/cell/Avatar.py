@@ -25,6 +25,7 @@ class Avatar(KBEngine.Entity, EntityCommon):
         if room:
             room.onLeave(self.id)
 
+    # region Matching
     def regProgress(self, tprogress):
         """
         regLoadingProgress
@@ -44,6 +45,20 @@ class Avatar(KBEngine.Entity, EntityCommon):
         """
         self.client.onLoadingFinish(0)
 
+    # endregion
+
+    # region Props
+    def getProps(self, prop_type):
+        """
+        当前玩家获得道具
+        :param prop_type: 所获得的道具类型
+        """
+        DEBUG_MSG("Avatar id: %i, get props: %i." % (self.id, prop_type))
+        self.allClients.onGetProps(prop_type)
+
+    # endregion
+
+    # region Destination
     def reachDestination(self):
         """
         reach destination
@@ -69,19 +84,21 @@ class Avatar(KBEngine.Entity, EntityCommon):
         """
         self.client.onTimerChanged(time)
 
+    # endregion
+
     # --------------------------------------------------------------------------------------------
     #                              Callbacks
     # --------------------------------------------------------------------------------------------
 
-    def onTimer(self, tid, userArg):
+    def onTimer(self, tid, user_arg):
         """
         KBEngine method.
         引擎回调timer触发
         """
         # DEBUG_MSG("%s::onTimer: %i, tid:%i, arg:%i" % (self.className, self.id, tid, userArg))
-        EntityCommon.onTimer(self, tid, userArg)
+        EntityCommon.onTimer(self, tid, user_arg)
 
-        if TIMER_TYPE_ADD_TRAP == userArg:
+        if TIMER_TYPE_ADD_TRAP == user_arg:
             self.addProximity(self.modelRadius, 0, 0)
 
     def onUpgrade(self):

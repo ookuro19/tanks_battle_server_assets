@@ -53,6 +53,10 @@
 		<onTimerChanged>
         	<Arg>		INT32			</Arg>
 		</onTimerChanged>
+
+		<onGetProps>
+        	<Arg>		INT32			</Arg>
+		</onGetProps>
 	</ClientMethods>
 
 	<BaseMethods>
