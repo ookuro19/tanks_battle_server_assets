@@ -89,6 +89,11 @@
 			<Exposed/>
 		</reachDestination>
 
+        <getProps>
+            <Exposed/>
+            <Arg>		INT32						</Arg>
+        </getProps>
+
 		<onReachDestination>
 			<Arg>		ENTITY_ID		</Arg>
 			<Arg>		INT32			</Arg>

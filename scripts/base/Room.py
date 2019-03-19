@@ -19,6 +19,8 @@ class Room(KBEngine.Entity):
         self.createCellEntityInNewSpace(None)
 
         self.avatars = {}
+        DEBUG_MSG("Room::__init__: %i" % self.id)
+
 
     def enterRoom(self, entityCall):
         """
