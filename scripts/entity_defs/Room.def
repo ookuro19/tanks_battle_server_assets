@@ -1,5 +1,5 @@
 <root>
-    <Properties>
+	<Properties>
 		<roomKey>
 			<Type>			SPACE_KEY			</Type>
 			<Flags>			BASE				</Flags>

@@ -11,19 +11,8 @@ class Avatar(KBEngine.Entity, EntityCommon):
     def __init__(self):
         KBEngine.Entity.__init__(self)
         EntityCommon.__init__(self)
-
+        self.progress = 0
         self.getCurRoom().onEnter(self)
-
-    def onDestroy(self):
-        """
-        KBEngine method.
-        entity销毁
-        """
-        DEBUG_MSG("Avatar::onDestroy: %i." % self.id)
-        room = self.getCurRoom()
-
-        if room:
-            room.onLeave(self.id)
 
     # region Matching
     def regProgress(self, tprogress):
@@ -83,7 +72,6 @@ class Avatar(KBEngine.Entity, EntityCommon):
         :param time: 倒计时
         """
         self.client.onTimerChanged(time)
-
     # endregion
 
     # --------------------------------------------------------------------------------------------
@@ -114,3 +102,4 @@ class Avatar(KBEngine.Entity, EntityCommon):
 
         if room:
             room.onLeave(self.id)
+    # endregion

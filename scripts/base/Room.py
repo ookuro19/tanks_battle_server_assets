@@ -12,7 +12,7 @@ class Room(KBEngine.Entity):
 
     def __init__(self):
         KBEngine.Entity.__init__(self)
-
+        
         self.cellData["roomKeyC"] = self.roomKey
 
         # 请求在cellapp上创建cell空间

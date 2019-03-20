@@ -4,6 +4,7 @@ logs/
 kbengine_unity3d_plugins/
 kbengine_ue4_plugins/
 .vscode/
+vscode/
 _tmp
 **/.idea/
 **/venv/

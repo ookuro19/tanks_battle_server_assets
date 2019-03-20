@@ -7,6 +7,7 @@ import random
 TIMER_TYPE_TOTAL_TIME = 1
 TIMER_TYPE_START = 2
 TIMER_TYPE_END = 3
+TIMER_TYPE_DESTROY = 4
 
 
 class Room(KBEngine.Entity):
@@ -31,26 +32,7 @@ class Room(KBEngine.Entity):
         # 到达终点人数总计
         self.reachCount = 0
 
-    def onEnter(self, entityCall):
-        """
-        defined method.
-        进入场景
-        """
-        DEBUG_MSG('Room::onEnter space[%d] entityID = %i.' %
-                  (self.spaceID, entityCall.id))
-        self.avatars[entityCall.id] = entityCall
-
-    def onLeave(self, entityID):
-        """
-        defined method.
-        离开场景
-        """
-        DEBUG_MSG('Room::onLeave space[%d] entityID = %i.' % (
-            self.spaceID, entityID))
-
-        if entityID in self.avatars:
-            del self.avatars[entityID]
-
+    # region Loading
     def AvatarloadingFinish(self, entityID):
         """
         loading finish.
@@ -67,7 +49,9 @@ class Room(KBEngine.Entity):
                     info.loadingFinish()
                 # 所有玩家加载完成后，开局倒计时3s
                 self._startTimer = self.addTimer(3, 0, TIMER_TYPE_START)
+    # endregion Loading
 
+    # region playing
     def playerReachDestination(self, entityID):
         """
         player reach destition
@@ -84,7 +68,9 @@ class Room(KBEngine.Entity):
             elif self.reachCount == len(self.avatars):
                 if self.totalTimer > 0:
                     self.gameOver()
+    # endregion playing
 
+    # region gameover
     def gameOver(self):
         if self.endTimer > 0:
             self.delTimer(self._endTimer)
@@ -92,13 +78,13 @@ class Room(KBEngine.Entity):
             self.delTimer(self._totalTimer)
         for info in self.avatars.values():
             info.onTimerChanged(0)
+        self._destroyTimer = self.addTimer(1, 0, TIMER_TYPE_DESTROY)
 
-    def onDestroy(self):
-        """
-        KBEngine method.
-        """
-        DEBUG_MSG("Room::onDestroy: %i" % (self.id))
-        del KBEngine.globalData["Room_%i" % self.spaceID]
+    def onDestroyTimer(self, ):
+        DEBUG_MSG("Room::onDestroyTimer: %i" % (self.id))
+        # 请求销毁引擎中创建的真实空间，在空间销毁后，所有该空间上的实体都被销毁
+        self.destroySpace()
+    # endregion gameover
 
     # --------------------------------------------------------------------------------------------
     #                              Callbacks
@@ -130,3 +116,32 @@ class Room(KBEngine.Entity):
             else:
                 for info in self.avatars.values():
                     info.onTimerChanged(10 - self.endTimer)
+        elif TIMER_TYPE_DESTROY == userArg:
+            self.onDestroyTimer()
+
+    def onEnter(self, entityCall):
+        """
+        defined method.
+        进入场景
+        """
+        DEBUG_MSG('Room::onEnter space[%d] entityID = %i.' %
+                  (self.spaceID, entityCall.id))
+        self.avatars[entityCall.id] = entityCall
+
+    def onLeave(self, entityID):
+        """
+        defined method.
+        离开场景
+        """
+        DEBUG_MSG('Room::onLeave space[%d] entityID = %i.' % (
+            self.spaceID, entityID))
+
+        if entityID in self.avatars:
+            del self.avatars[entityID]
+
+    def onDestroy(self):
+        """
+        KBEngine method.
+        """
+        DEBUG_MSG("Room::onDestroy: %i" % (self.id))
+        del KBEngine.globalData["Room_%i" % self.spaceID]
