@@ -294,23 +294,32 @@ room -&gt; room : check players&apos; progress
 room -&gt; avatar : loadingFinish
 avatar -&gt; sdk : loadingFinish
 
-Note left of sdk : gaming
+# &#x6E38;&#x620F;&#x9636;&#x6BB5;
+Note left of sdk : pos
 sdk -&gt; avatar : update pos
 
 # &#x7EC8;&#x70B9;&#x5224;&#x65AD;&#x65B9;&#x6CD5;&#x6709;&#x5F85;&#x6539;&#x8FDB;
+Note left of sdk : reach
 sdk -&gt; avatar : reach destination
 avatar -&gt; room : playerReachDestination
 room -&gt; avatar : onReachDestination
 avatar -&gt; sdk : onReachDestination
-
-# &#x83B7;&#x5F97;&#x9053;&#x5177;&#x5224;&#x65AD;&#x65B9;&#x6CD5;&#x6709;&#x5F85;&#x6539;&#x8FDB;
-sdk -&gt; avatar : getProps
-avatar -&gt; sdk : onGetProps
-
 room -&gt; room : addTimer(10)
 room -&gt; room : check reach player count
 room -&gt; avatar : onTimerChanged
 avatar -&gt; sdk : onTimerChanged
+
+# &#x83B7;&#x5F97;&#x9053;&#x5177;&#x5224;&#x65AD;&#x65B9;&#x6CD5;&#x6709;&#x5F85;&#x6539;&#x8FDB;
+Note left of sdk : getProps
+sdk -&gt; avatar : getProps
+avatar -&gt; sdk : onGetProps
+
+# &#x53D1;&#x5C04;&#x70AE;&#x5F39;
+Note left of sdk : fire
+sdk -&gt; avatar : fireShell
+avatar -&gt; avatar : check shell num
+avatar -&gt; avatar : fire to other
+avatar -&gt; sdk : A fires at B
 
 # &#x6BD4;&#x8D5B;&#x7ED3;&#x675F;
 Note left of sdk : game over

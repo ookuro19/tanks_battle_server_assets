@@ -33,23 +33,32 @@ room -> room : check players' progress
 room -> avatar : loadingFinish
 avatar -> sdk : loadingFinish
 
-Note left of sdk : gaming
+# 游戏阶段
+Note left of sdk : pos
 sdk -> avatar : update pos
 
 # 终点判断方法有待改进
+Note left of sdk : reach
 sdk -> avatar : reach destination
 avatar -> room : playerReachDestination
 room -> avatar : onReachDestination
 avatar -> sdk : onReachDestination
-
-# 获得道具判断方法有待改进
-sdk -> avatar : getProps
-avatar -> sdk : onGetProps
-
 room -> room : addTimer(10)
 room -> room : check reach player count
 room -> avatar : onTimerChanged
 avatar -> sdk : onTimerChanged
+
+# 获得道具判断方法有待改进
+Note left of sdk : getProps
+sdk -> avatar : getProps
+avatar -> sdk : onGetProps
+
+# 发射炮弹
+Note left of sdk : fire
+sdk -> avatar : fireShell
+avatar -> avatar : check shell num
+avatar -> avatar : fire to other
+avatar -> sdk : A fires at B
 
 # 比赛结束
 Note left of sdk : game over
