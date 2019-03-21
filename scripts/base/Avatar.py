@@ -21,7 +21,7 @@ class Avatar(KBEngine.Proxy):
 
     def createCell(self, space, roomKey, roomNo):
         """
-        defined method.
+        defined method.lo
         创建cell实体
         """
         self.roomKey = roomKey
@@ -128,11 +128,15 @@ class Avatar(KBEngine.Proxy):
         """
         DEBUG_MSG("Avatar[%i].onClientDeath:" % self.id)
 
-        # 防止正在请求创建cell的同时客户端断开了， 我们延时一段时间来执行销毁cell直到销毁base
-        # 这段时间内客户端短连接登录则会激活entity
-        # 延时GAME_ROUND_TIME秒的原因是， 我们确保玩家掉线后， 他的服务端实体能够完整参与一场游戏
-        self._destroyTimer = self.addTimer(
-            GameConfigs.GAME_ROUND_TIME + 15, 0, TIMER_TYPE_DESTROY)
+        # 如果玩家没有cell, 直接退出？
+        if self.cell is None:
+            self.destroySelf()
+        else:
+            # 防止正在请求创建cell的同时客户端断开了， 我们延时一段时间来执行销毁cell直到销毁base
+            # 这段时间内客户端短连接登录则会激活entity
+            # 延时GAME_ROUND_TIME秒的原因是， 我们确保玩家掉线后， 他的服务端实体能够完整参与一场游戏
+            self._destroyTimer = self.addTimer(
+                GameConfigs.GAME_ROUND_TIME + 15, 0, TIMER_TYPE_DESTROY)
 
     def onRestore(self):
         """
