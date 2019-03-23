@@ -45,18 +45,30 @@
 			<Arg>		INT32				</Arg>
 		</onLoadingFinish>
 
+		<onGetProps>
+			<Arg>		INT32			</Arg>
+		</onGetProps>
+
+		<onUseSkill>
+			<Arg>		ENTITY_ID		</Arg>
+			<Arg>		ENTITY_ID		</Arg>
+			<Arg>		INT32			</Arg>
+		</onUseSkill>
+
+		<onSkillResult>
+			<Arg>		ENTITY_ID		</Arg>
+			<Arg>		ENTITY_ID		</Arg>
+			<Arg>		INT32			</Arg>
+		</onSkillResult>
+
 		<onReachDestination>
 			<Arg>		ENTITY_ID		</Arg>
 			<Arg>		INT32			</Arg>
 		</onReachDestination>
 
 		<onTimerChanged>
-        	<Arg>		INT32			</Arg>
+			<Arg>		INT32			</Arg>
 		</onTimerChanged>
-
-		<onGetProps>
-        	<Arg>		INT32			</Arg>
-		</onGetProps>
 	</ClientMethods>
 
 	<BaseMethods>
@@ -89,10 +101,22 @@
 			<Exposed/>
 		</reachDestination>
 
-        <getProps>
-            <Exposed/>
-            <Arg>		INT32						</Arg>
-        </getProps>
+		<getProps>
+			<Exposed/>
+			<Arg>		INT32						</Arg>
+		</getProps>
+
+		<useSkill>
+			<Exposed/>
+			<Arg>		ENTITY_ID					</Arg>
+			<Arg>		INT32						</Arg>
+		</useSkill>
+
+		<skillResult>
+			<Exposed/>
+			<Arg>		ENTITY_ID					</Arg>
+			<Arg>		INT32						</Arg>
+		</skillResult>
 
 		<onReachDestination>
 			<Arg>		ENTITY_ID		</Arg>

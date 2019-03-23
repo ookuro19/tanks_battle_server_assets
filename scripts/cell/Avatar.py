@@ -47,6 +47,14 @@ class Avatar(KBEngine.Entity, EntityCommon):
 
     # endregion
 
+    # retion Skill
+    def useSkill(self, target_id, skill):
+        self.allClients.onUseSkill(self.id, target_id, skill)
+    
+    def skillResult(self, target_id, suc):
+        self.allClients.onSkillResult(self.id, target_id, suc)
+    # endregion
+
     # region Destination
     def reachDestination(self):
         """

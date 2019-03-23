@@ -53,11 +53,11 @@ Note left of sdk : getProps
 sdk -> avatar : getProps
 avatar -> sdk : onGetProps
 
-# 发射炮弹
-Note left of sdk : fire
-sdk -> avatar : fireShell
-avatar -> avatar : check shell num
-avatar -> avatar : fire to other
+# 使用技能
+Note left of sdk : useSkill
+sdk -> avatar : use skill
+avatar -> avatar : check skill available
+avatar -> avatar : use skill to other
 avatar -> sdk : A fires at B
 
 # 比赛结束
