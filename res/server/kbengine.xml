@@ -73,10 +73,8 @@
 	
 	<baseapp>
 		<backupPeriod> 500 </backupPeriod>
-		<!-- <externalAddress> 114.115.237.127 </externalAddress> -->
 	</baseapp>
 
 	<loginapp>
-		<!-- <externalAddress> 114.115.237.127 </externalAddress> -->
 	</loginapp>
 </root>
