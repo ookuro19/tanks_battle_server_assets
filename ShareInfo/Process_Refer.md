@@ -1,3 +1,17 @@
+# 各部分可参考时序图
+主要参考kbengine ball demo
+
+## 登录相关可参考
+```sequence {theme="simple"}
+
+client -> client : login, load world scene
+client -> sdk : firein(login)
+sdk -> client : login success
+sdk -> client : onAvataEnterWorld
+client -> client : create game entity
+```
+
+## 道具相关可参考
 ```sequence {theme="simple"}
 
 Note over room : CELL

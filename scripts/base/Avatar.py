@@ -19,6 +19,42 @@ class Avatar(KBEngine.Proxy):
 
         self._destroyTimer = 0
 
+    # region Matching
+
+    def startMatching(self, mapNum, modeNum):
+        """
+        start matching
+        根据玩家提交的地图和模式开始进行匹配
+        """
+
+        INFO_MSG("account[%i] start matching. entityCall:%s, mapNum:%s, modeNum:%s" %
+                 (self.id, self.client, mapNum, modeNum))
+        # 如果玩家存在cell， 说明已经在地图中了， 因此不需要再次进入地图
+        if self.cell is None:
+            # 玩家上线了或者重登陆了， 此处告诉大厅，玩家请求登陆到游戏地图中
+            KBEngine.globalData["Halls"].enterRoom(
+                self, self.roomKey)
+        else:
+            INFO_MSG("account[%i] has its cell. roomKey:%s" %
+                     (self.id, self.roomKey))
+
+    def matchingFinish(self):
+        """
+        matching finish
+        匹配结束，通知客户端可以开始加载地图
+        """
+        self.loginState = 1
+        self.client.onMatchingFinish(0)
+
+    def onLoadingFinish(self, suc):
+        """
+        loading finish
+        加载结束
+        """
+        self.loginState = 2
+
+    # endregion Matching
+
     def createCell(self, space, roomKey, roomNo):
         """
         defined method.lo
@@ -45,31 +81,6 @@ class Avatar(KBEngine.Proxy):
         # 销毁base
         self.destroy()
         self._destroyTimer = 0
-
-    # region Matching
-
-    def startMatching(self, mapNum, modeNum):
-        """
-        start matching
-        根据玩家提交的地图和模式开始进行匹配
-        """
-        INFO_MSG("account[%i] start matching. entityCall:%s, mapNum:%s, modeNum:%s" %
-                 (self.id, self.client, mapNum, modeNum))
-        self.isLoadingFinish = False
-        # 如果玩家存在cell， 说明已经在地图中了， 因此不需要再次进入地图
-        if self.cell is None:
-            # 玩家上线了或者重登陆了， 此处告诉大厅，玩家请求登陆到游戏地图中
-            KBEngine.globalData["Halls"].enterRoom(
-                self, self.roomKey)
-
-    def matchingFinish(self):
-        """
-        matching finish
-        匹配结束，通知客户端可以开始加载地图
-        """
-        self.client.onMatchingFinish(0)
-    # endregion Matching
-
     # --------------------------------------------------------------------------------------------
     #                              Callbacks
     # --------------------------------------------------------------------------------------------
@@ -92,6 +103,15 @@ class Avatar(KBEngine.Proxy):
         """
         INFO_MSG("account[%i] entities enable. entityCall:%s" %
                  (self.id, self.client))
+        # 如果销毁玩家计时器已经开启了，此处玩家又上线了那么应该取消计时器
+        if self._destroyTimer > 0:
+            self.delTimer(self._destroyTimer)
+            self._destroyTimer = 0
+
+        # 0-当前玩家未匹配
+        # 1-当前玩家匹配未比赛
+        # 2-当前玩家是比赛中掉线的
+        self.client.onLoginState(self.loginState)
 
     def onLogOnAttempt(self, ip, port, password):
         """
@@ -114,6 +134,8 @@ class Avatar(KBEngine.Proxy):
         entity的cell部分实体丢失
         """
         DEBUG_MSG("%s::onLoseCell: %i" % (self.className, self.id))
+
+        self.loginState = 0
 
         # 如果self._destroyTimer大于0说明之前已经由base请求销毁，通常是客户端断线了
         if self._destroyTimer > 0:

@@ -32,6 +32,7 @@ class Avatar(KBEngine.Entity, EntityCommon):
         loading finish
         所有玩家完成地图加载，通知客户端可以开始比赛
         """
+        self.base.onLoadingFinish(0)
         self.client.onLoadingFinish(0)
 
     # endregion
@@ -44,13 +45,12 @@ class Avatar(KBEngine.Entity, EntityCommon):
         """
         DEBUG_MSG("Avatar id: %i, get props: %i." % (self.id, prop_type))
         self.allClients.onGetProps(prop_type)
-
     # endregion
 
-    # retion Skill
+    # region Skill
     def useSkill(self, target_id, skill):
         self.allClients.onUseSkill(self.id, target_id, skill)
-    
+
     def skillResult(self, target_id, suc):
         self.allClients.onSkillResult(self.id, target_id, suc)
     # endregion

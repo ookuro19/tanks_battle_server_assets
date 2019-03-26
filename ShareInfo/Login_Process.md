@@ -10,10 +10,11 @@
 
 ```sequence {theme="simple"}
 Note left of sdk : login
-sdk -> loginapp : firein(login)
-loginapp -> sdk : login result
+loginapp --> sdk : 未登录
 
-Note left of sdk : before matching
-sdk -> loginapp : firein(login)
-loginapp -> avatar : 
+Note left of sdk : 未匹配前掉线
+base --> loginapp : lost connection
+loginapp --> sdk : 已登录但没有cell
+
+Note left of sdk : 匹配时掉线
 ```

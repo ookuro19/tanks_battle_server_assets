@@ -29,6 +29,12 @@
 			<Default>		0				</Default>
 		</progress>
 
+		<loginState>
+			<Type>		INT32			</Type>
+			<Flags>		BASE		</Flags>
+			<Default>		0				</Default>
+		</loginState>
+
 		<roomNo>
 			<Type>		INT32			</Type>
 			<Flags>		ALL_CLIENTS		</Flags>
@@ -37,6 +43,10 @@
 	</Properties>
 
 	<ClientMethods>
+		<onLoginState>
+			<Arg>		INT32				</Arg>
+		</onLoginState>
+
 		<onMatchingFinish>
 			<Arg>		INT32				</Arg>
 		</onMatchingFinish>
@@ -86,6 +96,10 @@
 
 		<matchingFinish>
 		</matchingFinish>
+
+		<onLoadingFinish>
+			<Arg>		INT32				</Arg>
+		</onLoadingFinish>
 	</BaseMethods>
 
 	<CellMethods>
@@ -117,11 +131,6 @@
 			<Arg>		ENTITY_ID					</Arg>
 			<Arg>		INT32						</Arg>
 		</skillResult>
-
-		<onReachDestination>
-			<Arg>		ENTITY_ID		</Arg>
-			<Arg>		INT32			</Arg>
-		</onReachDestination>
 	</CellMethods>
 
 </root>
