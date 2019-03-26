@@ -1,0 +1,39 @@
+{
+	"folders": [
+		{
+			"path": "D:\\kbengine-2.4.2\\tanks_battle_server_assets\\scripts\\cell"
+		},
+		{
+			"path": "D:\\kbengine-2.4.2\\tanks_battle_server_assets\\scripts\\common"
+		},
+		{
+			"path": "D:\\kbengine-2.4.2\\tanks_battle_server_assets\\scripts\\data"
+		},
+		{
+			"path": "D:\\kbengine-2.4.2\\tanks_battle_server_assets\\scripts\\entity_defs"
+		},
+		{
+			"path": "D:\\kbengine-2.4.2\\tanks_battle_server_assets\\scripts\\server_common"
+		},
+		{
+			"path": "D:\\kbengine-2.4.2\\tanks_battle_server_assets\\scripts\\user_type"
+		},
+		{
+			"path": "D:\\kbengine-2.4.2\\tanks_battle_server_assets\\ShareInfo"
+		}
+	],
+	"settings": {
+		"python.autoComplete.extraPaths": [
+			"D:/kbengine-2.4.2/tanks_battle_server_assets/scripts/common",
+			"D:/kbengine-2.4.2/tanks_battle_server_assets/scripts/data",
+			"D:/kbengine-2.4.2/tanks_battle_server_assets/scripts/entity_defs",
+			"D:/kbengine-2.4.2/tanks_battle_server_assets/scripts/server_common",
+			"D:/kbengine-2.4.2/tanks_battle_server_assets/scripts/user_type",
+			"D:/kbengine-2.4.2/tips/cellapp"
+		],
+		"files.associations": {
+			"*.def": "xml"
+		},
+		"python.linting.enabled": false
+	}
+}
