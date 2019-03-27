@@ -21,19 +21,22 @@ class Avatar(KBEngine.Proxy):
 
     # region Matching
 
-    def startMatching(self, mapNum, modeNum):
+    def startMatching(self, modeNum, mapNum, matchCode):
         """
         start matching
         根据玩家提交的地图和模式开始进行匹配
         """
 
-        INFO_MSG("account[%i] start matching. entityCall:%s, mapNum:%s, modeNum:%s" %
-                 (self.id, self.client, mapNum, modeNum))
+        INFO_MSG("account[%i] start matching. entityCall:%s, mapNum:%s, modeNum:%s, roomKey is :%s" %
+                 (self.id, self.client, mapNum, modeNum, self.roomKey))
         # 如果玩家存在cell， 说明已经在地图中了， 因此不需要再次进入地图
         if self.cell is None:
+            self.modeNum = modeNum
+            self.mapNum = mapNum
+            self.matchCode = matchCode
             # 玩家上线了或者重登陆了， 此处告诉大厅，玩家请求登陆到游戏地图中
             KBEngine.globalData["Halls"].enterRoom(
-                self, self.roomKey)
+                self, modeNum, mapNum, matchCode)
         else:
             INFO_MSG("account[%i] has its cell. roomKey:%s" %
                      (self.id, self.roomKey))

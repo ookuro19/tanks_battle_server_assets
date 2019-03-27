@@ -1,14 +1,16 @@
 <root>
-	<Properties>
-	</Properties>
+    <Properties>
+    </Properties>
 
-	<ClientMethods>
-	</ClientMethods>
+    <ClientMethods>
+    </ClientMethods>
 
     <BaseMethods>
         <enterRoom>
             <Arg>		ENTITYCALL		</Arg>
-			<Arg>		SPACE_KEY		</Arg>
+            <Arg>		MODE_NUM		</Arg>
+            <Arg>		MAP_NUM			</Arg>
+            <Arg>		MATCH_CODE		</Arg>
         </enterRoom>
     </BaseMethods>
 

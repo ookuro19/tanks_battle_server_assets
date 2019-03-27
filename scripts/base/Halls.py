@@ -24,11 +24,11 @@ class Halls(KBEngine.Entity):
 
         self.lastNewRoomKey = 0
 
-    def findRoom(self, roomKey, notFoundCreate=False):
+    def findRoom(self, matchCode, modeNum, mapNum, notFoundCreate=False):
         """
         查找一个指定房间，如果找不到允许创建一个新的
         """
-        roomDatas = self.rooms.get(roomKey)
+        roomDatas = self.rooms.get(matchCode)
 
         # 如果房间没有创建，则将其创建
         if not roomDatas:
@@ -51,19 +51,22 @@ class Halls(KBEngine.Entity):
                                           Functor.Functor(self.onRoomCreatedCB, self.lastNewRoomKey))
 
             roomDatas = {"roomEntityCall": None, "PlayerCount": 0,
-                         "enterRoomReqs": [], "roomKey": self.lastNewRoomKey}
+                         "enterRoomReqs": [], "roomKey": self.lastNewRoomKey,
+                         "modeNum": 0, "mapNum": 0}
             self.rooms[self.lastNewRoomKey] = roomDatas
             return roomDatas
 
         return roomDatas
 
-    def enterRoom(self, entityCall, roomKey):
+    def enterRoom(self, entityCall, modeNum, mapNum, matchCode):
         """
         defined method.
         请求进入某个Room中
         """
-        roomDatas = self.findRoom(roomKey, True)
+        roomDatas = self.findRoom(matchCode, modeNum, mapNum, True)
 
+        if roomDatas["PlayerCount"] == 0:
+            pass
         roomDatas["PlayerCount"] += 1
 
         roomEntityCall = roomDatas["roomEntityCall"]

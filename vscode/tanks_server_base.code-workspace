@@ -34,6 +34,9 @@
 		"files.associations": {
 			"*.def": "xml"
 		},
-		"python.linting.enabled": true
+		"python.linting.enabled": true,
+		"files.exclude": {
+			"**/__pycache__": true
+		}
 	}
 }
