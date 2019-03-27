@@ -142,6 +142,7 @@ class Avatar(KBEngine.Proxy):
             self.destroySelf()
 
         # 否则由cell发起销毁， 那么说明游戏结束了
+        self.client.onExitRoom(0)
 
     def onClientDeath(self):
         """
