@@ -12,7 +12,7 @@ class Room(KBEngine.Entity):
 
     def __init__(self):
         KBEngine.Entity.__init__(self)
-        
+
         self.cellData["roomKeyC"] = self.roomKey
 
         # 请求在cellapp上创建cell空间
@@ -21,13 +21,13 @@ class Room(KBEngine.Entity):
         self.avatars = {}
         DEBUG_MSG("Room::__init__: %i" % self.id)
 
-
     def enterRoom(self, entityCall):
         """
         defined method.
         请求进入某个space中
         """
         entityCall.createCell(self.cell, self.roomKey, len(self.avatars))
+        entityCall.setGameMapMode(0, 0)
         self.onEnter(entityCall)
 
     def leaveRoom(self, entityID):

@@ -21,19 +21,22 @@ class Halls(KBEngine.Entity):
         # 所有房间，是个字典结构，包含 {"roomEntityCall", "PlayerCount", "enterRoomReqs"}
         # enterRoomReqs, 在房间未创建完成前， 请求进入房间和登陆到房间的请求记录在此，等房间建立完毕将他们扔到space中
         self.rooms = {}
-
+        self.matching_rooms = {}
         self.lastNewRoomKey = 0
 
     def findRoom(self, matchCode, modeNum, mapNum, notFoundCreate=False):
         """
         查找一个指定房间，如果找不到允许创建一个新的
         """
-        roomDatas = self.rooms.get(matchCode)
+        if matchCode != 0:
+            roomDatas = self.matching_rooms.get(matchCode)
 
-        # 如果房间没有创建，则将其创建
-        if not roomDatas:
-            if not notFoundCreate:
-                return FIND_ROOM_NOT_FOUND
+            # 如果房间没有创建，则将其创建
+            if not roomDatas:
+                if not notFoundCreate:
+                    return FIND_ROOM_NOT_FOUND
+
+        else:
 
             # 如果最后创建的房间没有满员，则使用最后创建的房间key，否则产生一个新的房间唯一Key
             roomDatas = self.rooms.get(self.lastNewRoomKey)
@@ -51,12 +54,9 @@ class Halls(KBEngine.Entity):
                                           Functor.Functor(self.onRoomCreatedCB, self.lastNewRoomKey))
 
             roomDatas = {"roomEntityCall": None, "PlayerCount": 0,
-                         "enterRoomReqs": [], "roomKey": self.lastNewRoomKey,
-                         "modeNum": 0, "mapNum": 0}
+                         "enterRoomReqs": [], "roomKey": self.lastNewRoomKey}
             self.rooms[self.lastNewRoomKey] = roomDatas
             return roomDatas
-
-        return roomDatas
 
     def enterRoom(self, entityCall, modeNum, mapNum, matchCode):
         """
@@ -65,8 +65,6 @@ class Halls(KBEngine.Entity):
         """
         roomDatas = self.findRoom(matchCode, modeNum, mapNum, True)
 
-        if roomDatas["PlayerCount"] == 0:
-            pass
         roomDatas["PlayerCount"] += 1
 
         roomEntityCall = roomDatas["roomEntityCall"]

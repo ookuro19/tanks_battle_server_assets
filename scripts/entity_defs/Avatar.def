@@ -59,6 +59,10 @@
 			<Arg>		INT32				</Arg>
 		</onLoginState>
 
+		<onSetGameMapMode>
+			<Arg>		INT32				</Arg>
+		</onSetGameMapMode>
+
 		<onMatchingFinish>
 			<Arg>		INT32				</Arg>
 		</onMatchingFinish>
@@ -111,7 +115,13 @@
 			<Arg>		INT32						</Arg>
 		</createCell>
 
+		<setGameMapMode>
+			<Arg>		MODE_NUM					</Arg>
+			<Arg>		MAP_NUM						</Arg>
+		</setGameMapMode>
+
 		<matchingFinish>
+			<Arg>		INT32				</Arg>
 		</matchingFinish>
 
 		<onLoadingFinish>

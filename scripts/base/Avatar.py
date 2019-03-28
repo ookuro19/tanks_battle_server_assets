@@ -41,7 +41,25 @@ class Avatar(KBEngine.Proxy):
             INFO_MSG("account[%i] has its cell. roomKey:%s" %
                      (self.id, self.roomKey))
 
-    def matchingFinish(self):
+    def createCell(self, space, roomKey, roomNo):
+        """
+        defined method.lo
+        创建cell实体
+        """
+        self.roomKey = roomKey
+        self.cellData["roomNo"] = roomNo
+        self.createCellEntity(space)
+
+    def setGameMapMode(self, modeNum, mapNum):
+        """
+        set game mode and map
+        通知玩家房间的游戏地图和模式
+        """
+        self.modeNum = modeNum
+        self.mapNum = mapNum
+        self.client.onSetGameMapMode(self.modeNum * 2 + self.mapNum)
+
+    def matchingFinish(self, suc):
         """
         matching finish
         匹配结束，通知客户端可以开始加载地图
@@ -54,18 +72,9 @@ class Avatar(KBEngine.Proxy):
         loading finish
         加载结束
         """
-        self.loginState = 2
+        self.loginState = self.modeNum * 2 + self.mapNum
 
     # endregion Matching
-
-    def createCell(self, space, roomKey, roomNo):
-        """
-        defined method.lo
-        创建cell实体
-        """
-        self.roomKey = roomKey
-        self.cellData["roomNo"] = roomNo
-        self.createCellEntity(space)
 
     def destroySelf(self):
         """
