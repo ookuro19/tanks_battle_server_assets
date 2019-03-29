@@ -22,12 +22,12 @@
 			<Default>		0			</Default>
 		</matchCode>
 
-		<name>
+		<nameS>
 			<Type>		UNICODE			</Type>
 			<Flags>		ALL_CLIENTS			</Flags>
 			<Persistent>		true				</Persistent>
 			<DetailLevel>		MEDIUM			</DetailLevel>
-		</name>
+		</nameS>
 
 		<dbid>
 			<Type>		DBID				</Type>

@@ -13,7 +13,7 @@ class Avatar(KBEngine.Proxy):
 
         self.cellData["dbid"] = self.databaseID
 
-        self.cellData["name"] = self.__ACCOUNT_NAME__
+        self.cellData["nameS"] = self.__ACCOUNT_NAME__
 
         self.cellData["progress"] = 0
 
