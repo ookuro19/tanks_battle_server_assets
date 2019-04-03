@@ -24,7 +24,7 @@ class Halls(KBEngine.Entity):
         self.matching_rooms = {}
         self.lastNewRoomKey = 0
 
-    def findRoom(self, matchCode, modeNum, mapNum, notFoundCreate=False):
+    def findRoom(self, matchCode=0, modeNum=0, mapNum=0, notFoundCreate=False):
         """
         查找一个指定房间，如果找不到允许创建一个新的
         """
@@ -81,7 +81,7 @@ class Halls(KBEngine.Entity):
         defined method.
         某个玩家请求登出服务器并退出这个space
         """
-        roomDatas = self.findRoom(roomKey, False)
+        roomDatas = self.findRoom(roomKey, notFoundCreate=False)
 
         if type(roomDatas) is dict:
             roomEntityCall = roomDatas["roomEntityCall"]

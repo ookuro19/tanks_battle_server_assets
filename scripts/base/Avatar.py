@@ -20,8 +20,7 @@ class Avatar(KBEngine.Proxy):
         self._destroyTimer = 0
 
     # region Matching
-
-    def startMatching(self, modeNum, mapNum, matchCode):
+    def regStartMatching(self, modeNum, mapNum, matchCode):
         """
         start matching
         根据玩家提交的地图和模式开始进行匹配
@@ -50,16 +49,16 @@ class Avatar(KBEngine.Proxy):
         self.cellData["roomNo"] = roomNo
         self.createCellEntity(space)
 
-    def setGameMapMode(self, modeNum, mapNum):
+    def onMapModeChanged(self, modeNum, mapNum):
         """
         set game mode and map
         通知玩家房间的游戏地图和模式
         """
         self.modeNum = modeNum
         self.mapNum = mapNum
-        self.client.onSetGameMapMode(self.modeNum * 2 + self.mapNum)
+        self.client.onMapModeChanged(self.modeNum * 2 + self.mapNum)
 
-    def matchingFinish(self, suc):
+    def onMatchingFinish(self, suc):
         """
         matching finish
         匹配结束，通知客户端可以开始加载地图
@@ -73,8 +72,27 @@ class Avatar(KBEngine.Proxy):
         加载结束
         """
         self.loginState = self.modeNum * 2 + self.mapNum
+        self.client.onLoadingFinish(0)
 
     # endregion Matching
+
+    # region destination
+    def onReachDestination(self, eid, time):
+        """
+        on reach destination
+        其他玩家到达终点的回调
+        """
+        INFO_MSG("cell::other account[%i] reach destination. time:%s" %
+                 (eid, time))
+        self.client.onReachDestination(eid, time)
+
+    def onTimerChanged(self, time):
+        """
+        on end timer change
+        :param time: 倒计时
+        """
+        self.client.onTimerChanged(time)
+    # endregion destination
 
     def destroySelf(self):
         """

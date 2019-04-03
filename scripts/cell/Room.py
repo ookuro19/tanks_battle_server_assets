@@ -23,6 +23,9 @@ class Room(KBEngine.Entity):
         # 让baseapp和cellapp都能够方便的访问到这个房间的entityCall
         KBEngine.globalData["Room_%i" % self.spaceID] = self.base
 
+        # 加载完成人数
+        self.loadingFinishCount = 0
+        
         # 比赛总计用时
         self.totalTimer = 0
 
@@ -32,7 +35,7 @@ class Room(KBEngine.Entity):
         # 到达终点人数总计
         self.reachCount = 0
 
-    # region Loading
+    # region loading
     def AvatarloadingFinish(self, entityID):
         """
         loading finish.
@@ -40,16 +43,11 @@ class Room(KBEngine.Entity):
         """
         DEBUG_MSG('Room::loadingFinish entityID = %i.' % entityID)
         if entityID in self.avatars:
-            loadingFinishCount = 0
-            for info in self.avatars.values():
-                if info.progress == GameConfigs.LOADING_FINISH_PROGRESS:
-                    loadingFinishCount += 1
-            if loadingFinishCount == GameConfigs.ROOM_MAX_PLAYER:
-                for info in self.avatars.values():
-                    info.loadingFinish()
-                # 所有玩家加载完成后，开局倒计时3s
+            self.loadingFinishCount += 1
+            if self.loadingFinishCount == GameConfigs.ROOM_MAX_PLAYER:
                 self._startTimer = self.addTimer(3, 0, TIMER_TYPE_START)
-    # endregion Loading
+                self.base.onAllPlayerLoadingFinish()
+    # endregion loading
 
     # region playing
     def playerReachDestination(self, entityID):
@@ -59,8 +57,7 @@ class Room(KBEngine.Entity):
         """
         DEBUG_MSG('Room::player reach destination entityID = %i.' % entityID)
         if entityID in self.avatars:
-            for info in self.avatars.values():
-                info.onReachDestination(entityID, self.totalTimer)
+            self.base.onPlayerReachDestination(entityID, self.totalTimer)
             self.reachCount += 1
             if self.reachCount == 1:
                 self.endTimer = -1
@@ -76,11 +73,10 @@ class Room(KBEngine.Entity):
             self.delTimer(self._endTimer)
         if self.totalTimer > 0:
             self.delTimer(self._totalTimer)
-        for info in self.avatars.values():
-            info.onTimerChanged(0)
+        self.base.onTimerChanged(0)
         self._destroyTimer = self.addTimer(1, 0, TIMER_TYPE_DESTROY)
 
-    def onDestroyTimer(self, ):
+    def onDestroyTimer(self):
         DEBUG_MSG("Room::onDestroyTimer: %i" % (self.id))
         # 请求销毁引擎中创建的真实空间，在空间销毁后，所有该空间上的实体都被销毁
         self.destroySpace()
@@ -106,7 +102,7 @@ class Room(KBEngine.Entity):
 
         elif TIMER_TYPE_TOTAL_TIME == userArg:
             self.totalTimer += 1
-            DEBUG_MSG("Room::TIMER_TYPE_TOTAL_TIME: %i" % (self.totalTimer))
+            # DEBUG_MSG("Room::TIMER_TYPE_TOTAL_TIME: %i" % (self.totalTimer))
 
         elif TIMER_TYPE_END == userArg:
             self.endTimer += 1
@@ -114,8 +110,7 @@ class Room(KBEngine.Entity):
             if self.endTimer == 10:
                 self.gameOver()
             else:
-                for info in self.avatars.values():
-                    info.onTimerChanged(10 - self.endTimer)
+                self.base.onTimerChanged(10 - self.endTimer)
         elif TIMER_TYPE_DESTROY == userArg:
             self.onDestroyTimer()
 

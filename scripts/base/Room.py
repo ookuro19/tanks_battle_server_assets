@@ -21,13 +21,14 @@ class Room(KBEngine.Entity):
         self.avatars = {}
         DEBUG_MSG("Room::__init__: %i" % self.id)
 
+    # region enter or leave
     def enterRoom(self, entityCall):
         """
         defined method.
         请求进入某个space中
         """
         entityCall.createCell(self.cell, self.roomKey, len(self.avatars))
-        entityCall.setGameMapMode(0, 0)
+        entityCall.onMapModeChanged(0, 0)
         self.onEnter(entityCall)
 
     def leaveRoom(self, entityID):
@@ -45,7 +46,7 @@ class Room(KBEngine.Entity):
         self.avatars[entityCall.id] = entityCall
         if len(self.avatars) == GameConfigs.ROOM_MAX_PLAYER:
             for info in self.avatars.values():
-                info.matchingFinish()
+                info.onMatchingFinish(0)
                 DEBUG_MSG("Room::matchingFinish: %i" % self.roomKey)
 
     def onLeave(self, entityID):
@@ -55,6 +56,35 @@ class Room(KBEngine.Entity):
         """
         if entityID in self.avatars:
             del self.avatars[entityID]
+    # endregion enter or leave
+
+    # region loading
+    def onAllPlayerLoadingFinish(self):
+        """
+        on all player loading finish.
+        通知所有玩家加载结束
+        """
+        DEBUG_MSG('Room::onAllPlayerLoadingFinish roomID = %i.' % self.roomKey)
+        for info in self.avatars.values():
+            info.onLoadingFinish(0)
+    # endregion loading
+
+    # region destination
+    def onPlayerReachDestination(self, eid, time):
+        """
+        player reach destination
+        玩家到达终点
+        """
+        for info in self.avatars.values():
+            info.onReachDestination(eid, time)
+
+    def onTimerChanged(self, timer):
+        """
+        通知客户端倒计时
+        """
+        for info in self.avatars.values():
+            info.onTimerChanged(timer)
+    # endregion destination
 
     # --------------------------------------------------------------------------------------------
     #                              Callbacks

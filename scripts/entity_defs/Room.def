@@ -30,6 +30,18 @@
 		<onLeave>
 			<Arg>		ENTITY_ID		</Arg>
 		</onLeave>
+
+		<onAllPlayerLoadingFinish>
+		</onAllPlayerLoadingFinish>
+
+		<onPlayerReachDestination>
+			<Arg>		ENTITY_ID		</Arg>
+			<Arg>		INT32			</Arg>
+		</onPlayerReachDestination>
+
+		<onTimerChanged>
+			<Arg>		INT32			</Arg>
+		</onTimerChanged>
 	</BaseMethods>
 
 	<CellMethods>

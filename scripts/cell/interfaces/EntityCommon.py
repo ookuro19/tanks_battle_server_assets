@@ -32,6 +32,7 @@ class EntityCommon:
         if roomBase is None:
             return roomBase
 
+        # 因为实在cell上，所以直接取值所获得的就是相应room的cell
         return KBEngine.entities.get(roomBase.id, None)
 
     def getHalls(self):

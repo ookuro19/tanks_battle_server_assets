@@ -26,19 +26,10 @@ class Avatar(KBEngine.Entity, EntityCommon):
                      (self.id, self.client, tprogress))
             if self.progress == GameConfigs.LOADING_FINISH_PROGRESS:
                 self.getCurRoom().AvatarloadingFinish(self.id)
-
-    def loadingFinish(self):
-        """
-        loading finish
-        所有玩家完成地图加载，通知客户端可以开始比赛
-        """
-        self.base.onLoadingFinish(0)
-        self.client.onLoadingFinish(0)
-
     # endregion
 
     # region Props
-    def getProps(self, prop_type):
+    def regGetProps(self, prop_type):
         """
         当前玩家获得道具
         :param prop_type: 所获得的道具类型
@@ -46,17 +37,17 @@ class Avatar(KBEngine.Entity, EntityCommon):
         DEBUG_MSG("Avatar id: %i, get props: %i." % (self.id, prop_type))
         self.allClients.onGetProps(prop_type)
     # endregion
-
+    
     # region Skill
-    def useSkill(self, target_id, skill):
+    def regUseSkill(self, target_id, skill):
         self.allClients.onUseSkill(self.id, target_id, skill)
 
-    def skillResult(self, target_id, suc):
+    def regSkillResult(self, target_id, suc):
         self.allClients.onSkillResult(self.id, target_id, suc)
     # endregion
 
     # region Destination
-    def reachDestination(self):
+    def regReachDestination(self):
         """
         reach destination
         当前玩家到达终点
@@ -64,22 +55,6 @@ class Avatar(KBEngine.Entity, EntityCommon):
         INFO_MSG("cell::account[%i] reach destination. entityCall:%s" %
                  (self.id, self.client))
         self.getCurRoom().playerReachDestination(self.id)
-
-    def onReachDestination(self, eid, time):
-        """
-        on reach destination
-        其他玩家到达终点的回调
-        """
-        INFO_MSG("cell::other account[%i] reach destination. time:%s" %
-                 (eid, time))
-        self.client.onReachDestination(eid, time)
-
-    def onTimerChanged(self, time):
-        """
-        on end timer change
-        :param time: 倒计时
-        """
-        self.client.onTimerChanged(time)
     # endregion
 
     # --------------------------------------------------------------------------------------------

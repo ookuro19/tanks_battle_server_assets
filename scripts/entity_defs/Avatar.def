@@ -59,9 +59,9 @@
 			<Arg>		INT32				</Arg>
 		</onLoginState>
 
-		<onSetGameMapMode>
+		<onMapModeChanged>
 			<Arg>		INT32				</Arg>
-		</onSetGameMapMode>
+		</onMapModeChanged>
 
 		<onMatchingFinish>
 			<Arg>		INT32				</Arg>
@@ -102,12 +102,12 @@
 	</ClientMethods>
 
 	<BaseMethods>
-		<startMatching>
+		<regStartMatching>
 			<Exposed/>
 			<Arg>		MODE_NUM					</Arg>
 			<Arg>		MAP_NUM						</Arg>
 			<Arg>		MATCH_CODE					</Arg>
-		</startMatching>
+		</regStartMatching>
 
 		<createCell>
 			<Arg>		ENTITYCALL					</Arg>
@@ -115,18 +115,27 @@
 			<Arg>		INT32						</Arg>
 		</createCell>
 
-		<setGameMapMode>
+		<onMapModeChanged>
 			<Arg>		MODE_NUM					</Arg>
 			<Arg>		MAP_NUM						</Arg>
-		</setGameMapMode>
+		</onMapModeChanged>
 
-		<matchingFinish>
+		<onMatchingFinish>
 			<Arg>		INT32				</Arg>
-		</matchingFinish>
+		</onMatchingFinish>
 
 		<onLoadingFinish>
 			<Arg>		INT32				</Arg>
 		</onLoadingFinish>
+
+		<onReachDestination>
+			<Arg>		ENTITY_ID		</Arg>
+			<Arg>		INT32			</Arg>
+		</onReachDestination>
+
+		<onTimerChanged>
+			<Arg>		INT32			</Arg>
+		</onTimerChanged>
 	</BaseMethods>
 
 	<CellMethods>
@@ -135,29 +144,26 @@
 			<Arg>		INT32						</Arg>
 		</regProgress>
 
-		<loadingFinish>
-		</loadingFinish>
-
-		<reachDestination>
+		<regReachDestination>
 			<Exposed/>
-		</reachDestination>
+		</regReachDestination>
 
-		<getProps>
+		<regGetProps>
 			<Exposed/>
 			<Arg>		INT32						</Arg>
-		</getProps>
+		</regGetProps>
 
-		<useSkill>
+		<regUseSkill>
 			<Exposed/>
 			<Arg>		ENTITY_ID					</Arg>
 			<Arg>		INT32						</Arg>
-		</useSkill>
+		</regUseSkill>
 
-		<skillResult>
+		<regSkillResult>
 			<Exposed/>
 			<Arg>		ENTITY_ID					</Arg>
 			<Arg>		INT32						</Arg>
-		</skillResult>
+		</regSkillResult>
 	</CellMethods>
 
 </root>
