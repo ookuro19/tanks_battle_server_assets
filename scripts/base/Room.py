@@ -3,6 +3,9 @@ import KBEngine
 from KBEDebug import *
 import GameConfigs
 
+TIMER_TYPE_Matching = 1
+TIMER_TYPE_Robot_Refresh = 2
+
 
 class Room(KBEngine.Entity):
     """
@@ -19,6 +22,9 @@ class Room(KBEngine.Entity):
         self.createCellEntityInNewSpace(None)
 
         self.avatars = {}
+
+        self.addTimer(GameConfigs.ROOM_MATCHING_TIME, 0, TIMER_TYPE_Matching)
+
         DEBUG_MSG("Room::__init__: %i" % self.id)
 
     # region enter or leave
@@ -45,9 +51,7 @@ class Room(KBEngine.Entity):
         """
         self.avatars[entityCall.id] = entityCall
         if len(self.avatars) == GameConfigs.ROOM_MAX_PLAYER:
-            for info in self.avatars.values():
-                info.onMatchingFinish(0)
-                DEBUG_MSG("Room::matchingFinish: %i" % self.roomKey)
+            self.matchingFinish()
 
     def onLeave(self, entityID):
         """
@@ -57,6 +61,22 @@ class Room(KBEngine.Entity):
         if entityID in self.avatars:
             del self.avatars[entityID]
     # endregion enter or leave
+
+    # region matching
+    def matchingFinish(self):
+        if len(self.avatars) == GameConfigs.ROOM_MAX_PLAYER:
+            # 当人数足够时，即可开始游戏
+            for info in self.avatars.values():
+                info.onMatchingFinish(0)
+        else:
+            # 一般是由于玩家数目不足，但匹配时间已过
+            pass
+            for i in range(len(self.avatars) + 1, GameConfigs.ROOM_MAX_PLAYER):
+                #生成机器人
+                DEBUG_MSG("create a robot")
+        DEBUG_MSG("Room::matchingFinish: %i" % self.roomKey)
+
+    # enderegion
 
     # region loading
     def onAllPlayerLoadingFinish(self):
@@ -89,6 +109,17 @@ class Room(KBEngine.Entity):
     # --------------------------------------------------------------------------------------------
     #                              Callbacks
     # --------------------------------------------------------------------------------------------
+
+    def onTimer(self, id, userArg):
+        """
+        KBEngine method.
+        使用addTimer后， 当时间到达则该接口被调用
+        @param id		: addTimer 的返回值ID
+        @param userArg	: addTimer 最后一个参数所给入的数据
+        """
+        if TIMER_TYPE_Matching == userArg:
+            DEBUG_MSG("Room_Base::TIMER_TYPE_Matching")
+            self.matchingFinish()
 
     def onLoseCell(self):
         """

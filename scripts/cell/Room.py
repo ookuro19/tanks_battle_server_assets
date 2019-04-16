@@ -9,7 +9,6 @@ TIMER_TYPE_START = 2
 TIMER_TYPE_END = 3
 TIMER_TYPE_DESTROY = 4
 
-
 class Room(KBEngine.Entity):
     """
     游戏场景

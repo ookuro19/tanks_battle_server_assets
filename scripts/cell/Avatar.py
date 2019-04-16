@@ -44,7 +44,7 @@ class Avatar(KBEngine.Entity, EntityCommon):
 
     def regSkillResult(self, target_id, suc):
         self.allClients.onSkillResult(self.id, target_id, suc)
-    # endregion
+    # endregion Skill
 
     # region Destination
     def regReachDestination(self):
@@ -55,7 +55,7 @@ class Avatar(KBEngine.Entity, EntityCommon):
         INFO_MSG("cell::account[%i] reach destination. entityCall:%s" %
                  (self.id, self.client))
         self.getCurRoom().playerReachDestination(self.id)
-    # endregion
+    # endregion Destination
 
     # --------------------------------------------------------------------------------------------
     #                              Callbacks
