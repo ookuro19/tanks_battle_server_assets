@@ -28,7 +28,7 @@ Note over halls: CELL
 # 更新加载进度
 Note left of sdk : progress
 sdk -> avatar : regProgress
-avatar -> room : AvatarloadingFinish
+avatar -> room : AccountloadingFinish
 room -> room : check players' progress
 room -> avatar : loadingFinish
 avatar -> sdk : loadingFinish

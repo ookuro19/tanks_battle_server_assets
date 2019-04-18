@@ -5,8 +5,9 @@
 					http://www.kbengine.org/cn/docs/programming/entitydef.html
 	-->
 
-	<!-- <Avatar/> -->
-	<Avatar hasClient="true"></Avatar><!-- <Avatar hasCell="true" hasBase="true" hasClient="true"></Avatar> -->
+	<!-- <Account/> -->
+	<Account hasClient="true"></Account>	<!-- <Account hasCell="true" hasBase="true" hasClient="true"></Account> -->
+	<Robot hasClient = "true"></Robot>
 	<Halls/>
 	<Room/>
 </root>

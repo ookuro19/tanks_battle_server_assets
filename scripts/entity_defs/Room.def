@@ -1,4 +1,8 @@
 <root>
+	<Interfaces>
+		<Interface>	EntityCommon		</Interface>
+	</Interfaces>
+
 	<Properties>
 		<roomKey>
 			<Type>			SPACE_KEY			</Type>
@@ -53,9 +57,9 @@
 			<Arg>		ENTITY_ID		</Arg>
 		</onLeave>
 
-		<AvatarloadingFinish>
+		<AccountloadingFinish>
 			<Arg>		ENTITY_ID		</Arg>
-		</AvatarloadingFinish>
+		</AccountloadingFinish>
 
 		<playerReachDestination>
 			<Arg>		ENTITY_ID		</Arg>

@@ -1,0 +1,56 @@
+<root>
+
+    <Properties>
+        <nameS>
+            <Type>		UNICODE			</Type>
+            <Flags>		ALL_CLIENTS			</Flags>
+        </nameS>
+
+        <progress>
+            <Type>		INT32			</Type>
+            <Flags>		ALL_CLIENTS		</Flags>
+            <Default>		100			</Default>
+        </progress>
+
+        <roomNo>
+            <Type>		INT32			</Type>
+            <Flags>		ALL_CLIENTS		</Flags>
+            <Default>		0			</Default>
+        </roomNo>
+    </Properties>
+
+    <ClientMethods>
+    </ClientMethods>
+
+    <BaseMethods>
+        <createCell>
+            <Arg>		ENTITYCALL					</Arg>
+            <Arg>		SPACE_KEY					</Arg>
+            <Arg>		INT32						</Arg>
+        </createCell>
+
+        <onMatchingFinish>
+            <Arg>		INT32				</Arg>
+        </onMatchingFinish>
+
+        <onLoadingFinish>
+            <Arg>		INT32				</Arg>
+        </onLoadingFinish>
+
+        <onReachDestination>
+            <Arg>		ENTITY_ID		</Arg>
+            <Arg>		INT32			</Arg>
+        </onReachDestination>
+
+        <onTimerChanged>
+            <Arg>		INT32			</Arg>
+        </onTimerChanged>
+    </BaseMethods>
+
+    <CellMethods>
+        <regReachDestination>
+            <Exposed/>
+        </regReachDestination>
+    </CellMethods>
+
+</root>

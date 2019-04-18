@@ -16,6 +16,12 @@
 			<Default>		0			</Default>
 		</mapNum>
 
+		<modeNum>
+			<Type>		INT32			</Type>
+			<Flags>		BASE			</Flags>
+			<Default>		0			</Default>
+		</modeNum>
+
 		<matchCode>
 			<Type>		INT32			</Type>
 			<Flags>		BASE			</Flags>

@@ -35,7 +35,7 @@ class Room(KBEngine.Entity):
         self.reachCount = 0
 
     # region loading
-    def AvatarloadingFinish(self, entityID):
+    def AccountloadingFinish(self, entityID):
         """
         loading finish.
         加载结束

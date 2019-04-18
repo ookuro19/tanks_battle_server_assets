@@ -6,8 +6,7 @@ import random
 
 TIMER_TYPE_DESTROY = 1
 
-
-class Avatar(KBEngine.Proxy):
+class Account(KBEngine.Proxy):
     def __init__(self):
         KBEngine.Proxy.__init__(self)
 
@@ -156,7 +155,7 @@ class Avatar(KBEngine.Proxy):
         KBEngine method.
         entity的cell部分实体被创建成功
         """
-        DEBUG_MSG('Avatar::onGetCell: %s' % self.cell)
+        DEBUG_MSG('Account::onGetCell: %s' % self.cell)
 
     def onLoseCell(self):
         """
@@ -179,7 +178,7 @@ class Avatar(KBEngine.Proxy):
         KBEngine method.
         客户端对应实体已经销毁
         """
-        DEBUG_MSG("Avatar[%i].onClientDeath:" % self.id)
+        DEBUG_MSG("Account[%i].onClientDeath:" % self.id)
 
         # 如果玩家没有cell, 直接退出？
         if self.cell is None:
@@ -199,5 +198,5 @@ class Avatar(KBEngine.Proxy):
         DEBUG_MSG("%s::onRestore: %s" % (self.getScriptName(), self.cell))
 
     def onDestroyTimer(self):
-        DEBUG_MSG("Avatar::onDestroyTimer: %i" % (self.id))
+        DEBUG_MSG("Account::onDestroyTimer: %i" % (self.id))
         self.destroySelf()

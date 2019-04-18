@@ -35,7 +35,7 @@
 			<!-- 账号Entity的名称
 			    (Name of AccountEntity)
 			 -->
-			<accountEntityScriptType>	Avatar	</accountEntityScriptType>
+			<accountEntityScriptType>	Account	</accountEntityScriptType>
 
 			<!-- 账号找回密码相关
 				(Account reset password)

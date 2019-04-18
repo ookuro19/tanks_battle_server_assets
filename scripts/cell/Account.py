@@ -7,7 +7,7 @@ import GameConfigs
 TIMER_TYPE_ADD_TRAP = 1
 
 
-class Avatar(KBEngine.Entity, EntityCommon):
+class Account(KBEngine.Entity, EntityCommon):
     def __init__(self):
         KBEngine.Entity.__init__(self)
         EntityCommon.__init__(self)
@@ -25,7 +25,7 @@ class Avatar(KBEngine.Entity, EntityCommon):
             INFO_MSG("cell::account[%i] reg progress. entityCall:%s, progress:%s" %
                      (self.id, self.client, tprogress))
             if self.progress == GameConfigs.LOADING_FINISH_PROGRESS:
-                self.getCurRoom().AvatarloadingFinish(self.id)
+                self.getCurRoom().AccountloadingFinish(self.id)
     # endregion
 
     # region Props
@@ -34,7 +34,7 @@ class Avatar(KBEngine.Entity, EntityCommon):
         当前玩家获得道具
         :param prop_type: 所获得的道具类型
         """
-        DEBUG_MSG("Avatar id: %i, get props: %i." % (self.id, prop_type))
+        DEBUG_MSG("Account id: %i, get props: %i." % (self.id, prop_type))
         self.allClients.onGetProps(prop_type)
     # endregion
     
@@ -80,7 +80,7 @@ class Avatar(KBEngine.Entity, EntityCommon):
         KBEngine method.
         entity销毁
         """
-        DEBUG_MSG("Avatar::onDestroy: %i." % self.id)
+        DEBUG_MSG("Account::onDestroy: %i." % self.id)
         room = self.getCurRoom()
 
         if room:
