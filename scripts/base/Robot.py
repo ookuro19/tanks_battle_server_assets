@@ -4,6 +4,8 @@ from KBEDebug import *
 import GameConfigs
 import random
 
+TIMER_TYPE_Robot_Controlled = 1
+
 
 class Robot(KBEngine.Proxy):
     def __init__(self):
@@ -13,6 +15,8 @@ class Robot(KBEngine.Proxy):
 
         self.cellData["progress"] = 100
 
+        self.curRoomBase = None
+
         self._destroyTimer = 0
 
     def createCell(self, space, roomKey, roomNo):
@@ -21,6 +25,7 @@ class Robot(KBEngine.Proxy):
         创建cell实体
         """
         self.cellData["roomNo"] = roomNo
+        self.curRoomBase = space.base
         self.createCellEntity(space)
 
     def onMatchingFinish(self, suc):
@@ -66,7 +71,9 @@ class Robot(KBEngine.Proxy):
         @param id		: addTimer 的返回值ID
         @param userArg	: addTimer 最后一个参数所给入的数据
         """
-        pass
+        if TIMER_TYPE_Robot_Controlled == userArg:
+            DEBUG_MSG("Robot_Cell::TIMER_TYPE_Robot_Controlled")
+            self.curRoomBase.getController(self)
 
     def onGetCell(self):
         """
@@ -74,6 +81,7 @@ class Robot(KBEngine.Proxy):
         entity的cell部分实体被创建成功
         """
         DEBUG_MSG('Robot::onGetCell: %s' % self.cell)
+        self.addTimer(1, 0, TIMER_TYPE_Robot_Controlled)
 
     def onLoseCell(self):
         """

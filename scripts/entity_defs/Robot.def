@@ -48,6 +48,11 @@
     </BaseMethods>
 
     <CellMethods>
+        <onControlledBy>
+            <Exposed/>
+            <Arg>		ENTITYCALL					</Arg>
+        </onControlledBy>
+
         <regReachDestination>
             <Exposed/>
         </regReachDestination>

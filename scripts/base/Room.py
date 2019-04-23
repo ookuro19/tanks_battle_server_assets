@@ -5,7 +5,6 @@ import GameConfigs
 
 TIMER_TYPE_Matching = 1
 TIMER_TYPE_Robot_Refresh = 2
-TIMER_TYPE_Robot_Controlled = 3
 
 
 class Room(KBEngine.Entity):
@@ -78,6 +77,13 @@ class Room(KBEngine.Entity):
     # endregion enter or leave
 
     # region matching
+    def getController(self, robot):
+        """
+
+        给机器人添加控制
+        """
+        robot.cell.onControlledBy(self.hostEntity)
+
     def matchingFinish(self):
         if len(self.accounts) < GameConfigs.ROOM_MAX_PLAYER:
             # 一般是由于玩家数目不足，但匹配时间已过
@@ -97,8 +103,6 @@ class Room(KBEngine.Entity):
         # 当人数足够时，即可开始游戏
         for info in self.accounts.values():
             info.onMatchingFinish(0)
-
-        self.addTimer(3, 0, TIMER_TYPE_Robot_Controlled)
 
         DEBUG_MSG("Room::matchingFinish: %i" % self.roomKey)
 
@@ -146,9 +150,6 @@ class Room(KBEngine.Entity):
         if TIMER_TYPE_Matching == userArg:
             DEBUG_MSG("Room_Base::TIMER_TYPE_Matching")
             self.matchingFinish()
-        elif TIMER_TYPE_Robot_Controlled == userArg:
-            for value in self.robots.values():
-                value.controlledBy = self.hostEntity
 
     def onLoseCell(self):
         """

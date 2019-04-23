@@ -14,7 +14,7 @@ ENTITY_STATE_MAX = 4
 # region matching
 
 # 一个房间最大人数
-ROOM_MAX_PLAYER = 2
+ROOM_MAX_PLAYER = 3
 
 # 匹配时间限制
 ROOM_MATCHING_TIME = 10

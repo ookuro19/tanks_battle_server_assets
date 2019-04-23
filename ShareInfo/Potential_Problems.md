@@ -10,6 +10,10 @@
 
 3. 一定时间后自动添加机器人
 
+4. entityid耗尽的问题
+
+> <https://bbs.comblockengine.com/forum.php?mod=viewthread&tid=6725&highlight=id>
+
 ## .结算
 
 1. 同时到达的问题

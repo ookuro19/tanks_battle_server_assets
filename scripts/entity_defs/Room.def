@@ -35,6 +35,10 @@
 			<Arg>		ENTITY_ID		</Arg>
 		</onLeave>
 
+		<getController>
+			<Arg>		ENTITYCALL		</Arg>
+		</getController>
+
 		<onAllPlayerLoadingFinish>
 		</onAllPlayerLoadingFinish>
 

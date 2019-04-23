@@ -9,6 +9,7 @@ TIMER_TYPE_START = 2
 TIMER_TYPE_END = 3
 TIMER_TYPE_DESTROY = 4
 
+
 class Room(KBEngine.Entity):
     """
     游戏场景
@@ -24,7 +25,7 @@ class Room(KBEngine.Entity):
 
         # 加载完成人数
         self.loadingFinishCount = 0
-        
+
         # 比赛总计用时
         self.totalTimer = 0
 
@@ -33,6 +34,31 @@ class Room(KBEngine.Entity):
 
         # 到达终点人数总计
         self.reachCount = 0
+
+        self.hostEntity = None
+
+    # region enter or leave
+
+    def onEnter(self, entityCall):
+        """
+        defined method.
+        进入场景
+        """
+        DEBUG_MSG('Room::onEnter space[%d] entityID = %i.' %
+                  (self.spaceID, entityCall.id))
+        self.avatars[entityCall.id] = entityCall
+
+    def onLeave(self, entityID):
+        """
+        defined method.
+        离开场景
+        """
+        DEBUG_MSG('Room::onLeave space[%d] entityID = %i.' % (
+            self.spaceID, entityID))
+
+        if entityID in self.avatars:
+            del self.avatars[entityID]
+    # endregion enter or leave
 
     # region loading
     def AccountloadingFinish(self, entityID):
@@ -112,26 +138,6 @@ class Room(KBEngine.Entity):
                 self.base.onTimerChanged(10 - self.endTimer)
         elif TIMER_TYPE_DESTROY == userArg:
             self.onDestroyTimer()
-
-    def onEnter(self, entityCall):
-        """
-        defined method.
-        进入场景
-        """
-        DEBUG_MSG('Room::onEnter space[%d] entityID = %i.' %
-                  (self.spaceID, entityCall.id))
-        self.avatars[entityCall.id] = entityCall
-
-    def onLeave(self, entityID):
-        """
-        defined method.
-        离开场景
-        """
-        DEBUG_MSG('Room::onLeave space[%d] entityID = %i.' % (
-            self.spaceID, entityID))
-
-        if entityID in self.avatars:
-            del self.avatars[entityID]
 
     def onDestroy(self):
         """
