@@ -14,6 +14,8 @@
 
 > <https://bbs.comblockengine.com/forum.php?mod=viewthread&tid=6725&highlight=id>
 
+不论是否适用对象池，房间内的机器人cell部分一定会被销毁
+
 ## .结算
 
 1. 同时到达的问题

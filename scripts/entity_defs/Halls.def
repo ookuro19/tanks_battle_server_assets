@@ -11,6 +11,7 @@
             <Arg>		MODE_NUM		</Arg>
             <Arg>		MAP_NUM			</Arg>
             <Arg>		MATCH_CODE		</Arg>
+            <Arg>		SPACE_KEY		</Arg>
         </enterRoom>
     </BaseMethods>
 

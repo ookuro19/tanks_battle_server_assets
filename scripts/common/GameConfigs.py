@@ -16,8 +16,8 @@ ENTITY_STATE_MAX = 4
 # 一个房间最大人数
 ROOM_MAX_PLAYER = 3
 
-# 匹配时间限制
-ROOM_MATCHING_TIME = 10
+# 机器人加入间隔
+ROOM_MATCHING_TIME = 5
 
 # 加载完成时进度值
 LOADING_FINISH_PROGRESS = 100

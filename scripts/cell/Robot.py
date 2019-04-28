@@ -46,6 +46,10 @@ class Robot(KBEngine.Entity, EntityCommon):
         # DEBUG_MSG("%s::onTimer: %i, tid:%i, arg:%i" % (self.className, self.id, tid, userArg))
         EntityCommon.onTimer(self, tid, user_arg)
 
+    def onLoseControlledBy(self, id):
+        DEBUG_MSG("%s::onLoseControlledBy: %i, owner %i" %
+                  (self.className, self.id, id))
+
     def onUpgrade(self):
         pass
 

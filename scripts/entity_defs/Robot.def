@@ -12,6 +12,11 @@
             <Default>		100			</Default>
         </progress>
 
+        <roomKey>
+            <Type>			SPACE_KEY			</Type>
+            <Flags>			BASE				</Flags>
+        </roomKey>
+
         <roomNo>
             <Type>		INT32			</Type>
             <Flags>		ALL_CLIENTS		</Flags>

@@ -13,11 +13,12 @@ class Robot(KBEngine.Proxy):
 
         self.cellData["nameS"] = "I, Robot"
 
-        self.cellData["progress"] = 100
-
         self.curRoomBase = None
 
         self._destroyTimer = 0
+
+        KBEngine.globalData["Halls"].enterRoom(
+            entityCall=self, modeNum=-1, mapNum=-1, matchCode=-1, roomKey=self.roomKey)
 
     def createCell(self, space, roomKey, roomNo):
         """
@@ -33,7 +34,13 @@ class Robot(KBEngine.Proxy):
         matching finish
         匹配结束，通知客户端可以开始加载地图
         """
-        pass
+        if suc == 0:
+            pass
+        else:
+            # 必须先销毁cell实体，才能销毁base
+            if self.cell is not None:
+                self.destroyCellEntity()
+                return
 
     def onLoadingFinish(self, suc):
         """
@@ -89,8 +96,7 @@ class Robot(KBEngine.Proxy):
         entity的cell部分实体丢失
         """
         DEBUG_MSG("%s::onLoseCell: %i" % (self.className, self.id))
-
-        self.loginState = 0
+        self.destroy()
 
     def onRestore(self):
         """

@@ -32,7 +32,7 @@ class Room(KBEngine.Entity):
 
         DEBUG_MSG("Room::__init__: %i" % self.id)
 
-    # region enter or leave
+    # region enter&leave
     def enterRoom(self, entityCall):
         """
         defined method.
@@ -46,10 +46,27 @@ class Room(KBEngine.Entity):
         self.palyerNum += 1
         entityCall.createCell(self.cell, self.roomKey, self.palyerNum)
 
-        entityCall.onMapModeChanged(self.mapNo, self.modeNo)
         self.onEnter(entityCall)
         DEBUG_MSG("Room::enterRoom: %i, mapNo: %i, modeNo: %i"
                   % (self.id, self.mapNo, self.modeNo))
+
+    def onEnter(self, entityCall):
+        """
+        defined method.
+        进入场景
+        """
+        if entityCall.className == "Account":
+            # 如果是玩家，则需要通知更换地图
+            entityCall.onMapModeChanged(self.mapNo, self.modeNo)
+            self.accounts[entityCall.id] = entityCall
+        else:
+            self.robots[entityCall.id] = entityCall
+
+        if (len(self.accounts) + len(self.robots)) == GameConfigs.ROOM_MAX_PLAYER:
+            # 当人数足够时，即可开始游戏
+            for info in self.accounts.values():
+                info.onMatchingFinish(0)
+            DEBUG_MSG("Room::matchingFinish: %i" % self.roomKey)
 
     def leaveRoom(self, entityID):
         """
@@ -58,15 +75,6 @@ class Room(KBEngine.Entity):
         """
         self.onLeave(entityID)
 
-    def onEnter(self, entityCall):
-        """
-        defined method.
-        进入场景
-        """
-        self.accounts[entityCall.id] = entityCall
-        if len(self.accounts) == GameConfigs.ROOM_MAX_PLAYER:
-            self.matchingFinish()
-
     def onLeave(self, entityID):
         """
         defined method.
@@ -74,7 +82,7 @@ class Room(KBEngine.Entity):
         """
         if entityID in self.accounts:
             del self.accounts[entityID]
-    # endregion enter or leave
+    # endregion enter&leave
 
     # region matching
     def getController(self, robot):
@@ -83,32 +91,10 @@ class Room(KBEngine.Entity):
         给机器人添加控制
         """
         robot.cell.onControlledBy(self.hostEntity)
-
-    def matchingFinish(self):
-        if len(self.accounts) < GameConfigs.ROOM_MAX_PLAYER:
-            # 一般是由于玩家数目不足，但匹配时间已过
-            curPlayerNum = len(self.accounts)
-            DEBUG_MSG("We need create robot")
-
-            for i in range(curPlayerNum, GameConfigs.ROOM_MAX_PLAYER):
-                DEBUG_MSG("create a robot")
-                # 生成机器人
-                self.palyerNum += 1
-                temp_entity = KBEngine.createEntity(
-                    "Robot", {"progress": 100})
-                self.accounts[temp_entity.id] = temp_entity
-                self.robots[temp_entity.id] = temp_entity
-                temp_entity.createCell(self.cell, self.roomKey, self.palyerNum)
-
-        # 当人数足够时，即可开始游戏
-        for info in self.accounts.values():
-            info.onMatchingFinish(0)
-
-        DEBUG_MSG("Room::matchingFinish: %i" % self.roomKey)
-
-    # enderegion
+    # endregion matching
 
     # region loading
+
     def onAllPlayerLoadingFinish(self):
         """
         on all player loading finish.
@@ -149,7 +135,13 @@ class Room(KBEngine.Entity):
         """
         if TIMER_TYPE_Matching == userArg:
             DEBUG_MSG("Room_Base::TIMER_TYPE_Matching")
-            self.matchingFinish()
+            if (len(self.accounts) + len(self.robots)) < GameConfigs.ROOM_MAX_PLAYER:
+                DEBUG_MSG("create a robot")
+                # 生成机器人
+                KBEngine.createEntity(
+                    "Robot", {"progress": 100, "roomKey": self.roomKey})
+                self.addTimer(GameConfigs.ROOM_MATCHING_TIME,
+                              0, TIMER_TYPE_Matching)
 
     def onLoseCell(self):
         """

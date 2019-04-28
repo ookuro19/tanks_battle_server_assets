@@ -6,6 +6,7 @@ import random
 
 TIMER_TYPE_DESTROY = 1
 
+
 class Account(KBEngine.Proxy):
     def __init__(self):
         KBEngine.Proxy.__init__(self)
@@ -60,10 +61,12 @@ class Account(KBEngine.Proxy):
     def onMatchingFinish(self, suc):
         """
         matching finish
-        匹配结束，通知客户端可以开始加载地图
+        匹配结束
+        0-匹配成功; -1-匹配失败
         """
-        self.loginState = 1
-        self.client.onMatchingFinish(0)
+        if suc == 0:
+            self.loginState = 1
+        self.client.onMatchingFinish(suc)
 
     def onLoadingFinish(self, suc):
         """
@@ -72,7 +75,6 @@ class Account(KBEngine.Proxy):
         """
         self.loginState = self.modeNum * 2 + self.mapNum
         self.client.onLoadingFinish(0)
-
     # endregion Matching
 
     # region destination
@@ -141,6 +143,13 @@ class Account(KBEngine.Proxy):
         # 1-当前玩家匹配未比赛
         # 2-当前玩家是比赛中掉线的
         self.client.onLoginState(self.loginState)
+
+    def onClientDeath(self):
+        """
+        KBEngine method.
+        客户端销毁
+        """
+        INFO_MSG("account[%i] client death" % self.id)
 
     def onLogOnAttempt(self, ip, port, password):
         """
