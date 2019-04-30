@@ -16,7 +16,7 @@ class Robot(KBEngine.Entity, EntityCommon):
 
     def onControlledBy(self, controllerEntity):
         """
-
+        on controlled by
         设置控制机器人的实体
         """
         self.controlledBy = controllerEntity

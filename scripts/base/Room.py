@@ -28,7 +28,7 @@ class Room(KBEngine.Entity):
         self.mapNo = 0
         self.modeNo = 0
 
-        self.addTimer(GameConfigs.ROOM_MATCHING_TIME, 0, TIMER_TYPE_Matching)
+        # self.addTimer(GameConfigs.ROOM_MATCHING_TIME, 0, TIMER_TYPE_Matching)
 
         DEBUG_MSG("Room::__init__: %i" % self.id)
 
