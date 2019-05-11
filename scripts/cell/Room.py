@@ -75,6 +75,12 @@ class Room(KBEngine.Entity):
     # endregion loading
 
     # region playing
+    def regCheckPropsAvailable(self, entityCall, prop_key, prop_type):
+        """
+        检查是否获得相应道具
+        """
+        entityCall.onGetProps(True, prop_key, prop_type)
+
     def playerReachDestination(self, entityID):
         """
         player reach destition

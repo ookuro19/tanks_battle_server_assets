@@ -61,6 +61,12 @@
 			<Arg>		ENTITY_ID		</Arg>
 		</onLeave>
 
+		<regCheckPropsAvailable>
+			<Arg>		ENTITY_ID		</Arg>
+			<Arg>		PROP_KEY		</Arg>
+			<Arg>		INT32			</Arg>
+		</regCheckPropsAvailable>
+
 		<AccountloadingFinish>
 			<Arg>		ENTITY_ID		</Arg>
 		</AccountloadingFinish>

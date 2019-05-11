@@ -37,9 +37,10 @@ class Halls(KBEngine.Entity):
                 tRoomDatas = self.rooms.get(roomKey)
             else:
                 # 按照地图，模式匹配
-                tRoomDatas = self.last_new_room_keys.get((mapNum, modeNum))
-                DEBUG_MSG("Halls::findroom mode=%i,map=%i,matchCode=%i" %
-                  (modeNum, mapNum, matchCode))
+                lastNewRoomKey = self.last_new_room_keys.get((mapNum, modeNum))
+                tRoomDatas = self.rooms.get(lastNewRoomKey)
+                DEBUG_MSG("Halls::findroom mode = %i,map = %i,matchCode = %i, lastNewRoomKey exit = %i" %
+                  (modeNum, mapNum, matchCode, lastNewRoomKey == None))
 
         if tRoomDatas is None:
             return FIND_ROOM_NOT_FOUND
@@ -65,13 +66,13 @@ class Halls(KBEngine.Entity):
                       "enterRoomReqs": [], "roomKey": tempRoomKey}
         self.rooms[tempRoomKey] = cRoomDatas
 
-        if matchCode >= 0:
+        if matchCode > 0:
             pass
         else:
             self.last_new_room_keys[(mapNum, modeNum)] = tempRoomKey
 
-        DEBUG_MSG("Halls::createRoom mode=%i,map=%i,matchCode=%i" %
-                  (modeNum, mapNum, matchCode))
+        DEBUG_MSG("Halls::createRoom mode=%i,map=%i,matchCode=%i, room is: %i" %
+                  (modeNum, mapNum, matchCode, self.last_new_room_keys[(mapNum, modeNum)]))
 
         return cRoomDatas
 

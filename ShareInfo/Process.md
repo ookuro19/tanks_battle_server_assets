@@ -1,15 +1,17 @@
+# 滑雪3.0服务器各部分逻辑流程
+
+## 1. 登录
 
 ```sequence {theme="simple"}
 
-# 登录
 Note left of sdk : login
 sdk -> avatar : login
 avatar -> sdk : onLoginSucessfully
+```
 
-Note over avatar: BASE
-Note over room: BASE
-Note over halls: BASE
+## 2. 匹配
 
+```sequence {theme="simple"}
 # 开始匹配
 Note left of sdk : matching
 sdk -> avatar : start matching
@@ -21,9 +23,6 @@ room -> avatar : create cell, createCellEntity
 avatar -> sdk : onAccountEnterWorld
 room -> room : check player count
 avatar -> sdk : matching finish
-Note over avatar: CELL
-Note over room: CELL
-Note over halls: CELL
 
 # 更新加载进度
 Note left of sdk : progress
@@ -32,8 +31,11 @@ avatar -> room : AccountloadingFinish
 room -> room : check players' progress
 room -> avatar : loadingFinish
 avatar -> sdk : loadingFinish
+```
 
-# 游戏阶段
+## 3. 坐标
+
+```sequence {theme="simple"}
 Note left of sdk : pos
 sdk -> avatar : update pos
 
@@ -47,20 +49,31 @@ room -> room : addTimer(10)
 room -> room : check reach player count
 room -> avatar : onTimerChanged
 avatar -> sdk : onTimerChanged
+```
 
-# 获得道具判断方法有待改进
+## 4. 获得道具判断方法有待改进
+
+```sequence {theme="simple"}
 Note left of sdk : getProps
 sdk -> avatar : getProps
+avatar -> Room : check prop availability
+Room -> avatar : onGetProps
 avatar -> sdk : onGetProps
+```
 
-# 使用技能
+## 5. 使用技能
+
+```sequence {theme="simple"}
 Note left of sdk : useSkill
 sdk -> avatar : use skill
 avatar -> avatar : check skill available
 avatar -> avatar : use skill to other
 avatar -> sdk : A fires at B
+```
 
-# 比赛结束
+## 6. 比赛结束
+
+```sequence {theme="simple"}
 Note left of sdk : game over
 room -> room : gameover
 room -> avatar : exit room

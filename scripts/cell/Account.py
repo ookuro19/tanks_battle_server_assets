@@ -13,7 +13,8 @@ class Account(KBEngine.Entity, EntityCommon):
         EntityCommon.__init__(self)
         self.progress = 0
         self.getCurRoom().onEnter(self)
-
+        self.curProp = None
+        
     # region Matching
     def regProgress(self, tprogress):
         """
@@ -29,20 +30,42 @@ class Account(KBEngine.Entity, EntityCommon):
     # endregion
 
     # region Props
-    def regGetProps(self, prop_type):
+    def regGetProps(self, prop_key, prop_type):
         """
         当前玩家获得道具
+        :param prop_key: 道具的key
         :param prop_type: 所获得的道具类型
         """
         DEBUG_MSG("Account id: %i, get props: %i." % (self.id, prop_type))
-        self.allClients.onGetProps(prop_type)
-    # endregion
-    
-    # region Skill
-    def regUseSkill(self, target_id, skill):
-        self.allClients.onUseSkill(self.id, target_id, skill)
+        # 传递给服务器，由服务器判断是否吃到道具
+        self.getCurRoom().regCheckPropsAvailable(prop_key, prop_type)
 
-    def regSkillResult(self, target_id, suc):
+    def onGetProps(self, if_available, prop_key, prop_type):
+        """
+        on get props
+        获得道具回调
+        :param if_available: 道具是否可获得
+        :param prop_key: 道具的key
+        :param prop_type: 所获得的道具类型
+        """
+        if if_available:
+            self.curProp = prop_key
+            self.allClients.onGetProps(prop_key, prop_type)
+
+    # endregion
+
+    # region Skill
+    def regUseSkill(self, target_id, skill_type):
+        """
+        use skill
+        使用道具
+        :param target_id: 目标玩家的id
+        :param skill_type: 道具/技能类型
+        """
+        if skill_type == self.curProp:
+            self.allClients.onUseSkill(self.id, target_id, skill_type)
+
+   def regSkillResult(self, target_id, suc):
         self.allClients.onSkillResult(self.id, target_id, suc)
     # endregion Skill
 
@@ -54,6 +77,7 @@ class Account(KBEngine.Entity, EntityCommon):
         """
         INFO_MSG("cell::account[%i] reach destination. entityCall:%s" %
                  (self.id, self.client))
+
         self.getCurRoom().playerReachDestination(self.id)
     # endregion Destination
 

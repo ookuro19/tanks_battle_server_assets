@@ -78,7 +78,8 @@
 		</onLoadingFinish>
 
 		<onGetProps>
-			<Arg>		INT32			</Arg>
+			<PROP_KEY>		INT32			</PROP_KEY>
+			<Arg>			INT32			</Arg>
 		</onGetProps>
 
 		<onUseSkill>
@@ -133,6 +134,11 @@
 		<onLoadingFinish>
 			<Arg>		INT32				</Arg>
 		</onLoadingFinish>
+
+		<onGetProps>
+			<Arg>		PROP_KEY		</Arg>
+			<Arg>		INT32			</Arg>
+		</onGetProps>
 
 		<onReachDestination>
 			<Arg>		ENTITY_ID		</Arg>
