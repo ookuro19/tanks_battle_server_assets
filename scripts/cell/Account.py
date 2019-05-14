@@ -14,7 +14,7 @@ class Account(KBEngine.Entity, EntityCommon):
         self.progress = 0
         self.getCurRoom().onEnter(self)
         self.curProp = None
-        
+
     # region Matching
     def regProgress(self, tprogress):
         """
@@ -22,7 +22,7 @@ class Account(KBEngine.Entity, EntityCommon):
         客户端加载进度
         """
         if self.progress < tprogress:
-            self.progress = tprogress
+            self.progress = tprogressf
             INFO_MSG("cell::account[%i] reg progress. entityCall:%s, progress:%s" %
                      (self.id, self.client, tprogress))
             if self.progress == GameConfigs.LOADING_FINISH_PROGRESS:
@@ -50,12 +50,10 @@ class Account(KBEngine.Entity, EntityCommon):
         """
         if if_available:
             self.curProp = prop_key
+            # 通知所有客户端该玩家获得道具
             self.allClients.onGetProps(prop_key, prop_type)
 
-    # endregion
-
-    # region Skill
-    def regUseSkill(self, target_id, skill_type):
+    def regUseProp(self, target_id, skill_type):
         """
         use skill
         使用道具
@@ -63,11 +61,15 @@ class Account(KBEngine.Entity, EntityCommon):
         :param skill_type: 道具/技能类型
         """
         if skill_type == self.curProp:
-            self.allClients.onUseSkill(self.id, target_id, skill_type)
+            self.curProp = None
+            self.allClients.onUseProp(self.id, target_id, skill_type)
 
-   def regSkillResult(self, target_id, suc):
-        self.allClients.onSkillResult(self.id, target_id, suc)
-    # endregion Skill
+    def regPropResult(self, target_id, suc):
+        self.allClients.onPropResult(self.id, target_id, suc)
+
+    def onPropResult(self, target_id, prop_type, suc):
+        self.allClients.onPropResult(self.id, target_id, prop_type, suc)
+    # endregion Props
 
     # region Destination
     def regReachDestination(self):

@@ -82,17 +82,18 @@
 			<Arg>			INT32			</Arg>
 		</onGetProps>
 
-		<onUseSkill>
+		<onUseProp>
 			<Arg>		ENTITY_ID		</Arg>
 			<Arg>		ENTITY_ID		</Arg>
 			<Arg>		INT32			</Arg>
-		</onUseSkill>
+		</onUseProp>
 
-		<onSkillResult>
+		<onPropResult>
 			<Arg>		ENTITY_ID		</Arg>
 			<Arg>		ENTITY_ID		</Arg>
+			<Arg>		PROP_TYPE		</Arg>
 			<Arg>		INT32			</Arg>
-		</onSkillResult>
+		</onPropResult>
 
 		<onReachDestination>
 			<Arg>		ENTITY_ID		</Arg>
@@ -160,22 +161,32 @@
 			<Exposed/>
 		</regReachDestination>
 
+		<!-- reg 获取道具 -->
 		<regGetProps>
 			<Exposed/>
 			<Arg>		INT32						</Arg>
 		</regGetProps>
 
-		<regUseSkill>
+		<!-- reg 使用道具 -->
+		<regUseProp>
 			<Exposed/>
 			<Arg>		ENTITY_ID					</Arg>
 			<Arg>		INT32						</Arg>
-		</regUseSkill>
+		</regUseProp>
 
-		<regSkillResult>
+		<!-- reg 道具使用结果 -->
+		<regPropResult>
 			<Exposed/>
 			<Arg>		ENTITY_ID					</Arg>
 			<Arg>		INT32						</Arg>
-		</regSkillResult>
+		</regPropResult>
+
+		<!-- 服务器结算技能回调 -->
+		<onPropResult>
+			<Arg>		ENTITY_ID				</Arg>
+			<Arg>		PROP_TYPE				</Arg>
+			<Arg>		INT32					</Arg>
+		</onPropResult>
 	</CellMethods>
 
 </root>

@@ -64,8 +64,13 @@
 		<regCheckPropsAvailable>
 			<Arg>		ENTITY_ID		</Arg>
 			<Arg>		PROP_KEY		</Arg>
-			<Arg>		INT32			</Arg>
+			<Arg>		PROP_TYPE			</Arg>
 		</regCheckPropsAvailable>
+
+		<regCheckPropsResult>
+			<Arg>		ENTITY_ID		</Arg>
+			<Arg>		PROP_TYPE			</Arg>
+		</regCheckPropsResult>
 
 		<AccountloadingFinish>
 			<Arg>		ENTITY_ID		</Arg>

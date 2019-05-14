@@ -55,20 +55,21 @@ avatar -> sdk : onTimerChanged
 
 ```sequence {theme="simple"}
 Note left of sdk : getProps
-sdk -> avatar : getProps
-avatar -> Room : check prop availability
+sdk -> avatar : regGetProps
+avatar -> Room : regCheckPropsAvailable
 Room -> avatar : onGetProps
 avatar -> sdk : onGetProps
 ```
 
-## 5. 使用技能
+## 5. 使用道具
 
 ```sequence {theme="simple"}
-Note left of sdk : useSkill
-sdk -> avatar : use skill
+Note left of sdk : useProp
+sdk -> avatar : regUseProp
 avatar -> avatar : check skill available
-avatar -> avatar : use skill to other
-avatar -> sdk : A fires at B
+avatar -> sdk : onUseProp
+sdk -> sdk : regPropResult
+
 ```
 
 ## 6. 比赛结束

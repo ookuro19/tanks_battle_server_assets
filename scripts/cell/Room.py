@@ -81,6 +81,12 @@ class Room(KBEngine.Entity):
         """
         entityCall.onGetProps(True, prop_key, prop_type)
 
+    def regCheckPropsAvailable(self, entityCall, prop_type):
+        """
+        检查道具使用结果
+        """
+        entityCall.onGetProps(True, prop_key, prop_type)
+
     def playerReachDestination(self, entityID):
         """
         player reach destition

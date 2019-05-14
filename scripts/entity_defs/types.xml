@@ -8,5 +8,6 @@
     <MAP_NUM>          INT32      </MAP_NUM>
     <MODE_NUM>          INT32      </MODE_NUM>
     <MATCH_CODE>          INT32      </MATCH_CODE>
+    <PROP_TYPE>          INT32      </PROP_TYPE>
     <PROP_KEY>          INT32      </PROP_KEY>
 </root>
