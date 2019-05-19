@@ -51,25 +51,32 @@ room -> avatar : onTimerChanged
 avatar -> sdk : onTimerChanged
 ```
 
-## 4. 获得道具判断方法有待改进
+## 4. 道具相关
+
+### 1.获得道具
 
 ```sequence {theme="simple"}
 Note left of sdk : getProps
-sdk -> avatar : regGetProps
-avatar -> Room : regCheckPropsAvailable
-Room -> avatar : onGetProps
-avatar -> sdk : onGetProps
+sdk -> avatar : regGetProps(prop_key, prop_type)
+avatar -> room : regCheckPropsAvailable(entitycall, prop_key, prop_type)
+room -> avatar : onGetPropsBase(avaibility, prop_type)
+avatar -> sdk : onGetPropsClient(avaibility, prop_type)
+Note left of room : prop reset after 5s
+room -> avatar : onPropResetBase(prop_key)
+avatar -> sdk : onPropResetClient(prop_key)
 ```
 
-## 5. 使用道具
+### 2. 使用道具
 
 ```sequence {theme="simple"}
 Note left of sdk : useProp
-sdk -> avatar : regUseProp
+sdk -> avatar : regUseProp(prop_type, target_id)
 avatar -> avatar : check skill available
 avatar -> sdk : onUseProp
-sdk -> sdk : regPropResult
-
+sdk -> avatar : regPropResult
+avatar -> room : regCheckPropsResult
+room -> avatar : onPropResultBase
+avatar -> sdk : onPropResultClient
 ```
 
 ## 6. 比赛结束

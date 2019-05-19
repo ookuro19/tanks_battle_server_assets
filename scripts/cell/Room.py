@@ -79,13 +79,13 @@ class Room(KBEngine.Entity):
         """
         检查是否获得相应道具
         """
-        entityCall.onGetProps(True, prop_key, prop_type)
+        entityCall.onGetPropsBase(0, prop_key, prop_type)
 
-    def regCheckPropsAvailable(self, entityCall, prop_type):
+    def regCheckPropsResult(self, entityCall, origin_id, target_id, prop_type, suc):
         """
         检查道具使用结果
         """
-        entityCall.onGetProps(True, prop_key, prop_type)
+        entityCall.onPropResultBase(origin_id, target_id, prop_type, 0)
 
     def playerReachDestination(self, entityID):
         """

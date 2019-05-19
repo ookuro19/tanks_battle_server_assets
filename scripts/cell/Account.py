@@ -22,14 +22,14 @@ class Account(KBEngine.Entity, EntityCommon):
         客户端加载进度
         """
         if self.progress < tprogress:
-            self.progress = tprogressf
+            self.progress = tprogress
             INFO_MSG("cell::account[%i] reg progress. entityCall:%s, progress:%s" %
                      (self.id, self.client, tprogress))
             if self.progress == GameConfigs.LOADING_FINISH_PROGRESS:
                 self.getCurRoom().AccountloadingFinish(self.id)
     # endregion
 
-    # region Props
+    # region GetProps
     def regGetProps(self, prop_key, prop_type):
         """
         当前玩家获得道具
@@ -38,38 +38,45 @@ class Account(KBEngine.Entity, EntityCommon):
         """
         DEBUG_MSG("Account id: %i, get props: %i." % (self.id, prop_type))
         # 传递给服务器，由服务器判断是否吃到道具
-        self.getCurRoom().regCheckPropsAvailable(prop_key, prop_type)
+        self.getCurRoom().regCheckPropsAvailable(self, prop_key, prop_type)
 
-    def onGetProps(self, if_available, prop_key, prop_type):
+    def onGetPropsBase(self, suc, prop_key, prop_type):
         """
         on get props
         获得道具回调
-        :param if_available: 道具是否可获得
+        :param suc: 道具是否可获得
         :param prop_key: 道具的key
         :param prop_type: 所获得的道具类型
         """
-        if if_available:
+        if suc == 0:
             self.curProp = prop_key
             # 通知所有客户端该玩家获得道具
-            self.allClients.onGetProps(prop_key, prop_type)
+            # self.allClients.onGetPropsClient(prop_key, prop_type)
+            # 只是获得道具的话只需要自己知道
+            self.client.onGetPropsClient(self.id, prop_key, prop_type)
+    # endregion GetProps
 
-    def regUseProp(self, target_id, skill_type):
+    # region UseProps
+    def regUseProp(self, target_id, prop_type):
         """
-        use skill
-        使用道具
+        use prop
+        使用道具, 判断拥有道具后直接使用
         :param target_id: 目标玩家的id
-        :param skill_type: 道具/技能类型
+        :param prop_type: 道具类型
         """
-        if skill_type == self.curProp:
+        if prop_type == self.curProp:
             self.curProp = None
-            self.allClients.onUseProp(self.id, target_id, skill_type)
+            # 至于个人是否拥有相关，不需要房间总体判断
+            self.allClients.onUseProp(
+                self.id, target_id, prop_type, Math.Vector3(self.position))
 
-    def regPropResult(self, target_id, suc):
-        self.allClients.onPropResult(self.id, target_id, suc)
+    def regPropResult(self, origin_id, target_id, prop_type, suc):
+        # 传递给服务器，由服务器结算
+        self.getCurRoom().regCheckPropsResult(self, origin_id, target_id, prop_type, suc)
 
-    def onPropResult(self, target_id, prop_type, suc):
-        self.allClients.onPropResult(self.id, target_id, prop_type, suc)
-    # endregion Props
+    def onPropResultBase(self, origin_id, target_id, prop_type, suc):
+        self.allClients.onPropResultClient(origin_id, target_id, prop_type, suc)
+    # endregion UseProps
 
     # region Destination
     def regReachDestination(self):

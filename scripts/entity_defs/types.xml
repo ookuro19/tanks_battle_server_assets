@@ -1,4 +1,6 @@
 <root>
+    <!--0: True; 1: False  -->
+    <SUC>				UINT8		</SUC>
     <DBID>				UINT64		</DBID>
     <ENTITY_ID>			INT32		</ENTITY_ID>
     <POSITION3D>		VECTOR3		</POSITION3D>
@@ -9,5 +11,5 @@
     <MODE_NUM>          INT32      </MODE_NUM>
     <MATCH_CODE>          INT32      </MATCH_CODE>
     <PROP_TYPE>          INT32      </PROP_TYPE>
-    <PROP_KEY>          INT32      </PROP_KEY>
+    <PROP_KEY>          UNICODE      </PROP_KEY>
 </root>

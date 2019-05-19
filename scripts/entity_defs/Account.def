@@ -5,9 +5,9 @@
 
 	<Properties>
 		<roomKey>
-			<Type>		SPACE_KEY			</Type>
-			<Flags>		BASE				</Flags>
-			<Default>		0				</Default>
+			<Type>		SPACE_KEY		</Type>
+			<Flags>		BASE			</Flags>
+			<Default>		0			</Default>
 		</roomKey>
 
 		<mapNum>
@@ -30,27 +30,27 @@
 
 		<nameS>
 			<Type>		UNICODE			</Type>
-			<Flags>		ALL_CLIENTS			</Flags>
-			<Persistent>		true				</Persistent>
-			<DetailLevel>		MEDIUM			</DetailLevel>
+			<Flags>		ALL_CLIENTS		</Flags>
+			<Persistent>	true			</Persistent>
+			<DetailLevel>	MEDIUM		</DetailLevel>
 		</nameS>
 
 		<dbid>
-			<Type>		DBID				</Type>
-			<Flags>		CELL_PUBLIC			</Flags>
-			<Default>		0				</Default>
+			<Type>		DBID			</Type>
+			<Flags>		CELL_PUBLIC		</Flags>
+			<Default>		0			</Default>
 		</dbid>
 
 		<progress>
 			<Type>		INT32			</Type>
-			<Flags>		OTHER_CLIENTS		</Flags>
+			<Flags>		OTHER_CLIENTS	</Flags>
 			<Default>		0			</Default>
 		</progress>
 
 		<loginState>
 			<Type>		INT32			</Type>
-			<Flags>		BASE		</Flags>
-			<Default>		0				</Default>
+			<Flags>		BASE			</Flags>
+			<Default>		0			</Default>
 		</loginState>
 
 		<roomNo>
@@ -62,38 +62,42 @@
 
 	<ClientMethods>
 		<onLoginState>
-			<Arg>		INT32				</Arg>
+			<Arg>		INT32			</Arg>
 		</onLoginState>
 
 		<onMapModeChanged>
-			<Arg>		INT32				</Arg>
+			<Arg>		INT32			</Arg>
 		</onMapModeChanged>
 
 		<onMatchingFinish>
-			<Arg>		INT32				</Arg>
+			<Arg>		INT32			</Arg>
 		</onMatchingFinish>
 
 		<onLoadingFinish>
-			<Arg>		INT32				</Arg>
+			<Arg>		INT32			</Arg>
 		</onLoadingFinish>
 
-		<onGetProps>
-			<PROP_KEY>		INT32			</PROP_KEY>
-			<Arg>			INT32			</Arg>
-		</onGetProps>
+		<onGetPropsClient>
+			<Arg>		ENTITY_ID		</Arg>
+			<Arg>		PROP_KEY		</Arg>
+			<Arg>		PROP_TYPE		</Arg>
+		</onGetPropsClient>
 
+		<!-- 使用道具回调 -->
 		<onUseProp>
 			<Arg>		ENTITY_ID		</Arg>
 			<Arg>		ENTITY_ID		</Arg>
-			<Arg>		INT32			</Arg>
+			<Arg>		PROP_TYPE		</Arg>
+			<Arg>		POSITION3D		</Arg>
 		</onUseProp>
 
-		<onPropResult>
+		<!-- 道具结果回调 -->
+		<onPropResultClient>
 			<Arg>		ENTITY_ID		</Arg>
 			<Arg>		ENTITY_ID		</Arg>
 			<Arg>		PROP_TYPE		</Arg>
-			<Arg>		INT32			</Arg>
-		</onPropResult>
+			<Arg>		SUC				</Arg>
+		</onPropResultClient>
 
 		<onReachDestination>
 			<Arg>		ENTITY_ID		</Arg>
@@ -136,11 +140,6 @@
 			<Arg>		INT32				</Arg>
 		</onLoadingFinish>
 
-		<onGetProps>
-			<Arg>		PROP_KEY		</Arg>
-			<Arg>		INT32			</Arg>
-		</onGetProps>
-
 		<onReachDestination>
 			<Arg>		ENTITY_ID		</Arg>
 			<Arg>		INT32			</Arg>
@@ -164,29 +163,39 @@
 		<!-- reg 获取道具 -->
 		<regGetProps>
 			<Exposed/>
-			<Arg>		INT32						</Arg>
+			<Arg>		PROP_KEY			</Arg>
+			<Arg>		PROP_TYPE			</Arg>
 		</regGetProps>
+
+		<onGetPropsBase>
+			<Arg>		SUC				</Arg>
+			<Arg>		PROP_KEY		</Arg>
+			<Arg>		PROP_TYPE		</Arg>
+		</onGetPropsBase>
 
 		<!-- reg 使用道具 -->
 		<regUseProp>
 			<Exposed/>
-			<Arg>		ENTITY_ID					</Arg>
-			<Arg>		INT32						</Arg>
+			<Arg>		ENTITY_ID			</Arg>
+			<Arg>		PROP_TYPE			</Arg>
 		</regUseProp>
 
 		<!-- reg 道具使用结果 -->
 		<regPropResult>
 			<Exposed/>
-			<Arg>		ENTITY_ID					</Arg>
-			<Arg>		INT32						</Arg>
+			<Arg>		ENTITY_ID			</Arg>
+			<Arg>		ENTITY_ID			</Arg>
+			<Arg>		PROP_TYPE			</Arg>
+			<Arg>		SUC					</Arg>
 		</regPropResult>
 
-		<!-- 服务器结算技能回调 -->
-		<onPropResult>
-			<Arg>		ENTITY_ID				</Arg>
-			<Arg>		PROP_TYPE				</Arg>
-			<Arg>		INT32					</Arg>
-		</onPropResult>
+		<!-- 服务器道具结算回调 -->
+		<onPropResultBase>
+			<Arg>		ENTITY_ID			</Arg>
+			<Arg>		ENTITY_ID			</Arg>
+			<Arg>		PROP_TYPE			</Arg>
+			<Arg>		SUC					</Arg>
+		</onPropResultBase>
 	</CellMethods>
 
 </root>
