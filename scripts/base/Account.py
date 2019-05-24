@@ -77,7 +77,15 @@ class Account(KBEngine.Proxy):
         self.client.onLoadingFinish(0)
     # endregion Matching
 
-    # region destination
+    # region game
+    
+    # def onResetPropBase(self, prop_list):
+    #     """
+    #     on reset prop
+    #     恢复道具
+    #     """
+    #     self.allClients.onResetPropClient(prop_list)
+
     def onReachDestination(self, eid, time):
         """
         on reach destination
@@ -93,7 +101,7 @@ class Account(KBEngine.Proxy):
         :param time: 倒计时
         """
         self.client.onTimerChanged(time)
-    # endregion destination
+    # endregion game
 
     def destroySelf(self):
         """

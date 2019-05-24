@@ -99,6 +99,11 @@
 			<Arg>		SUC				</Arg>
 		</onPropResultClient>
 
+		<!-- 道具重置回调 -->
+		<onResetPropClient>
+			<Arg>		PROP_LIST		</Arg>
+		</onResetPropClient>
+
 		<onReachDestination>
 			<Arg>		ENTITY_ID		</Arg>
 			<Arg>		INT32			</Arg>
@@ -139,6 +144,10 @@
 		<onLoadingFinish>
 			<Arg>		INT32				</Arg>
 		</onLoadingFinish>
+
+		<!-- <onResetPropBase>
+			<Arg>		PROP_LIST		</Arg>
+		</onResetPropBase> -->
 
 		<onReachDestination>
 			<Arg>		ENTITY_ID		</Arg>

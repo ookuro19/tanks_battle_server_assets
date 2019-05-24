@@ -42,6 +42,10 @@
 		<onAllPlayerLoadingFinish>
 		</onAllPlayerLoadingFinish>
 
+		<onResetProps>
+			<Arg>		PROP_LIST		</Arg>
+		</onResetProps>
+
 		<onPlayerReachDestination>
 			<Arg>		ENTITY_ID		</Arg>
 			<Arg>		INT32			</Arg>

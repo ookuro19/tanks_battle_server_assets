@@ -12,4 +12,5 @@
     <MATCH_CODE>          INT32      </MATCH_CODE>
     <PROP_TYPE>          INT32      </PROP_TYPE>
     <PROP_KEY>          UNICODE      </PROP_KEY>
+	<PROP_LIST> ARRAY <of> PROP_KEY </of>	</PROP_LIST>
 </root>

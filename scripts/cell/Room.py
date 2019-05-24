@@ -3,6 +3,7 @@ import KBEngine
 from KBEDebug import *
 import GameConfigs
 import random
+import PropsData
 
 TIMER_TYPE_TOTAL_TIME = 1
 TIMER_TYPE_START = 2
@@ -27,7 +28,7 @@ class Room(KBEngine.Entity):
         self.loadingFinishCount = 0
 
         # 比赛总计用时
-        self.totalTimer = 0
+        self.totalTime = 0
 
         # 比赛终点倒计时
         self.endTimer = 0
@@ -35,7 +36,13 @@ class Room(KBEngine.Entity):
         # 到达终点人数总计
         self.reachCount = 0
 
+        # 房主实体
         self.hostEntity = None
+
+        # 已使用的道具，key: prop_key, value: 要恢复的时刻
+        self.prop_used_dict = {}
+        # 已使用道具相应计时, key: 要恢复的时刻， value: dict{prop_key}
+        self.prop_timer_dict = {}
 
     # region enter or leave
 
@@ -79,7 +86,22 @@ class Room(KBEngine.Entity):
         """
         检查是否获得相应道具
         """
-        entityCall.onGetPropsBase(0, prop_key, prop_type)
+        tPropTimer = self.prop_used_dict.get(prop_key)
+        # tProp['timer'] > 0 相当于 tProp['endtime'] - curTime > 0
+        # 即tProp['endtime'] > curTime
+        if tPropTimer is not None and tPropTimer > self.totalTime:
+            DEBUG_MSG("Prop %i is not available" % prop_key)
+            entityCall.onGetPropsBase(1, prop_key, prop_type)
+        else:
+            tProp = PropsData.datas.get(prop_key)
+            if tProp is None:
+                DEBUG_MSG("Prop %i is not exist" % prop_key)
+                entityCall.onGetPropsBase(1, prop_key, prop_type)
+            else:
+                DEBUG_MSG("Prop %s is existed, PosX is %i" %
+                          (prop_key, tProp['posx']))
+                entityCall.onGetPropsBase(0, prop_key, prop_type)
+                self.GetProp(prop_key)
 
     def regCheckPropsResult(self, entityCall, origin_id, target_id, prop_type, suc):
         """
@@ -94,21 +116,47 @@ class Room(KBEngine.Entity):
         """
         DEBUG_MSG('Room::player reach destination entityID = %i.' % entityID)
         if entityID in self.avatars:
-            self.base.onPlayerReachDestination(entityID, self.totalTimer)
+            self.base.onPlayerReachDestination(entityID, self.totalTime)
             self.reachCount += 1
             if self.reachCount == 1:
                 self.endTimer = -1
                 self._endTimer = self.addTimer(0, 1, TIMER_TYPE_END)
             elif self.reachCount == len(self.avatars):
-                if self.totalTimer > 0:
+                if self.totalTime > 0:
                     self.gameOver()
+
+    def GetProp(self, prop_key):
+        """
+        on get prop
+        有玩家获得道具
+        """
+        tempTime = self.totalTime + 5
+        self.prop_used_dict[prop_key] = tempTime
+        if tempTime not in self.prop_timer_dict:
+            self.prop_timer_dict[tempTime] = {}
+        self.prop_timer_dict[tempTime][prop_key] = None
+
+    def releaseProp(self, time):
+        """
+        release and reset prop
+        释放并重置道具
+        """
+        tempDict = {}
+        if time in self.prop_timer_dict:
+            tempDict = self.prop_timer_dict.pop(time)
+            # 该时刻对应字典的道具恢复
+            for prop_key in tempDict.keys():
+                if prop_key in self.prop_used_dict:
+                    self.prop_used_dict.pop(prop_key)
+            self.base.onResetProps(list(tempDict.keys()))
+
     # endregion playing
 
     # region gameover
     def gameOver(self):
         if self.endTimer > 0:
             self.delTimer(self._endTimer)
-        if self.totalTimer > 0:
+        if self.totalTime > 0:
             self.delTimer(self._totalTimer)
         self.base.onTimerChanged(0)
         self._destroyTimer = self.addTimer(1, 0, TIMER_TYPE_DESTROY)
@@ -133,13 +181,14 @@ class Room(KBEngine.Entity):
         if TIMER_TYPE_START == userArg:
             DEBUG_MSG("Room::TIMER_TYPE_START")
             self.delTimer(self._startTimer)
-            self.totalTimer = 0
+            self.totalTime = 0
             # 开始计时总时间
             self._totalTimer = self.addTimer(1, 1, TIMER_TYPE_TOTAL_TIME)
 
         elif TIMER_TYPE_TOTAL_TIME == userArg:
-            self.totalTimer += 1
-            # DEBUG_MSG("Room::TIMER_TYPE_TOTAL_TIME: %i" % (self.totalTimer))
+            self.totalTime += 1
+            self.releaseProp(self.totalTime)
+            # DEBUG_MSG("Room::TIMER_TYPE_TOTAL_TIME: %i" % (self.totalTime))
 
         elif TIMER_TYPE_END == userArg:
             self.endTimer += 1

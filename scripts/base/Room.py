@@ -105,6 +105,15 @@ class Room(KBEngine.Entity):
             info.onLoadingFinish(0)
     # endregion loading
 
+    def onResetProps(self, prop_list):
+        """
+        on all player loading finish.
+        通知所有玩家加载结束
+        """
+        DEBUG_MSG('Room::onResetProps prop_list = %s.' % ('.'.join(prop_list)))
+        for info in self.accounts.values():
+            info.client.onResetPropClient(prop_list)
+
     # region destination
     def onPlayerReachDestination(self, eid, time):
         """
