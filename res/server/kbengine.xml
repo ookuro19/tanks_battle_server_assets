@@ -34,8 +34,8 @@
 			(If long (configurable value) no communication, channel will be kicked out of the server.)
 		-->
 		<timeout> 
-			<internal> 30.0 </internal>
-			<external> 30.0 </external>
+			<internal> 60.0 </internal>
+			<external> 60.0 </external>
 		</timeout>
 	</channelCommon> 
 
