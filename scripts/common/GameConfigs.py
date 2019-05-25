@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from enum import Enum
 """
 """
 
@@ -26,7 +25,6 @@ GAME_End_TIME = 10
 # 一局比赛预计用时
 GAME_ROUND_TIME = 100
 
-
-class EProp(Enum):
-    Shell = 0
-    Bullet = 1
+# 道具枚举...
+E_Prop_Shell = 0
+E_Prop_Bullet = 1

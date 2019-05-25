@@ -53,7 +53,7 @@ class Account(KBEngine.Entity, EntityCommon):
             # 通知所有客户端该玩家获得道具
             # self.allClients.onGetPropsClient(prop_key, prop_type)
             # 只是获得道具的话只需要自己知道
-            self.client.onGetPropsClient(self.id, prop_key, prop_type)
+            self.allClients.onGetPropsClient(self.id, prop_key, prop_type)
     # endregion GetProps
 
     # region UseProps
@@ -69,7 +69,7 @@ class Account(KBEngine.Entity, EntityCommon):
             # 至于个人是否拥有相关，不需要房间总体判断
             self.allClients.onUseProp(
                 self.id, target_id, prop_type, Math.Vector3(self.position))
-
+            
     def regPropResult(self, origin_id, target_id, prop_type, suc):
         # 传递给服务器，由服务器结算
         self.getCurRoom().regCheckPropsResult(self, origin_id, target_id, prop_type, suc)

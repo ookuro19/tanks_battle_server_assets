@@ -39,10 +39,13 @@ class Room(KBEngine.Entity):
         # 房主实体
         self.hostEntity = None
 
-        # 已使用的道具，key: prop_key, value: 要恢复的时刻
+        # 已使用的道具, key: prop_key, value: 要恢复的时刻
         self.prop_used_dict = {}
         # 已使用道具相应计时, key: 要恢复的时刻， value: dict{prop_key}
         self.prop_timer_dict = {}
+
+        # 防御类道具失效时刻, key: entity_id, value: 失效时刻
+        self.shell_timer_dict = {}
 
     # region enter or leave
 
@@ -54,6 +57,8 @@ class Room(KBEngine.Entity):
         DEBUG_MSG('Room::onEnter space[%d] entityID = %i.' %
                   (self.spaceID, entityCall.id))
         self.avatars[entityCall.id] = entityCall
+        # 失效时间置为0
+        self.shell_timer_dict[entityCall.id] = 0
 
     def onLeave(self, entityID):
         """
@@ -90,12 +95,13 @@ class Room(KBEngine.Entity):
         # tProp['timer'] > 0 相当于 tProp['endtime'] - curTime > 0
         # 即tProp['endtime'] > curTime
         if tPropTimer is not None and tPropTimer > self.totalTime:
-            DEBUG_MSG("Prop %i is not available" % prop_key)
+            # 此时道具还未被使用或已被使用但还未被重置
+            DEBUG_MSG("Prop %s is not available" % prop_key)
             entityCall.onGetPropsBase(1, prop_key, prop_type)
         else:
             tProp = PropsData.datas.get(prop_key)
             if tProp is None:
-                DEBUG_MSG("Prop %i is not exist" % prop_key)
+                DEBUG_MSG("Prop %s is not exist" % prop_key)
                 entityCall.onGetPropsBase(1, prop_key, prop_type)
             else:
                 DEBUG_MSG("Prop %s is existed, PosX is %i" %
@@ -107,7 +113,26 @@ class Room(KBEngine.Entity):
         """
         检查道具使用结果
         """
-        entityCall.onPropResultBase(origin_id, target_id, prop_type, 0)
+        if prop_type == GameConfigs.E_Prop_Shell:
+            if origin_id in self.shell_timer_dict:
+                self.shell_timer_dict[origin_id] = self.totalTime + 5
+            else:
+                entityCall.onPropResultBase(origin_id, target_id, prop_type, 1)
+        elif prop_type == GameConfigs.E_Prop_Bullet:
+            if target_id in self.shell_timer_dict:
+                if self.shell_timer_dict[target_id] <= self.totalTime:
+                    # 此时护盾效果失效, 判定命中
+                    entityCall.onPropResultBase(
+                        origin_id, target_id, prop_type, 0)
+                else:
+                    # 此时还在护盾效果内, 判定未命中, 并刷新护盾结束时间
+                    entityCall.onPropResultBase(
+                        origin_id, target_id, prop_type, 1)
+                    self.shell_timer_dict[target_id] = self.totalTime
+            else:
+                entityCall.onPropResultBase(origin_id, target_id, prop_type, 1)
+        else:
+            entityCall.onPropResultBase(origin_id, target_id, prop_type, 1)
 
     def playerReachDestination(self, entityID):
         """
