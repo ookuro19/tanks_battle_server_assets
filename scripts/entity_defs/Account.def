@@ -4,6 +4,26 @@
 	</Interfaces>
 
 	<Properties>
+		<gold>
+			<Type>		GOLD_NUM			</Type>
+			<Flags>		BASE_AND_CLIENT		</Flags>
+			<Default>		0 	</Default>
+			<Persistent>	true			</Persistent>
+		</gold>
+
+		<nameS>
+			<Type>		UNICODE			</Type>
+			<Flags>		ALL_CLIENTS		</Flags>
+			<Persistent>	true			</Persistent>
+			<DetailLevel>	MEDIUM		</DetailLevel>
+		</nameS>
+
+		<dbid>
+			<Type>		DBID			</Type>
+			<Flags>		CELL_PUBLIC		</Flags>
+			<Default>		0			</Default>
+		</dbid>
+
 		<roomKey>
 			<Type>		SPACE_KEY		</Type>
 			<Flags>		BASE			</Flags>
@@ -28,19 +48,6 @@
 			<Default>		0			</Default>
 		</matchCode>
 
-		<nameS>
-			<Type>		UNICODE			</Type>
-			<Flags>		ALL_CLIENTS		</Flags>
-			<Persistent>	true			</Persistent>
-			<DetailLevel>	MEDIUM		</DetailLevel>
-		</nameS>
-
-		<dbid>
-			<Type>		DBID			</Type>
-			<Flags>		CELL_PUBLIC		</Flags>
-			<Default>		0			</Default>
-		</dbid>
-
 		<progress>
 			<Type>		INT32			</Type>
 			<Flags>		OTHER_CLIENTS	</Flags>
@@ -58,6 +65,23 @@
 			<Flags>		ALL_CLIENTS		</Flags>
 			<Default>		0			</Default>
 		</roomNo>
+
+		<!-- 当前玩家所拥有的衣服 -->
+		<bagItemList>
+			<Type>		ITEM_LIST			</Type>
+			<Flags>		BASE_AND_CLIENT		</Flags>
+			<Default></Default>
+			<Persistent>	true			</Persistent>
+		</bagItemList>
+
+		<!-- 当前玩家所穿戴的衣服 -->
+		<currentItemDict>
+			<Type>		EQUIP_DICT			</Type>
+			<Flags>		BASE_AND_CLIENT		</Flags>
+			<Default></Default>
+			<Persistent>	true			</Persistent>
+		</currentItemDict>
+
 	</Properties>
 
 	<ClientMethods>
@@ -116,6 +140,16 @@
 		<onExitRoom>
 			<Arg>		INT32			</Arg>
 		</onExitRoom>
+
+		<onBuyEquip>
+			<Arg>		ITEM_ID			</Arg>
+			<Arg>		SUC				</Arg>
+		</onBuyEquip>
+
+		<onChangeEquip>
+			<Arg>		ITEM_ID			</Arg>
+			<Arg>		SUC				</Arg>
+		</onChangeEquip>
 	</ClientMethods>
 
 	<BaseMethods>
@@ -157,6 +191,18 @@
 		<onTimerChanged>
 			<Arg>		INT32			</Arg>
 		</onTimerChanged>
+
+		<!-- reg 购买装备或道具 para: 装备id-->
+		<regBuyEquip>
+			<Exposed/>
+			<Arg>		ITEM_ID			</Arg> 
+		</regBuyEquip>
+
+		<!-- reg 更换装备 para: 装备id-->
+		<regChangeEquip>
+			<Exposed/>
+			<Arg>		ITEM_ID			</Arg> 
+		</regChangeEquip>
 	</BaseMethods>
 
 	<CellMethods>

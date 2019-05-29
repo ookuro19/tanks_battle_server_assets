@@ -1,16 +1,39 @@
 <root>
     <!--0: True; 1: False  -->
-    <SUC>				UINT8		</SUC>
-    <DBID>				UINT64		</DBID>
-    <ENTITY_ID>			INT32		</ENTITY_ID>
-    <POSITION3D>		VECTOR3		</POSITION3D>
-    <DIRECTION3D>		VECTOR3		</DIRECTION3D>
-    <SPACE_KEY>			UINT64		</SPACE_KEY>
-    <ROOM_NUM>          UINT64      </ROOM_NUM>
-    <MAP_NUM>          INT32      </MAP_NUM>
-    <MODE_NUM>          INT32      </MODE_NUM>
-    <MATCH_CODE>          INT32      </MATCH_CODE>
-    <PROP_TYPE>          INT32      </PROP_TYPE>
-    <PROP_KEY>          UNICODE      </PROP_KEY>
-	<PROP_LIST> ARRAY <of> PROP_KEY </of>	</PROP_LIST>
+    <SUC>               UINT8           </SUC>
+    <DBID>              UINT64          </DBID>
+    <GOLD_NUM>          INT32           </GOLD_NUM>
+    <ENTITY_ID>         INT32           </ENTITY_ID>
+    <POSITION3D>        VECTOR3         </POSITION3D>
+    <DIRECTION3D>       VECTOR3         </DIRECTION3D>
+    <SPACE_KEY>         UINT64          </SPACE_KEY>
+    <ROOM_NUM>          UINT64          </ROOM_NUM>
+    <MAP_NUM>           INT32           </MAP_NUM>
+    <MODE_NUM>          INT32           </MODE_NUM>
+    <MATCH_CODE>        INT32           </MATCH_CODE>
+    <PROP_TYPE>         INT32           </PROP_TYPE>
+    <PROP_KEY>          UNICODE         </PROP_KEY>
+    <PROP_LIST>  ARRAY  <of>    PROP_KEY  </of>    </PROP_LIST>
+
+    <ITEM_ID>           INT32           </ITEM_ID>
+    <ITEM_LIST>  ARRAY  <of>    ITEM_ID     </of>    </ITEM_LIST>
+    <EQUIP_DICT>    FIXED_DICT
+        <Properties>
+            <head>
+                <Type>    ITEM_ID     </Type>
+            </head>
+            <clothes>
+                <Type>    ITEM_ID     </Type>
+            </clothes>
+            <hand>
+                <Type>    ITEM_ID     </Type>
+            </hand>
+            <shoe>
+                <Type>    ITEM_ID     </Type>
+            </shoe>
+            <bag>
+                <Type>    ITEM_ID     </Type>
+            </bag>
+        </Properties>
+    </EQUIP_DICT>
 </root>

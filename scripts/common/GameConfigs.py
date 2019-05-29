@@ -26,5 +26,6 @@ GAME_End_TIME = 10
 GAME_ROUND_TIME = 100
 
 # 道具枚举...
-E_Prop_Shell = 0
-E_Prop_Bullet = 1
+E_Prop_Shell = 1
+E_Prop_Bullet = 2
+E_Prop_Mine = 3

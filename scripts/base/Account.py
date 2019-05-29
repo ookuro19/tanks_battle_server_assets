@@ -3,6 +3,7 @@ import KBEngine
 from KBEDebug import *
 import GameConfigs
 import random
+import EquipmentData
 
 TIMER_TYPE_DESTROY = 1
 
@@ -78,7 +79,7 @@ class Account(KBEngine.Proxy):
     # endregion Matching
 
     # region game
-    
+
     # def onResetPropBase(self, prop_list):
     #     """
     #     on reset prop
@@ -102,6 +103,67 @@ class Account(KBEngine.Proxy):
         """
         self.client.onTimerChanged(time)
     # endregion game
+
+    # region equipment
+    def regBuyEquip(self, item_id):
+        """
+        reg buy equip
+        购买装备
+        :param time: 装备id
+        """
+        if item_id in self.bagItemList:
+            # 已拥有, 无需购买
+            self.client.onBuyEquip(item_id, 1)
+        else:
+            if item_id in EquipmentData:
+                if self.gold >= EquipmentData[item_id]:
+                    # 购买成功
+                    self.gold -= EquipmentData[item_id]
+                    self.bagItemList.append(item_id)
+                    # !!!此处需测试与客户端的同步问题
+                    self.onChangeEquipBase(item_id)
+                    self.client.onBuyEquip(item_id, 0)
+                else:
+                    # 金币不足
+                    self.client.onBuyEquip(item_id, 2)
+            else:
+                # 道具不存在
+                self.client.onBuyEquip(item_id, 3)
+
+    def regChangeEquip(self, item_id):
+        """
+        reg change equip
+        更换装备
+        :param time: 装备id
+        """
+        if item_id in self.bagItemList:
+            self.client.onChangeEquipBase(item_id)
+            self.client.onChangeEquip(item_id, 0)
+        else:
+            # 玩家尚未拥有此装备
+            self.client.onChangeEquip(item_id, 1)
+
+    def onChangeEquipBase(self, item_id):
+        """
+        on change equip
+        服务器端更换装备
+        :param time: 装备id
+        """
+        keyValue = int(item_id / 100)
+        if keyValue == 0:
+            self.currentItemDict['head'] = item_id
+        elif keyValue == 1:
+            self.currentItemDict['head'] = item_id
+        elif keyValue == 2:
+            self.currentItemDict['head'] = item_id
+        elif keyValue == 3:
+            self.currentItemDict['head'] = item_id
+        elif keyValue == 4:
+            self.currentItemDict['head'] = item_id
+        elif keyValue == 5:
+            self.currentItemDict['head'] = item_id
+
+    # endregion equipment
 
     def destroySelf(self):
         """

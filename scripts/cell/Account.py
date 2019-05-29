@@ -3,6 +3,7 @@ import KBEngine
 from KBEDebug import *
 from interfaces.EntityCommon import EntityCommon
 import GameConfigs
+import Math
 
 TIMER_TYPE_ADD_TRAP = 1
 
@@ -49,7 +50,7 @@ class Account(KBEngine.Entity, EntityCommon):
         :param prop_type: 所获得的道具类型
         """
         if suc == 0:
-            self.curProp = prop_key
+            self.curProp = prop_type
             # 通知所有客户端该玩家获得道具
             # self.allClients.onGetPropsClient(prop_key, prop_type)
             # 只是获得道具的话只需要自己知道
