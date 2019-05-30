@@ -97,7 +97,7 @@ class Room(KBEngine.Entity):
         if tPropTimer is not None and tPropTimer > self.totalTime:
             # 此时道具还未被使用或已被使用但还未被重置
             DEBUG_MSG("Prop %s is not available" % prop_key)
-            entityCall.onGetPropsBase(1, prop_key, prop_type)
+            entityCall.onGetPropsBase(2, prop_key, prop_type)
         else:
             tProp = PropsData.datas.get(prop_key)
             if tProp is None:

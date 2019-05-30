@@ -3,7 +3,7 @@ import KBEngine
 from KBEDebug import *
 import GameConfigs
 import random
-import EquipmentData
+import ShopItemData
 
 TIMER_TYPE_DESTROY = 1
 
@@ -20,7 +20,9 @@ class Account(KBEngine.Proxy):
 
         self._destroyTimer = 0
 
+        self.checkDefaultEquipment()
     # region Matching
+
     def regStartMatching(self, modeNum, mapNum, matchCode):
         """
         start matching
@@ -115,13 +117,16 @@ class Account(KBEngine.Proxy):
             # 已拥有, 无需购买
             self.client.onBuyEquip(item_id, 1)
         else:
-            if item_id in EquipmentData:
-                if self.gold >= EquipmentData[item_id]:
+            if item_id in ShopItemData.EquipmentData:
+                if self.gold >= ShopItemData.EquipmentData[item_id]:
                     # 购买成功
-                    self.gold -= EquipmentData[item_id]
+                    self.gold -= ShopItemData.EquipmentData[item_id]
                     self.bagItemList.append(item_id)
-                    # !!!此处需测试与客户端的同步问题
+                    # !!!此处需测试与客户端的同步问题, 果然同步不了，，，
                     self.onChangeEquipBase(item_id)
+                    # 这一步与客户端进行同步
+                    self.bagItemList = self.bagItemList
+                    self.currentItemDict = self.currentItemDict
                     self.client.onBuyEquip(item_id, 0)
                 else:
                     # 金币不足
@@ -137,7 +142,9 @@ class Account(KBEngine.Proxy):
         :param time: 装备id
         """
         if item_id in self.bagItemList:
-            self.client.onChangeEquipBase(item_id)
+            self.onChangeEquipBase(item_id)
+            # 与客户端进行同步currentItemDict
+            self.currentItemDict = self.currentItemDict
             self.client.onChangeEquip(item_id, 0)
         else:
             # 玩家尚未拥有此装备
@@ -153,17 +160,34 @@ class Account(KBEngine.Proxy):
         if keyValue == 0:
             self.currentItemDict['head'] = item_id
         elif keyValue == 1:
-            self.currentItemDict['head'] = item_id
+            self.currentItemDict['clothes'] = item_id
         elif keyValue == 2:
-            self.currentItemDict['head'] = item_id
+            self.currentItemDict['hand'] = item_id
         elif keyValue == 3:
-            self.currentItemDict['head'] = item_id
+            self.currentItemDict['shoe'] = item_id
         elif keyValue == 4:
-            self.currentItemDict['head'] = item_id
-        elif keyValue == 5:
-            self.currentItemDict['head'] = item_id
+            self.currentItemDict['bag'] = item_id
+
+    def checkDefaultEquipment(self):
+        if 100 not in self.bagItemList:
+            self.bagItemList = [0, 100, 200, 300, 400]
+            self.bagItemList = self.bagItemList
+            self.currentItemDict['head'] = 0
+            self.currentItemDict['clothes'] = 100
+            self.currentItemDict['hand'] = 200
+            self.currentItemDict['shoe'] = 300
+            self.currentItemDict['bag'] = 400
+            self.currentItemDict = self.currentItemDict
 
     # endregion equipment
+
+    def regGetGold(self, gold_num):
+        """
+        reg get gold
+        获得金币
+        """
+        self.gold += gold_num
+        self.client.onGetGold(gold_num)
 
     def destroySelf(self):
         """

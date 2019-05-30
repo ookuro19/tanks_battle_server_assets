@@ -150,6 +150,10 @@
 			<Arg>		ITEM_ID			</Arg>
 			<Arg>		SUC				</Arg>
 		</onChangeEquip>
+
+		<onGetGold>
+			<Arg>		GOLD_NUM		</Arg>
+		</onGetGold>
 	</ClientMethods>
 
 	<BaseMethods>
@@ -195,14 +199,19 @@
 		<!-- reg 购买装备或道具 para: 装备id-->
 		<regBuyEquip>
 			<Exposed/>
-			<Arg>		ITEM_ID			</Arg> 
+			<Arg>		ITEM_ID			</Arg>
 		</regBuyEquip>
 
 		<!-- reg 更换装备 para: 装备id-->
 		<regChangeEquip>
 			<Exposed/>
-			<Arg>		ITEM_ID			</Arg> 
+			<Arg>		ITEM_ID			</Arg>
 		</regChangeEquip>
+
+		<regGetGold>
+			<Exposed/>
+			<Arg>		GOLD_NUM		</Arg>
+		</regGetGold>
 	</BaseMethods>
 
 	<CellMethods>

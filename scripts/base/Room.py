@@ -105,6 +105,7 @@ class Room(KBEngine.Entity):
             info.onLoadingFinish(0)
     # endregion loading
 
+    # region props
     def onResetProps(self, prop_list):
         """
         on all player loading finish.
@@ -113,6 +114,7 @@ class Room(KBEngine.Entity):
         DEBUG_MSG('Room::onResetProps prop_list = %s.' % ('.'.join(prop_list)))
         for info in self.accounts.values():
             info.client.onResetPropClient(prop_list)
+    # endregion props
 
     # region destination
     def onPlayerReachDestination(self, eid, time):
