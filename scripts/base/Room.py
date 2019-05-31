@@ -3,7 +3,7 @@ import KBEngine
 from KBEDebug import *
 import GameConfigs
 
-TIMER_TYPE_Matching = 1
+TIMER_TYPE_ROBOT = 1
 TIMER_TYPE_Robot_Refresh = 2
 
 
@@ -20,7 +20,8 @@ class Room(KBEngine.Entity):
 
         # 请求在cellapp上创建cell空间
         self.createCellEntityInNewSpace(None)
-
+        
+        # 玩家列表
         self.accounts = {}
         self.robots = {}
         self.hostEntity = None
@@ -28,7 +29,8 @@ class Room(KBEngine.Entity):
         self.mapNo = 0
         self.modeNo = 0
 
-        # self.addTimer(GameConfigs.ROOM_MATCHING_TIME, 0, TIMER_TYPE_Matching)
+        # 计时器，定时添加机器人
+        self.addTimer(GameConfigs.ROOM_MATCHING_TIME, 0, TIMER_TYPE_ROBOT)
 
         DEBUG_MSG("Room::__init__: %i" % self.id)
 
@@ -144,15 +146,15 @@ class Room(KBEngine.Entity):
         @param id		: addTimer 的返回值ID
         @param userArg	: addTimer 最后一个参数所给入的数据
         """
-        if TIMER_TYPE_Matching == userArg:
-            DEBUG_MSG("Room_Base::TIMER_TYPE_Matching")
+        if TIMER_TYPE_ROBOT == userArg:
+            DEBUG_MSG("Room_Base::TIMER_TYPE_ROBOT")
             if (len(self.accounts) + len(self.robots)) < GameConfigs.ROOM_MAX_PLAYER:
                 DEBUG_MSG("create a robot")
                 # 生成机器人
                 KBEngine.createEntity(
                     "Robot", {"progress": 100, "roomKey": self.roomKey})
                 self.addTimer(GameConfigs.ROOM_MATCHING_TIME,
-                              0, TIMER_TYPE_Matching)
+                              0, TIMER_TYPE_ROBOT)
 
     def onLoseCell(self):
         """
