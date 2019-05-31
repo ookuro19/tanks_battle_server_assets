@@ -238,13 +238,6 @@ class Account(KBEngine.Proxy):
         # 2-当前玩家是比赛中掉线的
         self.client.onLoginState(self.loginState)
 
-    def onClientDeath(self):
-        """
-        KBEngine method.
-        客户端销毁
-        """
-        INFO_MSG("account[%i] client death" % self.id)
-
     def onLogOnAttempt(self, ip, port, password):
         """
         KBEngine method.
@@ -271,10 +264,12 @@ class Account(KBEngine.Proxy):
 
         # 如果self._destroyTimer大于0说明之前已经由base请求销毁，通常是客户端断线了
         if self._destroyTimer > 0:
+            self.delTimer(self._destroyTimer)
             self.destroySelf()
 
         # 否则由cell发起销毁， 那么说明游戏结束了
-        self.client.onExitRoom(0)
+        if(self.client != None):
+            self.client.onExitRoom(0)
 
     def onClientDeath(self):
         """

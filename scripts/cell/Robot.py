@@ -59,8 +59,8 @@ class Robot(KBEngine.Entity, EntityCommon):
         entity销毁
         """
         DEBUG_MSG("Robot::onDestroy: %i." % self.id)
-        room = self.getCurRoom()
+        # room = self.getCurRoom()
 
-        if room:
-            room.onLeave(self.id)
+        # if room:
+        #     room.onLeave(self.id)
     # endregion

@@ -104,7 +104,3 @@ class Robot(KBEngine.Proxy):
         entity的cell部分实体被恢复成功
         """
         DEBUG_MSG("%s::onRestore: %s" % (self.getScriptName(), self.cell))
-
-    def onDestroyTimer(self):
-        DEBUG_MSG("Robot::onDestroyTimer: %i" % (self.id))
-        self.destroySelf()

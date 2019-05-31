@@ -20,9 +20,10 @@ class Room(KBEngine.Entity):
 
         # 请求在cellapp上创建cell空间
         self.createCellEntityInNewSpace(None)
-        
+
         # 玩家列表
         self.accounts = {}
+        # 机器人列表
         self.robots = {}
         self.hostEntity = None
         self.palyerNum = 0
@@ -84,6 +85,7 @@ class Room(KBEngine.Entity):
         """
         if entityID in self.accounts:
             del self.accounts[entityID]
+
     # endregion enter&leave
 
     # region matching

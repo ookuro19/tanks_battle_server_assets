@@ -87,3 +87,21 @@ room -> room : gameover
 room -> avatar : exit room
 avatar -> sdk : on exit room
 ```
+
+## 6. 玩家掉线
+
+```sequence {theme="simple"}
+Note left of sdk : lose connect
+client -> avatar.base : onClientDeath
+avatar.base -> avatar.cell : destroyCellEntity
+
+avatar.cell -> room.cell : onLeave
+room.cell -> room.cell : destroySpace
+room.cell -> room.base : onLoseCell
+room.base -> halls : onRoomLoseCell
+
+avatar.cell -> avatar.base : onLoseCell
+avatar.base -> avatar.base : destroySelf
+avatar.base -> halls : leaveRoom
+halls -> room.base : leaveRoom
+```

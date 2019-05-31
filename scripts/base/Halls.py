@@ -38,9 +38,11 @@ class Halls(KBEngine.Entity):
             else:
                 # 按照地图，模式匹配
                 lastNewRoomKey = self.last_new_room_keys.get((mapNum, modeNum))
-                tRoomDatas = self.rooms.get(lastNewRoomKey)
-                DEBUG_MSG("Halls::findroom mode = %i,map = %i,matchCode = %i, lastNewRoomKey exit = %i" %
-                  (modeNum, mapNum, matchCode, lastNewRoomKey == None))
+                if lastNewRoomKey is not None:
+                    DEBUG_MSG("Halls::findroom mode = %i,map = %i,matchCode = %i, lastNewRoomKey exit = %i" %
+                              (modeNum, mapNum, matchCode, lastNewRoomKey == None))
+                    # 房间可能被删除
+                    tRoomDatas = self.rooms.get(lastNewRoomKey)
 
         if tRoomDatas is None:
             return FIND_ROOM_NOT_FOUND
@@ -116,7 +118,7 @@ class Halls(KBEngine.Entity):
         """
         roomDatas = self.findRoom(roomKey=roomKey)
 
-        if type(roomDatas) is dict:
+        if roomDatas is not None and type(roomDatas) is dict:
             roomEntityCall = roomDatas["roomEntityCall"]
             if roomEntityCall:
                 roomEntityCall.leaveRoom(avatarID)

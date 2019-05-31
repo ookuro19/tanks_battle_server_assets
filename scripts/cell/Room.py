@@ -18,8 +18,10 @@ class Room(KBEngine.Entity):
 
     def __init__(self):
         KBEngine.Entity.__init__(self)
-        # 这个房间中所有的玩家
-        self.avatars = {}
+        # 玩家列表
+        self.accounts = {}
+        # 机器人列表
+        self.robots = {}
 
         # 让baseapp和cellapp都能够方便的访问到这个房间的entityCall
         KBEngine.globalData["Room_%i" % self.spaceID] = self.base
@@ -56,7 +58,12 @@ class Room(KBEngine.Entity):
         """
         DEBUG_MSG('Room::onEnter space[%d] entityID = %i.' %
                   (self.spaceID, entityCall.id))
-        self.avatars[entityCall.id] = entityCall
+        if entityCall.className == "Account":
+            # 如果是玩家，则需要通知更换地图
+            self.accounts[entityCall.id] = entityCall
+        else:
+            self.robots[entityCall.id] = entityCall
+
         # 失效时间置为0
         self.shell_timer_dict[entityCall.id] = 0
 
@@ -68,8 +75,10 @@ class Room(KBEngine.Entity):
         DEBUG_MSG('Room::onLeave space[%d] entityID = %i.' % (
             self.spaceID, entityID))
 
-        if entityID in self.avatars:
-            del self.avatars[entityID]
+        if entityID in self.accounts:
+            del self.accounts[entityID]
+            if len(self.accounts) == 0:
+                self.onDestroyTimer()
     # endregion enter or leave
 
     # region loading
@@ -79,7 +88,7 @@ class Room(KBEngine.Entity):
         加载结束
         """
         DEBUG_MSG('Room::loadingFinish entityID = %i.' % entityID)
-        if entityID in self.avatars:
+        if entityID in self.accounts or entityID in self.robots:
             self.loadingFinishCount += 1
             if self.loadingFinishCount == GameConfigs.ROOM_MAX_PLAYER:
                 self._startTimer = self.addTimer(3, 0, TIMER_TYPE_START)
@@ -140,13 +149,15 @@ class Room(KBEngine.Entity):
         玩家到达终点
         """
         DEBUG_MSG('Room::player reach destination entityID = %i.' % entityID)
-        if entityID in self.avatars:
+        if entityID in self.accounts or entityID in self.robots:
             self.base.onPlayerReachDestination(entityID, self.totalTime)
             self.reachCount += 1
             if self.reachCount == 1:
+                # 如果是第一个到达，则开启倒计时
                 self.endTimer = -1
                 self._endTimer = self.addTimer(0, 1, TIMER_TYPE_END)
-            elif self.reachCount == len(self.avatars):
+            elif self.reachCount == (len(self.accounts) + len(self.robots)):
+                #全部到达则游戏结束
                 if self.totalTime > 0:
                     self.gameOver()
 
