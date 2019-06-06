@@ -14,7 +14,7 @@
 		<nameS>
 			<Type>		UNICODE			</Type>
 			<Flags>		ALL_CLIENTS		</Flags>
-			<Persistent>	true			</Persistent>
+			<Persistent>	true		</Persistent>
 			<DetailLevel>	MEDIUM		</DetailLevel>
 		</nameS>
 
@@ -27,25 +27,25 @@
 		<roomKey>
 			<Type>		SPACE_KEY		</Type>
 			<Flags>		BASE			</Flags>
-			<Default>		0			</Default>
+			<Default>		-1			</Default>
 		</roomKey>
 
 		<mapNum>
 			<Type>		INT32			</Type>
 			<Flags>		BASE			</Flags>
-			<Default>		0			</Default>
+			<Default>		-1			</Default>
 		</mapNum>
 
 		<modeNum>
 			<Type>		INT32			</Type>
 			<Flags>		BASE			</Flags>
-			<Default>		0			</Default>
+			<Default>		-1			</Default>
 		</modeNum>
 
 		<matchCode>
 			<Type>		INT32			</Type>
 			<Flags>		BASE			</Flags>
-			<Default>		0			</Default>
+			<Default>		-1			</Default>
 		</matchCode>
 
 		<progress>

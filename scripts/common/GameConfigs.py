@@ -10,6 +10,12 @@ ENTITY_STATE_SAFE = 0
 ENTITY_STATE_FREE = 1
 ENTITY_STATE_MAX = 4
 
+# 地图编号上限[0,2]
+MAP_NUM_LIMIT = 2
+
+# 模式编号上限[0,1]
+MODE_NUM_LIMIT = 1
+
 # 一个房间最大人数
 ROOM_MAX_PLAYER = 3
 
@@ -29,3 +35,4 @@ GAME_ROUND_TIME = 0
 E_Prop_Shell = 1
 E_Prop_Bullet = 2
 E_Prop_Mine = 3
+

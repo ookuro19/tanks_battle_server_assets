@@ -13,6 +13,8 @@
 			<Type>			SPACE_KEY			</Type>
 			<Flags>			CELL_PUBLIC			</Flags>
 		</roomKeyC>
+
+		
 	</Properties>
 
 	<ClientMethods>

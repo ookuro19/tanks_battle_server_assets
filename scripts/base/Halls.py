@@ -36,8 +36,33 @@ class Halls(KBEngine.Entity):
                 # 新进入的玩家是不可能存在需要匹配的房间的
                 tRoomDatas = self.rooms.get(roomKey)
             else:
+                lastNewRoomKey = None
                 # 按照地图，模式匹配
-                lastNewRoomKey = self.last_new_room_keys.get((mapNum, modeNum))
+                if mapNum == -1 or modeNum == -1:
+                    # 玩家为快速匹配时，查找已有房间中人数最多的房间
+                    temp_player_count = 0
+                    for map_mode_key, child_room_key in self.last_new_room_keys.items():
+                        # for (map, mode), child_room_key in self.last_new_room_keys.items(): 也可以，但可能有效率问题(?)
+                        # 检查是否存在已有房间
+                        temp_room_datas = self.rooms.get(child_room_key)
+                        if temp_room_datas is not None:
+                            # 检查roomdata是否存在
+                            if temp_room_datas["PlayerCount"] < GameConfigs.ROOM_MAX_PLAYER and temp_room_datas["PlayerCount"] >= temp_player_count:
+                                # 检查是否满员且人数最多
+                                (mapNum, modeNum) = map_mode_key
+                                DEBUG_MSG("Halls::findroom quikly matching room key %s, player count is %i" %
+                                          child_room_key, temp_room_datas["PlayerCount"])
+
+                if mapNum == -1 or modeNum == -1:
+                    # 如果上一步未能修改，则随机生成mapNum和modeNum
+                    mapNum = random.randint(
+                        0, GameConfigs.MAP_NUM_LIMIT)  # 包含上下界
+                    modeNum = random.randint(
+                        0, GameConfigs.MODE_NUM_LIMIT)
+
+                lastNewRoomKey = self.last_new_room_keys.get(
+                    (mapNum, modeNum))
+
                 if lastNewRoomKey is not None:
                     DEBUG_MSG("Halls::findroom mode = %i,map = %i,matchCode = %i, lastNewRoomKey exit = %i" %
                               (modeNum, mapNum, matchCode, lastNewRoomKey == None))
@@ -45,9 +70,9 @@ class Halls(KBEngine.Entity):
                     tRoomDatas = self.rooms.get(lastNewRoomKey)
 
         if tRoomDatas is None:
-            return FIND_ROOM_NOT_FOUND
+            return (FIND_ROOM_NOT_FOUND, mapNum, modeNum)
         else:
-            return tRoomDatas
+            return (tRoomDatas, mapNum, modeNum)
 
     def createRoom(self, modeNum=-1, mapNum=-1, matchCode=-1):
         """
@@ -83,9 +108,10 @@ class Halls(KBEngine.Entity):
         defined method.
         请求进入某个Room中
         """
-        DEBUG_MSG("Halls::enterRoom: enter entityID=%i, mode=%i,map=%i,matchCode=%i, roomKey=%i" %
-                  (entityCall.id, modeNum, mapNum, matchCode, roomKey))
-        roomDatas = self.findRoom(modeNum, mapNum, matchCode, roomKey)
+        DEBUG_MSG("Halls::enterRoom: enter entityID=%i, mode=%i,map=%i,matchCode=%i" %
+                  (entityCall.id, modeNum, mapNum, matchCode))
+        (roomDatas, mapNum, modeNum) = self.findRoom(
+            modeNum, mapNum, matchCode, roomKey)
 
         if type(roomDatas) is not dict or roomDatas["PlayerCount"] >= GameConfigs.ROOM_MAX_PLAYER:
             # 如果不是房间或房间已满员
