@@ -86,6 +86,8 @@ class Halls(KBEngine.Entity):
         KBEngine.createEntityAnywhere("Room",
                                       {
                                           "roomKey": tempRoomKey,
+                                          "modeNum": modeNum,
+                                          "mapNum": mapNum
                                       },
                                       Functor.Functor(self.onRoomCreatedCB, tempRoomKey))
 
@@ -124,6 +126,8 @@ class Halls(KBEngine.Entity):
             roomDatas["PlayerCount"] += 1
             roomEntityCall = roomDatas["roomEntityCall"]
             if roomEntityCall is not None:
+                # 将来采用对象池的方式时需要调用
+                # roomEntityCall.setModeMap(modeNum, mapNum)
                 roomEntityCall.enterRoom(entityCall)
             else:
                 DEBUG_MSG("Halls::enterRoom: space %i creating..., enter entityID=%i" % (

@@ -78,6 +78,7 @@ cond_room_key(no)->sr_normal_match
 ## 3. 根据地图和模式匹配
 
 ```flow
+e=>end: 结束
 cond_has_room=>condition: 是否有相
 应房间?
 cond_player_full=>condition: 房间是
@@ -97,7 +98,7 @@ cond_maxplayer_room=>condition: 是否存在人数最多
 op_set_player_mode=>operation: 设置玩家模式和地图
 op_rand_mode=>operation: 随机生成模式地图参数
 op_mark_mode=>operation: 记录相应模式地图参数
-sr_find_and_enter=>subroutine: 查找并进入房间
+op_set_room_property=>operation: 设置房间相应参数
 
 sr_normal_match->input_map_and_mode->cond_match_mode
 cond_match_mode(no)->sr_custom_game
@@ -110,8 +111,8 @@ cond_maxplayer_room(no)->op_rand_mode->op_set_player_mode
 
 op_set_player_mode->cond_has_room
 sr_custom_game->cond_has_room
-
-cond_has_room(yes)->sr_find_and_enter
+cond_has_room(yes)->op_set_room_property->op_enter_room
+cond_has_room(no)->op_create_room->op_enter_room->e
 ```
 
 在find room时直接设置（-1，-1）玩家的mode和map，以上流程只是相当于给快速匹配的玩家，从匹配随机生成(mode, map)，变成先查找后在判定是否随机生成(mode, map)

@@ -27,15 +27,23 @@ class Room(KBEngine.Entity):
         self.robots = {}
         self.hostEntity = None
         self.palyerNum = 0
-        self.mapNo = 0
-        self.modeNo = 0
 
         # 计时器，定时添加机器人
         self.addTimer(GameConfigs.ROOM_MATCHING_TIME, 0, TIMER_TYPE_ROBOT)
 
         DEBUG_MSG("Room::__init__: %i" % self.id)
 
+    def setModeMap(self, modeNum, mapNum):
+        """
+        游戏大厅设置房间的模式地图
+        """
+        if len(self.accounts) == 0:
+            # 只有在没有玩家的时候才能设置，否则就会混乱
+            self.modeNum = modeNum
+            self.mapNum = mapNum
+
     # region enter&leave
+
     def enterRoom(self, entityCall):
         """
         defined method.
@@ -43,15 +51,13 @@ class Room(KBEngine.Entity):
         """
         if len(self.accounts) == 0:
             self.hostEntity = entityCall
-            self.mapNo = entityCall.mapNum
-            self.modeNo = entityCall.modeNum
 
         self.palyerNum += 1
         entityCall.createCell(self.cell, self.roomKey, self.palyerNum)
 
         self.onEnter(entityCall)
-        DEBUG_MSG("Room::enterRoom: %i, mapNo: %i, modeNo: %i"
-                  % (self.id, self.mapNo, self.modeNo))
+        DEBUG_MSG("Room::enterRoom: %i, mapNum: %i, modeNum: %i"
+                  % (self.id, self.mapNum, self.modeNum))
 
     def onEnter(self, entityCall):
         """
@@ -60,7 +66,7 @@ class Room(KBEngine.Entity):
         """
         if entityCall.className == "Account":
             # 如果是玩家，则需要通知更换地图
-            entityCall.onMapModeChanged(self.mapNo, self.modeNo)
+            entityCall.onMapModeChanged(self.mapNum, self.modeNum)
             self.accounts[entityCall.id] = entityCall
         else:
             self.robots[entityCall.id] = entityCall

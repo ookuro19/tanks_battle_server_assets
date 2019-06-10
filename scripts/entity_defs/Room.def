@@ -14,13 +14,26 @@
 			<Flags>			CELL_PUBLIC			</Flags>
 		</roomKeyC>
 
-		
+		<mapNum>
+			<Type>		INT32			</Type>
+			<Flags>		BASE			</Flags>
+		</mapNum>
+
+		<modeNum>
+			<Type>		INT32			</Type>
+			<Flags>		BASE			</Flags>
+		</modeNum>
 	</Properties>
 
 	<ClientMethods>
 	</ClientMethods>
 
 	<BaseMethods>
+		<setModeMap>
+			<Arg>		MODE_NUM		</Arg>
+			<Arg>		MAP_NUM		</Arg>
+		</setModeMap>
+
 		<enterRoom>
 			<Arg>		ENTITYCALL		</Arg>
 		</enterRoom>
