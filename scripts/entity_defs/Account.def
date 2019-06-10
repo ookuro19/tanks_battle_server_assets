@@ -4,12 +4,11 @@
 	</Interfaces>
 
 	<Properties>
-		<gold>
-			<Type>		GOLD_NUM			</Type>
-			<Flags>		BASE_AND_CLIENT		</Flags>
-			<Default>		0 	</Default>
-			<Persistent>	true			</Persistent>
-		</gold>
+		<dbid>
+			<Type>		DBID			</Type>
+			<Flags>		CELL_PUBLIC		</Flags>
+			<Default>		0			</Default>
+		</dbid>
 
 		<nameS>
 			<Type>		UNICODE			</Type>
@@ -18,11 +17,47 @@
 			<DetailLevel>	MEDIUM		</DetailLevel>
 		</nameS>
 
-		<dbid>
-			<Type>		DBID			</Type>
-			<Flags>		CELL_PUBLIC		</Flags>
-			<Default>		0			</Default>
-		</dbid>
+		<lastLoginDate>
+			<Type>		INT8			</Type>
+			<Flags>		BASE_AND_CLIENT	</Flags>
+			<Default>	 0 				</Default>
+			<Persistent>	true		</Persistent>
+		</lastLoginDate>
+
+		<totalPlayTime>
+			<Type>		INT16			</Type>
+			<Flags>		BASE_AND_CLIENT	</Flags>
+			<Default>	 0 				</Default>
+			<Persistent>	true		</Persistent>
+		</totalPlayTime>
+
+		<lastLoginDayPlayTime>
+			<Type>		INT16			</Type>
+			<Flags>		BASE_AND_CLIENT	</Flags>
+			<Default>	 0 				</Default>
+			<Persistent>	true		</Persistent>
+		</lastLoginDayPlayTime>
+
+		<totalLoginTimes>
+			<Type>		INT16			</Type>
+			<Flags>		BASE_AND_CLIENT	</Flags>
+			<Default>	 0 				</Default>
+			<Persistent>	true		</Persistent>
+		</totalLoginTimes>
+
+		<lastLoginDayLoginTimes>
+			<Type>		INT16			</Type>
+			<Flags>		BASE_AND_CLIENT	</Flags>
+			<Default>	 0 				</Default>
+			<Persistent>	true		</Persistent>
+		</lastLoginDayLoginTimes>
+
+		<gold>
+			<Type>		GOLD_NUM			</Type>
+			<Flags>		BASE_AND_CLIENT		</Flags>
+			<Default>		0 	</Default>
+			<Persistent>	true			</Persistent>
+		</gold>
 
 		<roomKey>
 			<Type>		SPACE_KEY		</Type>

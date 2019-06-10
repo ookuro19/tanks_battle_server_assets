@@ -4,6 +4,8 @@ from KBEDebug import *
 import GameConfigs
 import random
 import ShopItemData
+import time
+import datetime
 
 TIMER_TYPE_DESTROY = 1
 
@@ -13,14 +15,40 @@ class Account(KBEngine.Proxy):
         KBEngine.Proxy.__init__(self)
 
         self.cellData["dbid"] = self.databaseID
-
         self.cellData["nameS"] = self.__ACCOUNT_NAME__
-
         self.cellData["progress"] = 0
-
+        self.loginTime = time.time()
         self._destroyTimer = 0
 
         self.checkDefaultEquipment()
+        self.checkLoginData()
+
+    # region play record
+
+    def loginCheckData(self):
+        """
+        检查登录时间，更新游戏记录
+        """
+        self.loginTimeSpan = time.time()
+        self.totalLoginTimes += 1
+        dateToday = self.datetime.datetime.now().day
+
+        if self.lastLoginDate != dateToday:
+            self.lastLoginDate = dateToday
+            self.lastLoginDayLoginTimes = 1
+            self.lastLoginDayPlayTime = 0
+        else:
+            self.lastLoginDayLoginTimes += 1
+
+    def logoutCheckData(self):
+        """
+        登出时更新游戏记录
+        """
+        curPlayTime = int(time.time() - self.loginTimeSpan)
+        self.totalPlayTime += curPlayTime
+        self.lastLoginDayPlayTime += curPlayTime
+    # endregion play record
+
     # region Matching
 
     def regStartMatching(self, modeNum, mapNum, matchCode):
@@ -277,6 +305,8 @@ class Account(KBEngine.Proxy):
         客户端对应实体已经销毁
         """
         DEBUG_MSG("Account[%i].onClientDeath:" % self.id)
+
+        self.logoutCheckData()
 
         # 如果玩家没有cell, 直接退出？
         if self.cell is None:
