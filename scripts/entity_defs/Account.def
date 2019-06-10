@@ -90,7 +90,8 @@
 		</onLoginState>
 
 		<onMapModeChanged>
-			<Arg>		INT32			</Arg>
+			<Arg>		MAP_NUM			</Arg>
+			<Arg>		MODE_NUM		</Arg>
 		</onMapModeChanged>
 
 		<onMatchingFinish>
@@ -171,8 +172,8 @@
 		</createCell>
 
 		<onMapModeChanged>
-			<Arg>		MODE_NUM					</Arg>
 			<Arg>		MAP_NUM						</Arg>
+			<Arg>		MODE_NUM					</Arg>
 		</onMapModeChanged>
 
 		<onMatchingFinish>

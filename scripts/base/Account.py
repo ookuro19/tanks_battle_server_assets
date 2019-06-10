@@ -52,14 +52,14 @@ class Account(KBEngine.Proxy):
         self.cellData["roomNo"] = roomNo
         self.createCellEntity(space)
 
-    def onMapModeChanged(self, modeNum, mapNum):
+    def onMapModeChanged(self, mapNum, modeNum):
         """
         set game mode and map
         通知玩家房间的游戏地图和模式
         """
-        self.modeNum = modeNum
         self.mapNum = mapNum
-        self.client.onMapModeChanged(self.modeNum * 2 + self.mapNum)
+        self.modeNum = modeNum
+        self.client.onMapModeChanged(self.mapNum, self.modeNum)
 
     def onMatchingFinish(self, suc):
         """

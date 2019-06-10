@@ -2,6 +2,7 @@ import KBEngine
 import Functor
 import GameConfigs
 from KBEDebug import *
+import random
 
 FIND_ROOM_NOT_FOUND = 0
 FIND_ROOM_CREATING = 1
