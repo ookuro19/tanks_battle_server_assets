@@ -51,7 +51,7 @@ class Halls(KBEngine.Entity):
                                 # 检查是否满员且人数最多
                                 (mapNum, modeNum) = map_mode_key
                                 DEBUG_MSG("Halls::findroom quikly matching room key %s, player count is %i" %
-                                          child_room_key, temp_room_datas["PlayerCount"])
+                                          (child_room_key, temp_room_datas["PlayerCount"]))
 
                 if mapNum == -1 or modeNum == -1:
                     # 如果上一步未能修改，则随机生成mapNum和modeNum
