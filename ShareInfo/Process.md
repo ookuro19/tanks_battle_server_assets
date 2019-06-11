@@ -7,6 +7,8 @@
 Note left of sdk : login
 sdk -> avatar : login
 avatar -> sdk : onLoginSucessfully
+avatar -> avatar : checkDefaultEquipment
+avatar -> avatar : loginCheckData
 ```
 
 ## 2. 匹配
@@ -16,6 +18,8 @@ avatar -> sdk : onLoginSucessfully
 Note left of sdk : matching
 sdk -> avatar : start matching
 avatar -> halls : enter room
+halls -> halls : find room
+halls -> halls : create room
 halls -> room : init, onGetCell
 room -> halls : onroomGetCell
 halls -> room : enter room, on enter

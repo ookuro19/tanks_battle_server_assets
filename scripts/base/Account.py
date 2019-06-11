@@ -21,7 +21,7 @@ class Account(KBEngine.Proxy):
         self._destroyTimer = 0
 
         self.checkDefaultEquipment()
-        self.checkLoginData()
+        self.loginCheckData()
 
     # region play record
 
@@ -31,7 +31,7 @@ class Account(KBEngine.Proxy):
         """
         self.loginTimeSpan = time.time()
         self.totalLoginTimes += 1
-        dateToday = self.datetime.datetime.now().day
+        dateToday = datetime.datetime.now().day
 
         if self.lastLoginDate != dateToday:
             self.lastLoginDate = dateToday
