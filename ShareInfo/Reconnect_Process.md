@@ -17,4 +17,10 @@ base --> loginapp : lost connection
 loginapp --> sdk : 已登录但没有cell
 
 Note left of sdk : 匹配时掉线
+
+Note left of sdk : 匹配后、比赛前掉线
+
+Note left of sdk : 比赛时掉线
+
+Note left of sdk : 比赛结束时掉线
 ```
