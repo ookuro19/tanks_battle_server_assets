@@ -133,10 +133,6 @@
 			<Arg>		INT32			</Arg>
 		</onMatchingFinish>
 
-		<onLoadingFinish>
-			<Arg>		INT32			</Arg>
-		</onLoadingFinish>
-
 		<onGetPropsClient>
 			<Arg>		ENTITY_ID		</Arg>
 			<Arg>		PROP_KEY		</Arg>
@@ -150,28 +146,6 @@
 			<Arg>		PROP_TYPE		</Arg>
 			<Arg>		POSITION3D		</Arg>
 		</onUseProp>
-
-		<!-- 道具结果回调 -->
-		<onPropResultClient>
-			<Arg>		ENTITY_ID		</Arg>
-			<Arg>		ENTITY_ID		</Arg>
-			<Arg>		PROP_TYPE		</Arg>
-			<Arg>		SUC				</Arg>
-		</onPropResultClient>
-
-		<!-- 道具重置回调 -->
-		<onResetPropClient>
-			<Arg>		PROP_LIST		</Arg>
-		</onResetPropClient>
-
-		<onReachDestination>
-			<Arg>		ENTITY_ID		</Arg>
-			<Arg>		INT32			</Arg>
-		</onReachDestination>
-
-		<onTimerChanged>
-			<Arg>		INT32			</Arg>
-		</onTimerChanged>
 
 		<onExitRoom>
 			<Arg>		INT32			</Arg>
@@ -214,23 +188,6 @@
 		<onMatchingFinish>
 			<Arg>		INT32				</Arg>
 		</onMatchingFinish>
-
-		<onLoadingFinish>
-			<Arg>		INT32				</Arg>
-		</onLoadingFinish>
-
-		<!-- <onResetPropBase>
-			<Arg>		PROP_LIST		</Arg>
-		</onResetPropBase> -->
-
-		<onReachDestination>
-			<Arg>		ENTITY_ID		</Arg>
-			<Arg>		INT32			</Arg>
-		</onReachDestination>
-
-		<onTimerChanged>
-			<Arg>		INT32			</Arg>
-		</onTimerChanged>
 
 		<!-- reg 购买装备或道具 para: 装备id-->
 		<regBuyEquip>
@@ -288,14 +245,6 @@
 			<Arg>		PROP_TYPE			</Arg>
 			<Arg>		SUC					</Arg>
 		</regPropResult>
-
-		<!-- 服务器道具结算回调 -->
-		<onPropResultBase>
-			<Arg>		ENTITY_ID			</Arg>
-			<Arg>		ENTITY_ID			</Arg>
-			<Arg>		PROP_TYPE			</Arg>
-			<Arg>		SUC					</Arg>
-		</onPropResultBase>
 	</CellMethods>
 
 </root>

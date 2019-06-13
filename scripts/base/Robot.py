@@ -41,30 +41,6 @@ class Robot(KBEngine.Proxy):
             if self.cell is not None:
                 self.destroyCellEntity()
                 return
-
-    def onLoadingFinish(self, suc):
-        """
-        loading finish
-        加载结束
-        """
-        pass
-
-    # region destination
-    def onReachDestination(self, eid, time):
-        """
-        on reach destination
-        其他玩家到达终点的回调
-        """
-        INFO_MSG("cell::other account[%i] reach destination. time:%s" %
-                 (eid, time))
-        self.client.onReachDestination(eid, time)
-
-    def onTimerChanged(self, time):
-        """
-        on end timer change
-        :param time: 倒计时
-        """
-        pass
     # endregion destination
 
     # --------------------------------------------------------------------------------------------

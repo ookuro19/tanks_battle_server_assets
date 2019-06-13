@@ -98,41 +98,7 @@ class Account(KBEngine.Proxy):
         if suc == 0:
             self.loginState = 1
         self.client.onMatchingFinish(suc)
-
-    def onLoadingFinish(self, suc):
-        """
-        loading finish
-        加载结束
-        """
-        self.loginState = self.modeNum * 2 + self.mapNum
-        self.client.onLoadingFinish(0)
     # endregion Matching
-
-    # region game
-
-    # def onResetPropBase(self, prop_list):
-    #     """
-    #     on reset prop
-    #     恢复道具
-    #     """
-    #     self.allClients.onResetPropClient(prop_list)
-
-    def onReachDestination(self, eid, time):
-        """
-        on reach destination
-        其他玩家到达终点的回调
-        """
-        INFO_MSG("cell::other account[%i] reach destination. time:%s" %
-                 (eid, time))
-        self.client.onReachDestination(eid, time)
-
-    def onTimerChanged(self, time):
-        """
-        on end timer change
-        :param time: 倒计时
-        """
-        self.client.onTimerChanged(time)
-    # endregion game
 
     # region equipment
     def regBuyEquip(self, item_id):

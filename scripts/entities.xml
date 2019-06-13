@@ -9,5 +9,5 @@
 	<Account hasClient="true"></Account>	<!-- <Account hasCell="true" hasBase="true" hasClient="true"></Account> -->
 	<Robot hasClient = "true"></Robot>
 	<Halls/>
-	<Room/>
+	<Room hasClient = "true"></Room>
 </root>

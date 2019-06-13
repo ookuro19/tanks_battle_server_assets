@@ -74,9 +74,6 @@ class Account(KBEngine.Entity, EntityCommon):
     def regPropResult(self, origin_id, target_id, prop_type, suc):
         # 传递给服务器，由服务器结算
         self.getCurRoom().regCheckPropsResult(self, origin_id, target_id, prop_type, suc)
-
-    def onPropResultBase(self, origin_id, target_id, prop_type, suc):
-        self.allClients.onPropResultClient(origin_id, target_id, prop_type, suc)
     # endregion UseProps
 
     # region Destination

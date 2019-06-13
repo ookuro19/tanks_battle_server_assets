@@ -92,7 +92,7 @@ class Room(KBEngine.Entity):
             self.loadingFinishCount += 1
             if self.loadingFinishCount == GameConfigs.ROOM_MAX_PLAYER:
                 self._startTimer = self.addTimer(3, 0, TIMER_TYPE_START)
-                self.base.onAllPlayerLoadingFinish()
+                self.allClients.onLoadingFinish(0)
     # endregion loading
 
     # region playing
@@ -126,22 +126,22 @@ class Room(KBEngine.Entity):
             if origin_id in self.shell_timer_dict:
                 self.shell_timer_dict[origin_id] = self.totalTime + 5
             else:
-                entityCall.onPropResultBase(origin_id, target_id, prop_type, 1)
+                self.allClients.onPropResult(origin_id, target_id, prop_type, 1)
         elif prop_type == GameConfigs.E_Prop_Bullet:
             if target_id in self.shell_timer_dict:
                 if self.shell_timer_dict[target_id] <= self.totalTime:
                     # 此时护盾效果失效, 判定命中
-                    entityCall.onPropResultBase(
+                    self.allClients.onPropResult(
                         origin_id, target_id, prop_type, 0)
                 else:
                     # 此时还在护盾效果内, 判定未命中, 并刷新护盾结束时间
-                    entityCall.onPropResultBase(
+                    self.allClients.onPropResult(
                         origin_id, target_id, prop_type, 1)
                     self.shell_timer_dict[target_id] = self.totalTime
             else:
-                entityCall.onPropResultBase(origin_id, target_id, prop_type, 1)
+                self.allClients.onPropResult(origin_id, target_id, prop_type, 1)
         else:
-            entityCall.onPropResultBase(origin_id, target_id, prop_type, 1)
+            self.allClients.onPropResult(origin_id, target_id, prop_type, 1)
 
     def playerReachDestination(self, entityID):
         """
@@ -150,7 +150,7 @@ class Room(KBEngine.Entity):
         """
         DEBUG_MSG('Room::player reach destination entityID = %i.' % entityID)
         if entityID in self.accounts or entityID in self.robots:
-            self.base.onPlayerReachDestination(entityID, self.totalTime)
+            self.allClients.onReachDestination(entityID, self.totalTime)
             self.reachCount += 1
             if self.reachCount == 1:
                 # 如果是第一个到达，则开启倒计时
@@ -184,7 +184,7 @@ class Room(KBEngine.Entity):
             for prop_key in tempDict.keys():
                 if prop_key in self.prop_used_dict:
                     self.prop_used_dict.pop(prop_key)
-            self.base.onResetProps(list(tempDict.keys()))
+            self.allClients.onResetProps(list(tempDict.keys()))
 
     # endregion playing
 
@@ -194,7 +194,7 @@ class Room(KBEngine.Entity):
             self.delTimer(self._endTimer)
         if self.totalTime > 0:
             self.delTimer(self._totalTimer)
-        self.base.onTimerChanged(0)
+        self.allClients.onTimerChanged(0)
         self._destroyTimer = self.addTimer(1, 0, TIMER_TYPE_DESTROY)
 
     def onDestroyTimer(self):
@@ -232,7 +232,7 @@ class Room(KBEngine.Entity):
             if self.endTimer == 10:
                 self.gameOver()
             else:
-                self.base.onTimerChanged(10 - self.endTimer)
+                self.allClients.onTimerChanged(10 - self.endTimer)
         elif TIMER_TYPE_DESTROY == userArg:
             self.onDestroyTimer()
 

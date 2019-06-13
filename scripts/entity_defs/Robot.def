@@ -37,19 +37,6 @@
         <onMatchingFinish>
             <Arg>		INT32				</Arg>
         </onMatchingFinish>
-
-        <onLoadingFinish>
-            <Arg>		INT32				</Arg>
-        </onLoadingFinish>
-
-        <onReachDestination>
-            <Arg>		ENTITY_ID		</Arg>
-            <Arg>		INT32			</Arg>
-        </onReachDestination>
-
-        <onTimerChanged>
-            <Arg>		INT32			</Arg>
-        </onTimerChanged>
     </BaseMethods>
 
     <CellMethods>

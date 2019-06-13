@@ -79,7 +79,7 @@ avatar -> avatar : check skill available
 avatar -> sdk : onUseProp
 sdk -> avatar : regPropResult
 avatar -> room : regCheckPropsResult
-room -> avatar : onPropResultBase
+room -> avatar : onPropResult
 avatar -> sdk : onPropResultClient
 ```
 

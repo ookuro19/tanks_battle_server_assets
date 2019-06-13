@@ -97,51 +97,10 @@ class Room(KBEngine.Entity):
     # region matching
     def getController(self, robot):
         """
-
         给机器人添加控制
         """
         robot.cell.onControlledBy(self.hostEntity)
     # endregion matching
-
-    # region loading
-
-    def onAllPlayerLoadingFinish(self):
-        """
-        on all player loading finish.
-        通知所有玩家加载结束
-        """
-        DEBUG_MSG('Room::onAllPlayerLoadingFinish roomID = %i.' % self.roomKey)
-        for info in self.accounts.values():
-            info.onLoadingFinish(0)
-    # endregion loading
-
-    # region props
-    def onResetProps(self, prop_list):
-        """
-        on all player loading finish.
-        通知所有玩家加载结束
-        """
-        DEBUG_MSG('Room::onResetProps prop_list = %s.' % ('.'.join(prop_list)))
-        for info in self.accounts.values():
-            info.client.onResetPropClient(prop_list)
-    # endregion props
-
-    # region destination
-    def onPlayerReachDestination(self, eid, time):
-        """
-        player reach destination
-        玩家到达终点
-        """
-        for info in self.accounts.values():
-            info.onReachDestination(eid, time)
-
-    def onTimerChanged(self, timer):
-        """
-        通知客户端倒计时
-        """
-        for info in self.accounts.values():
-            info.onTimerChanged(timer)
-    # endregion destination
 
     # --------------------------------------------------------------------------------------------
     #                              Callbacks

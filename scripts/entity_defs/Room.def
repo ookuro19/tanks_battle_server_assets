@@ -26,6 +26,30 @@
 	</Properties>
 
 	<ClientMethods>
+		<onLoadingFinish>
+			<Arg>		INT32			</Arg>
+		</onLoadingFinish>
+
+		<onResetProps>
+			<Arg>		PROP_LIST		</Arg>
+		</onResetProps>
+
+		<!-- 服务器道具结算回调 -->
+		<onPropResult>
+			<Arg>		ENTITY_ID			</Arg>
+			<Arg>		ENTITY_ID			</Arg>
+			<Arg>		PROP_TYPE			</Arg>
+			<Arg>		SUC					</Arg>
+		</onPropResult>
+
+		<onReachDestination>
+			<Arg>		ENTITY_ID		</Arg>
+			<Arg>		INT32			</Arg>
+		</onReachDestination>
+
+		<onTimerChanged>
+			<Arg>		INT32			</Arg>
+		</onTimerChanged>
 	</ClientMethods>
 
 	<BaseMethods>
@@ -54,21 +78,7 @@
 			<Arg>		ENTITYCALL		</Arg>
 		</getController>
 
-		<onAllPlayerLoadingFinish>
-		</onAllPlayerLoadingFinish>
 
-		<onResetProps>
-			<Arg>		PROP_LIST		</Arg>
-		</onResetProps>
-
-		<onPlayerReachDestination>
-			<Arg>		ENTITY_ID		</Arg>
-			<Arg>		INT32			</Arg>
-		</onPlayerReachDestination>
-
-		<onTimerChanged>
-			<Arg>		INT32			</Arg>
-		</onTimerChanged>
 	</BaseMethods>
 
 	<CellMethods>
