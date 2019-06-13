@@ -152,6 +152,7 @@
 		</onExitRoom>
 
 		<onBuyEquip>
+			<!-- 购买结果: 0-成功, 1-已拥有, 2-金币不足, 3-道具不存在 -->
 			<Arg>		ITEM_ID			</Arg>
 			<Arg>		SUC				</Arg>
 		</onBuyEquip>
@@ -225,6 +226,7 @@
 		</regGetProps>
 
 		<onGetPropsBase>
+			<!-- 结果: 0-成功, 1-道具未冷却, 2-道具不存在 -->
 			<Arg>		SUC				</Arg>
 			<Arg>		PROP_KEY		</Arg>
 			<Arg>		PROP_TYPE		</Arg>

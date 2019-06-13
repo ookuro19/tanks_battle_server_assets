@@ -3,7 +3,7 @@ import KBEngine
 from KBEDebug import *
 import GameConfigs
 import random
-import PropsData
+# import PropsData
 
 TIMER_TYPE_TOTAL_TIME = 1
 TIMER_TYPE_START = 2
@@ -106,28 +106,42 @@ class Room(KBEngine.Entity):
         if tPropTimer is not None and tPropTimer > self.totalTime:
             # 此时道具还未被使用或已被使用但还未被重置
             DEBUG_MSG("Prop %s is not available" % prop_key)
-            entityCall.onGetPropsBase(2, prop_key, prop_type)
+            entityCall.onGetPropsBase(1, prop_key, prop_type)
         else:
+            """
+            # 服务器中有道具data时采用如下方案
             tProp = PropsData.datas.get(prop_key)
             if tProp is None:
                 DEBUG_MSG("Prop %s is not exist" % prop_key)
-                entityCall.onGetPropsBase(1, prop_key, prop_type)
+                entityCall.onGetPropsBase(2, prop_key, prop_type)
             else:
                 DEBUG_MSG("Prop %s is existed, PosX is %i" %
                           (prop_key, tProp['posx']))
                 entityCall.onGetPropsBase(0, prop_key, prop_type)
                 self.GetProp(prop_key)
+            """
+            # 服务器中无道具data时采用如下方案
+            DEBUG_MSG("Prop %s is existed" % (prop_key))
+            entityCall.onGetPropsBase(0, prop_key, prop_type)
+            self.GetProp(prop_key)
 
     def regCheckPropsResult(self, entityCall, origin_id, target_id, prop_type, suc):
         """
         检查道具使用结果
+                结果: 0-成功, 1-失败
         """
         if prop_type == GameConfigs.E_Prop_Shell:
+            # 道具为护罩
             if origin_id in self.shell_timer_dict:
+                # 判定使用护盾的人是否在房间内
                 self.shell_timer_dict[origin_id] = self.totalTime + 5
+                self.allClients.onPropResult(
+                    origin_id, target_id, prop_type, 0)
             else:
-                self.allClients.onPropResult(origin_id, target_id, prop_type, 1)
-        elif prop_type == GameConfigs.E_Prop_Bullet:
+                self.allClients.onPropResult(
+                    origin_id, target_id, prop_type, 1)
+        elif prop_type == GameConfigs.E_Prop_Bullet or prop_type == GameConfigs.E_Prop_Mine:
+            # 道具为伤害类
             if target_id in self.shell_timer_dict:
                 if self.shell_timer_dict[target_id] <= self.totalTime:
                     # 此时护盾效果失效, 判定命中
@@ -139,8 +153,11 @@ class Room(KBEngine.Entity):
                         origin_id, target_id, prop_type, 1)
                     self.shell_timer_dict[target_id] = self.totalTime
             else:
-                self.allClients.onPropResult(origin_id, target_id, prop_type, 1)
+                # 玩家不在房间内
+                self.allClients.onPropResult(
+                    origin_id, target_id, prop_type, 1)
         else:
+            # 道具为其他类
             self.allClients.onPropResult(origin_id, target_id, prop_type, 1)
 
     def playerReachDestination(self, entityID):
@@ -157,7 +174,7 @@ class Room(KBEngine.Entity):
                 self.endTimer = -1
                 self._endTimer = self.addTimer(0, 1, TIMER_TYPE_END)
             elif self.reachCount == (len(self.accounts) + len(self.robots)):
-                #全部到达则游戏结束
+                # 全部到达则游戏结束
                 if self.totalTime > 0:
                     self.gameOver()
 

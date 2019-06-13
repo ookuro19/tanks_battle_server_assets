@@ -51,9 +51,7 @@ class Account(KBEngine.Entity, EntityCommon):
         """
         if suc == 0:
             self.curProp = prop_type
-            # 通知所有客户端该玩家获得道具
-            # self.allClients.onGetPropsClient(prop_key, prop_type)
-            # 只是获得道具的话只需要自己知道
+            # 通知所有客户端该玩家获得道具, 便于其他客户端隐藏相应道具
             self.allClients.onGetPropsClient(self.id, prop_key, prop_type)
     # endregion GetProps
 
@@ -67,10 +65,14 @@ class Account(KBEngine.Entity, EntityCommon):
         """
         if prop_type == self.curProp:
             self.curProp = None
-            # 至于个人是否拥有相关，不需要房间总体判断
-            self.allClients.onUseProp(
-                self.id, target_id, prop_type, Math.Vector3(self.position))
-            
+            # 个人是否拥有相关道具，不需要房间总体判断
+            if prop_type == GameConfigs.E_Prop_Shell:
+                # 使用护罩时直接生效
+                self.regPropResult(self.id, self.id, prop_type, 0)
+            else:
+                self.allClients.onUseProp(
+                    self.id, target_id, prop_type, Math.Vector3(self.position))
+
     def regPropResult(self, origin_id, target_id, prop_type, suc):
         # 传递给服务器，由服务器结算
         self.getCurRoom().regCheckPropsResult(self, origin_id, target_id, prop_type, suc)

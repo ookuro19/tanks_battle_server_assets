@@ -97,6 +97,7 @@
 		</regCheckPropsAvailable>
 
 		<regCheckPropsResult>
+			<!-- 结果: 0-成功, 1-失败 -->
 			<Arg>		ENTITYCALL			</Arg>
 			<Arg>		ENTITY_ID			</Arg>
 			<Arg>		ENTITY_ID			</Arg>
