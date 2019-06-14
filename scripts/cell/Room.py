@@ -121,7 +121,8 @@ class Room(KBEngine.Entity):
                 self.GetProp(prop_key)
             """
             # 服务器中无道具data时采用如下方案
-            DEBUG_MSG("Prop %s is existed" % (prop_key))
+            DEBUG_MSG("Prop %s is existed, type is %s" %
+                      (prop_key, str(prop_type)))
             entityCall.onGetPropsBase(0, prop_key, prop_type)
             self.GetProp(prop_key)
 

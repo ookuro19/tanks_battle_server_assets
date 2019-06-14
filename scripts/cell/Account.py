@@ -64,16 +64,27 @@ class Account(KBEngine.Entity, EntityCommon):
         :param prop_type: 道具类型
         """
         if prop_type == self.curProp:
-            self.curProp = None
             # 个人是否拥有相关道具，不需要房间总体判断
-            if prop_type == GameConfigs.E_Prop_Shell:
-                # 使用护罩时直接生效
-                self.regPropResult(self.id, self.id, prop_type, 0)
-            else:
-                self.allClients.onUseProp(
-                    self.id, target_id, prop_type, Math.Vector3(self.position))
+            self.curProp = None
+            DEBUG_MSG("Account id: %i, use props: %i." % (self.id, prop_type))
+            self.allClients.onUseProp(
+                self.id, target_id, prop_type, Math.Vector3(self.position))
 
+            if prop_type == GameConfigs.E_Prop_Shell:
+                # 使用护罩时直接生效,
+                # 地雷等由于不需要服务器同步，故不需要特殊处理
+                self.regPropResult(self.id, self.id, prop_type, 0)
+
+    
     def regPropResult(self, origin_id, target_id, prop_type, suc):
+        """
+        use prop
+        使用道具的结果，主要是针对延时类道具，如导弹，烟雾等
+        :param origin_id: 使用道具的玩家id
+        :param target_id: 目标玩家id
+        :param prop_type: 道具类型
+        :param suc: 命中结果，0命中，1未命中
+        """
         # 传递给服务器，由服务器结算
         self.getCurRoom().regCheckPropsResult(self, origin_id, target_id, prop_type, suc)
     # endregion UseProps
